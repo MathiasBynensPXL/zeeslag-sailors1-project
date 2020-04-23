@@ -1,0 +1,4 @@
+C:\Users\alejandro\Desktop\Project\Backend\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.csprojAssemblyReference.cache
+C:\Users\alejandro\Desktop\Project\Backend\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.csproj.CoreCompileInputs.cache
+C:\Users\alejandro\Desktop\Project\Backend\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.AssemblyInfoInputs.cache
+C:\Users\alejandro\Desktop\Project\Backend\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.AssemblyInfo.cs

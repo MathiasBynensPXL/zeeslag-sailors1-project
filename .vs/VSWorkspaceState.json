@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Backend",
+    "\\Backend\\Source",
+    "\\Backend\\Source\\Battleship.Api",
+    "\\Backend\\Source\\Battleship.Api\\Controllers",
+    "\\Frontend",
+    "\\Frontend\\Source"
+  ],
+  "SelectedNode": "\\Backend\\Source\\Battleship.sln",
+  "PreviewInSolutionExplorer": false
+}

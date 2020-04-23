@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,15 +20,51 @@
         </div>
 
         <!-- register Form -->
-        <form>
-            <input type="text" id="name" class="fadeIn second" name="naam" placeholder="volledige naam"><br>
+        <form name="regForm">
+            <input type="text" id="name" class="fadeIn second" name="naam" placeholder="volledige naam"> <br>
             <input type="email" id="email" class="fadeIn second" name="email" placeholder="E-mail"><br>
             <input type="text" id="gebruikersnaam" class="fadeIn second" name="gebruikersnaam" placeholder="gebruikersnaam"><br>
-            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Wachtwoord"><br>
-            <input type="password" id="password_check" class="fadeIn third" name="login" placeholder="Wachtwoord herhalen"><br><br>
-            <input type="submit" class="fadeIn fourth" value="registreren">
+            <input type="password" id="paswoord" class="fadeIn third" name="login" placeholder="Wachtwoord"><br>
+            <input type="button" id="regPost" class="fadeIn fourth" value="registreren" >
         </form>
+        <script>
+            window.addEventListener("load", loaded);
+            function loaded() {
+                let buttonPost = document.getElementById('regPost');
+                buttonPost.addEventListener("click", regFunction);
+            }
 
+            function regFunction() {
+               
+                let email = document.getElementById(email).value;
+                let gebruikersnaam = document.getElementById(gebruikersnaam).value;
+                let paswoord = document.getElementById(paswoord).value;
+                let user = {email: email, gebruikersnaam: gebruikersnaam, paswoord: paswoord };
+                fetch(url,
+                    {
+                        method: "POST",
+                        body: JSON.stringify(user),
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then((response) => {
+                        if (response.status == 201) {
+                            return response.json();
+                        } else {
+                            throw `error with status ${response.status}`;
+                        }
+                    })
+                    .then((user) => {
+                        let data = [];
+                        data.push([user.email, user.gebruikersnaam, user.paswoord]);
+
+                    });
+                    
+            }
+
+        </script>
         <!-- terug naar login -->
         <div id="formFooter">
             <a class="underlineHover" href="login_user.html">Al een account? <br> Naar de login pagina.</a>

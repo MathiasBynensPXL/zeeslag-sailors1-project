@@ -1,0 +1,5 @@
+C:\Users\alejandro\Desktop\Project\Backend\Source\Battleship.Api\obj\Debug\netcoreapp3.1\Battleship.Api.csprojAssemblyReference.cache
+C:\Users\alejandro\Desktop\Project\Backend\Source\Battleship.Api\obj\Debug\netcoreapp3.1\Battleship.Api.csproj.CoreCompileInputs.cache
+C:\Users\alejandro\Desktop\Project\Backend\Source\Battleship.Api\obj\Debug\netcoreapp3.1\Battleship.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\alejandro\Desktop\Project\Backend\Source\Battleship.Api\obj\Debug\netcoreapp3.1\Battleship.Api.AssemblyInfoInputs.cache
+C:\Users\alejandro\Desktop\Project\Backend\Source\Battleship.Api\obj\Debug\netcoreapp3.1\Battleship.Api.AssemblyInfo.cs
