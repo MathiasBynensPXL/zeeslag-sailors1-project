@@ -3,8 +3,6 @@
     "",
     "\\Backend",
     "\\Backend\\Source",
-    "\\Backend\\Source\\Battleship.Api",
-    "\\Backend\\Source\\Battleship.Api\\Controllers",
     "\\Frontend",
     "\\Frontend\\Source"
   ],

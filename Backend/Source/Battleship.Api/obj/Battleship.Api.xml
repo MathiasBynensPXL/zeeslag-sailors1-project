@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Battleship.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Battleship.Api.Controllers.AuthenticationController.Register(Battleship.Api.Models.RegisterModel)">
+            <summary>
+            Registers a new user in the database.
+            </summary>
+        </member>
+        <member name="M:Battleship.Api.Controllers.AuthenticationController.CreateToken(Battleship.Api.Models.LoginModel)">
+            <summary>
+            Returns an object containing a (bearer) token that will be valid for 60 minutes.
+            The token should be added in the Authorization header of each http request for which the user must be authenticated.
+            The Id and NickName of the player are also included in the object.
+            <example>Authorization bearer [token]</example>
+            </summary>
+        </member>
+        <member name="M:Battleship.Api.Controllers.GameController.CreateNewSinglePlayerGame(Battleship.Domain.GameDomain.GameSettings)">
+            <summary>
+            Starts a new game for the authenticated user.
+            </summary>
+            <param name="settings">Settings for the game. When no settings are posted, the default game settings will apply</param>
+        </member>
+        <member name="M:Battleship.Api.Controllers.GameController.StartGame(System.Guid)">
+            <summary>
+            Starts a game. Should be called when both players have their fleet in position.
+            After starting the game, te players can start shooting.
+            </summary>
+            <param name="id">The identifier of the game</param>
+        </member>
+        <member name="M:Battleship.Api.Controllers.GameController.GetGameInfo(System.Guid)">
+            <summary>
+            Returns info about the game with a matching id.
+            The game info will be in the perspective of the authenticated user.
+            </summary>
+            <param name="id">The identifier of the game</param>
+        </member>
+        <member name="M:Battleship.Api.Controllers.GameController.PositionShipOnGrid(System.Guid,Battleship.Api.Models.ShipPositioningModel)">
+            <summary>
+            Positions a ship on the grid of the authenticated user.
+            </summary>
+            <param name="id">The identifier of the game.</param>
+            <param name="model">Contains info on which ship to position and where to position it.</param>
+        </member>
+        <member name="M:Battleship.Api.Controllers.GameController.ShootAtOpponent(System.Guid,Battleship.Api.Models.GridCoordinateModel)">
+            <summary>
+            Fires a bomb for the authenticated user on the opponents grid.
+            </summary>
+            <param name="id">The identifier of the game</param>
+            <param name="model">The square coordinate of the opponents grid to hit.</param>
+        </member>
+        <member name="P:Battleship.Api.Models.ShipPositioningModel.ShipCode">
+            <summary>
+            The code of the ship.
+            CAR = Carrier
+            BS = Battleship
+            DS = Destroyer
+            SM = Submarine
+            PB = Patrol boat
+            </summary>
+        </member>
+        <member name="P:Battleship.Api.Models.ShipPositioningModel.SegmentCoordinates">
+            <summary>
+            The coordinate on the grid for each segment of the ship. (E.g. a Carrier has 5 segments)
+            </summary>
+        </member>
+    </members>
+</doc>

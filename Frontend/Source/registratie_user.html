@@ -21,7 +21,6 @@
 
         <!-- register Form -->
         <form name="regForm">
-            <input type="text" id="name" class="fadeIn second" name="naam" placeholder="volledige naam"> <br>
             <input type="email" id="email" class="fadeIn second" name="email" placeholder="E-mail"><br>
             <input type="text" id="gebruikersnaam" class="fadeIn second" name="gebruikersnaam" placeholder="gebruikersnaam"><br>
             <input type="password" id="paswoord" class="fadeIn third" name="login" placeholder="Wachtwoord"><br>
@@ -36,10 +35,11 @@
 
             function regFunction() {
                
-                let email = document.getElementById(email).value;
-                let gebruikersnaam = document.getElementById(gebruikersnaam).value;
-                let paswoord = document.getElementById(paswoord).value;
-                let user = {email: email, gebruikersnaam: gebruikersnaam, paswoord: paswoord };
+                let email = document.getElementById('email').value;
+                let gebruikersnaam = document.getElementById('gebruikersnaam').value;
+                let paswoord = document.getElementById('paswoord').value;
+                let user = { email: email, nickName: gebruikersnaam, password: paswoord };
+                let url = 'https://localhost:5001/api/Authentication/register';
                 fetch(url,
                     {
                         method: "POST",

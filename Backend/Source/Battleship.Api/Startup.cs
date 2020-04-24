@@ -128,6 +128,9 @@ namespace Battleship.Api
             app.UseOpenApi();
             app.UseSwaggerUi3();
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseAuthorization();
