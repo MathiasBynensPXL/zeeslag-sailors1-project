@@ -71,8 +71,8 @@ namespace Battleship.Domain.FleetDomain
 
             output[0] = generatePosition;
             for (int i = 1; i < Size; i++) {
-                output[i].Column = output[i-1].Column + generateDirection.XStep;
-                output[i].Row = output[i-1].Row + generateDirection.YStep;
+                //output[i].Column = output[i-1].Column + generateDirection.XStep;
+                //output[i].Row = output[i-1].Row + generateDirection.YStep;
             }
             return output;
 

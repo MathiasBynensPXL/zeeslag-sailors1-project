@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\assets\background2.jpg" />
+    <None Include="wwwroot\assets\Boats.png" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\login.css" />
+    <None Include="wwwroot\login_user.html" />
+    <None Include="wwwroot\registratie_user.html" />
+    <None Include="wwwroot\wachtwoord_vergeten.html" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />

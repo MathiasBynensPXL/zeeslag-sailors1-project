@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uZ+Z0WIB30qzQ8IiYb5hcXi2/W35D9Hv7gcK3XPryn+WjEkv8QOtKU8PG23YVeRJRVBXVf92fy9j9z/JYP6F7Q==",
+  "dgSpecHash": "hZwT7BzrciYShnkQ+UKvK3GzBTopSJJVm3coZydhxbdeXpIO7fd1l9dl+JfTXaYZJDyMScnQg0AIeBTrB6T+jA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Data.Tests\\Battleship.Data.Tests.csproj",
+  "projectFilePath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Data.Tests\\Battleship.Data.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alejandro\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\alejandro\\.nuget\\packages\\guts.client.core\\3.0.1\\guts.client.core.3.0.1.nupkg.sha512",

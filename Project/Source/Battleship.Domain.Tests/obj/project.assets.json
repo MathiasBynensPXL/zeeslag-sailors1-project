@@ -7531,11 +7531,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj",
       "projectName": "Battleship.Domain.Tests",
-      "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj",
+      "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj",
       "packagesPath": "C:\\Users\\alejandro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Domain.Tests\\obj\\",
+      "outputPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7554,11 +7554,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
-              "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Domain\\Battleship.Domain.csproj"
+            "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
+              "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj"
             },
-            "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj": {
-              "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj"
+            "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj": {
+              "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj"
             }
           }
         }

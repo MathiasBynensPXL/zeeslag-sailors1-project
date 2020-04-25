@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WBZ0bvBpMh/MbelvzV5OBcEm8x22SVnsXfrIv1ymGuDeRHnDV2xXSt+FhPG5CIj+qTTdENnQjUCotK6bQCM+IQ==",
+  "dgSpecHash": "qLS+cArwQewZUdhEVjLafM8ESTpNXDIMXFD0GOwr88QwhxbfQYIr0ZKFr1wbangqdG050lahCMZvr9Klm6YQNA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Data\\Battleship.Data.csproj",
+  "projectFilePath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Data\\Battleship.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alejandro\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\alejandro\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

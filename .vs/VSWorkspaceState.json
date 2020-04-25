@@ -1,11 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Backend",
-    "\\Backend\\Source",
-    "\\Frontend",
-    "\\Frontend\\Source"
+    "\\Project",
+    "\\Project\\Source",
+    "\\Project\\Source\\Battleship.Api",
+    "\\Project\\Source\\Battleship.Api\\Frontend"
   ],
-  "SelectedNode": "\\Backend\\Source\\Battleship.sln",
+  "SelectedNode": "\\Project",
   "PreviewInSolutionExplorer": false
 }

@@ -10304,11 +10304,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Api\\Battleship.Api.csproj",
+      "projectUniqueName": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Api\\Battleship.Api.csproj",
       "projectName": "Battleship.Api",
-      "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Api\\Battleship.Api.csproj",
+      "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Api\\Battleship.Api.csproj",
       "packagesPath": "C:\\Users\\alejandro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Api\\obj\\",
+      "outputPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -10327,11 +10327,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Business\\Battleship.Business.csproj": {
-              "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Business\\Battleship.Business.csproj"
+            "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj": {
+              "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj"
             },
-            "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Data\\Battleship.Data.csproj": {
-              "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Backend\\Source\\Battleship.Data\\Battleship.Data.csproj"
+            "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Data\\Battleship.Data.csproj": {
+              "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Data\\Battleship.Data.csproj"
             }
           }
         }
