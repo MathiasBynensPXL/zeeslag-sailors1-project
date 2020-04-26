@@ -1,20 +1,55 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-    
+
 <head>
-    <title>Battleship</title>
-    <script src="Function.js"></script>
+    <title>Battleships</title>
+    <script src="assets/Function.js"></script>
     <script>
         CheckToken();
     </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="login.css">
 </head>
 
-    <body>
-	    <style>
-            body {
-                background-image: url("assets/Boats.png");
-            }
-        </style>
-        <h1>Under construction</h1>
-    </body>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+
+
+            <!-- titel -->
+            <div class="fadeIn first">
+                <br>  <br>
+                <h1>Welkom bij zeeslag</h1><br>
+
+            </div>
+
+            <!-- Login Form -->
+            <form name="startForm">
+
+                <input type="radio" id="easy" name="difficulty" value="easy">
+                <label for="easy">Easy</label>
+                <input type="radio" id="medium" name="difficulty" value="medium">
+                <label for="medium">Medium</label>
+                <input type="radio" id="hard" name="difficulty" value="hard">
+                <label for="hard">Hard</label><br>
+
+                <input type="button" id="StartGame" class="fadeIn second" value="Start Game"><br>
+            </form>
+            <script>
+                window.addEventListener("load", loaded);
+                function loaded() {
+                    let buttonStart = document.getElementById('StartGame');
+                    buttonStart.addEventListener("click", StartGame);
+                }
+                function StartGame() {
+                    window.location.href = "https://localhost:5001/game.html";
+                }
+            </script>
+        </div>
+    </div>
+</body>
 </html>
