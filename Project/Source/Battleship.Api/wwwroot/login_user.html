@@ -10,45 +10,45 @@
     <link rel="stylesheet" href="login.css">
     <!------ Include the above in your HEAD tag ---------->
 </head>
-<body>
+<body onload="passingEmail()">
+    <script src="assets/Function.js"></script>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
 
 
-<div class="wrapper fadeInDown">
-    <div id="formContent">
+            <!-- titel -->
+            <div class="fadeIn first">
+                <br><br>
+                <h1>Welkom bij zeeslag</h1>
+                <h2>Door Sailor Team 1</h2>
+            </div>
 
+            <!-- Login Form -->
+            <form name="loginForm" >
+                <input type="email" required id="email" class="fadeIn second" name="email" placeholder="E-mail" value=""><br />
+                <input type="password" required id="paswoord" class="fadeIn third" name="login" placeholder="Wachtwoord"><br>
+                <input type="button" id="logFetch" class="fadeIn fourth" value="inloggen">
+            </form>
+            <script>
+                window.addEventListener("load", loaded);
+                function loaded() {
+                    let buttonPost = document.getElementById('logFetch');
+                    buttonPost.addEventListener("click", logFunction);
+                } document.getElementById("email").innerHTML = sessionStorage.getItem("emailtje");
 
-        <!-- titel -->
-        <div class="fadeIn first">
-            <br><br>
-            <h1>Welkom bij zeeslag</h1>
-            <h2>Door Sailor Team 1</h2>
-        </div>
+            </script>
 
-        <!-- Login Form -->
-        <form name="loginForm">
-            <input type="email" required id="email" class="fadeIn second" name="email" placeholder="E-mail"><br />
-            <input type="password" required id="paswoord" class="fadeIn third" name="login" placeholder="Wachtwoord"><br>
-            <input type="button" id="logFetch" class="fadeIn fourth" value="inloggen">
-        </form>
-        <script src="assets/Function.js"></script>
-        <script>
-            window.addEventListener("load", loaded);
-            function loaded() {
-                let buttonPost = document.getElementById('logFetch');
-                buttonPost.addEventListener("click", logFunction);
-            }
+            <!-- wachtwoord vergeten + account aanmaken -->
+            <div id="formFooter">
+                <a class="underlineHover" href="registratie_user.html">Account aanmaken</a>
+                <br>
+                <a class="underlineHover" href="wachtwoord_vergeten.html">Wachtwoord vergeten?</a>
 
-        </script>
-
-        <!-- wachtwoord vergeten + account aanmaken -->
-        <div id="formFooter">
-            <a class="underlineHover" href="registratie_user.html">Account aanmaken</a>
-            <br>
-            <a class="underlineHover" href="wachtwoord_vergeten.html">Wachtwoord vergeten?</a>
+            </div>
 
         </div>
 
     </div>
-</div>
+
 </body>
 </html>

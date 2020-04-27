@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Battleship.Business</name>
+    </assembly>
+    <members>
+        <member name="P:Battleship.Business.Models.Contracts.IGameInfo.Id">
+            <summary>
+            Unique identifier of the game.
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.Contracts.IGameInfo.IsReadyToStart">
+            <summary>
+            Indicates if both players have their whole fleet (5 ships) positioned on the grid.
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.Contracts.IGameInfo.HasBombsLoaded">
+            <summary>
+            Indicates if the player can shoot.
+            If the player has no bombs loaded, then he must wait for the opponent to shoot his bomb(s)
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.Contracts.IGameInfo.OwnGrid">
+            <summary>
+            The grid of the player
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.Contracts.IGameInfo.OwnShips">
+            <summary>
+            All the ships of the player
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.Contracts.IGameInfo.OpponentGrid">
+            <summary>
+            The grid of the opponent
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.Contracts.IGameInfo.SunkenOpponentShips">
+            <summary>
+            The ships of the opponent that are known to be sunken.
+            When the game settings indicate that it is not required to report when a ship has sunk, then this list will always be empty.
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.Contracts.IShipInfo.Coordinates">
+            <summary>
+            The coordinates of each segment of the ship.
+            The length of this array will be equal to the size of the kind of ship
+            (e.g. the coordinates of a Carrier will have a length of 5).
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.Contracts.IShipInfo.Kind">
+            <summary>
+            The kind of ship (Carrier, Battleship, Destroyer, Submarine, Patrol boat).
+            This determines the size, code and name of the ship.
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.Contracts.IShipInfo.HasSunk">
+            <summary>
+            Indicates if all the segments of a ship are hit by a bomb.
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.GridSquareInfo.Status">
+            <summary>
+            A grid square can have 3 statuses:
+            0 = Untouched (not hit by any bombs),
+            1 = Miss (hit by at least one bomb, but not hosting a ship),
+            2 = Hit (hit by a bomb and hosting a ship
+            </summary>
+        </member>
+        <member name="P:Battleship.Business.Models.GridSquareInfo.NumberOfBombs">
+            <summary>
+            Number of bombs that hit the square.
+            In a classic game this will normally be 0 or 1,
+            but when ships can be moved, it can be opportune to shoot squares multiple times.
+            </summary>
+        </member>
+    </members>
+</doc>

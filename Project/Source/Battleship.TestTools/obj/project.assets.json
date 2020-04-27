@@ -7314,23 +7314,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\quint\\.nuget\\packages\\": {},
+    "C:\\Users\\alejandro\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\quint\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj",
+      "projectUniqueName": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj",
       "projectName": "Battleship.TestTools",
-      "projectPath": "C:\\Users\\quint\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj",
-      "packagesPath": "C:\\Users\\quint\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\quint\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.TestTools\\obj\\",
+      "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj",
+      "packagesPath": "C:\\Users\\alejandro\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.TestTools\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\quint\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alejandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7343,11 +7343,11 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "C:\\Users\\quint\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj": {
-              "projectPath": "C:\\Users\\quint\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj"
+            "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj": {
+              "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj"
             },
-            "C:\\Users\\quint\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
-              "projectPath": "C:\\Users\\quint\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj"
+            "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
+              "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj"
             }
           }
         }
