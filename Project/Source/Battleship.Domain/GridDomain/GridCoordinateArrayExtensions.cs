@@ -6,7 +6,14 @@ namespace Battleship.Domain.GridDomain
     {
         public static bool HasAnyOutOfBounds(this GridCoordinate[] coordinates, int gridSize)
         {
-            throw new NotImplementedException("HasAnyOutOfBounds method of GridCoordinateArrayExtensions class is not implemented");
+            for (int i = 0; i < coordinates.Length; i++)
+            {
+                if (coordinates[i].Row < 0 || coordinates[i].Row > gridSize || coordinates[i].Column > gridSize || coordinates[i].Column < 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public static bool AreAligned(this GridCoordinate[] coordinates)

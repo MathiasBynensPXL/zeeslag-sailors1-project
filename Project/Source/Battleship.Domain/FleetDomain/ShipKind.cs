@@ -67,16 +67,18 @@ namespace Battleship.Domain.FleetDomain
            GridCoordinate generatePosition = GridCoordinate.CreateRandom(gridSize);
            GridCoordinate[] output = new GridCoordinate[Size];
            Direction generateDirection = Direction.CreateRandomly(allowDeformedShips);
+           bool outOfBounds = true;
 
-
-            output[0] = generatePosition;
-            for (int i = 1; i < Size; i++) {
-                //output[i].Column = output[i-1].Column + generateDirection.XStep;
-                //output[i].Row = output[i-1].Row + generateDirection.YStep;
+            while (outOfBounds)
+            {
+                output[0] = generatePosition;
+                for (int i = 1; i < Size; i++)
+                {
+                    output[i] = new GridCoordinate(output[i - 1].Row + generateDirection.YStep, output[i - 1].Column + generateDirection.XStep);
+                }
+                outOfBounds = GridCoordinateArrayExtensions.HasAnyOutOfBounds(output, gridSize);
             }
             return output;
-
-            //Tip: use existing methods of the GridCoordinate and Direction classes.
         }
 
         #region Equality overrides
