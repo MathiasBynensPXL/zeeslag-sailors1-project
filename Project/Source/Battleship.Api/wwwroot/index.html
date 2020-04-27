@@ -45,8 +45,32 @@
                     let buttonStart = document.getElementById('StartGame');
                     buttonStart.addEventListener("click", StartGame);
                 }
-                function StartGame() {
-                    window.location.href = "https://localhost:5001/game_easy.html";
+                function StartGame()
+                {
+                    if (document.getElementById('easy').checked == true)
+                    {
+                        window.location.href = "https://localhost:5001/game_easy.html";
+                        return;
+                    }
+                    else
+                    {
+                        if (document.getElementById('medium').checked == true)
+                        {
+                            window.location.href = "https://localhost:5001/game_medium.html";
+                        }
+                        else
+                        {
+                           if (document.getElementById('hard').checked == true)
+                           {
+                             window.location.href = "https://localhost:5001/game_hard.html";
+
+                           }
+                        }
+                    }
+
+                      
+                    
+                   
                 }
             </script>
         </div>
