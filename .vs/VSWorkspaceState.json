@@ -3,7 +3,9 @@
     "",
     "\\Project",
     "\\Project\\Source",
-    "\\Project\\Source\\Battleship.Api"
+    "\\Project\\Source\\Battleship.Api",
+    "\\Project\\Source\\Battleship.Api\\wwwroot",
+    "\\Project\\Source\\Battleship.Api\\wwwroot\\assets"
   ],
   "SelectedNode": "\\Project\\Source\\Battleship.sln",
   "PreviewInSolutionExplorer": false

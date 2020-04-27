@@ -1,0 +1,11 @@
+﻿body  {
+    background-image: url("assets/Zeeslag_Achtergrond.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+}
+
