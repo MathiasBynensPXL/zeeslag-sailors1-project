@@ -9,19 +9,29 @@ using Battleship.Domain.GridDomain;
 
 namespace Battleship.Business.Services
 {
+    
     public class GameService : IGameService
     {
+
+        private IGameInfoFactory _gameInfoFactory;
+        private IGameFactory _gameFactory;
+        private IGameRepository _gameRepository;
+
         public GameService(
             IGameFactory gameFactory,
             IGameRepository gameRepository, 
             IGameInfoFactory gameInfoFactory)
         {
-
+            _gameInfoFactory = gameInfoFactory;
+            _gameFactory = gameFactory;
+            _gameRepository = gameRepository;
         }
 
         public IGameInfo CreateGameForUser(GameSettings settings, User user)
         {
-            throw new NotImplementedException("CreateGameForUser method of GameService class is not implemented");
+            IGame game = _gameFactory.CreateNewSinglePlayerGame(settings, user);
+            IGame repository = _gameRepository.Add(game);
+            return _gameInfoFactory.CreateFromGame(game, user.Id);
         }
 
         public Result StartGame(Guid gameId, Guid playerId)
@@ -31,6 +41,7 @@ namespace Battleship.Business.Services
 
         public IGameInfo GetGameInfoForPlayer(Guid gameId, Guid playerId)
         {
+
             throw new NotImplementedException("GetGameInfoForPlayer method of GameService class is not implemented");
         }
 

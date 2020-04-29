@@ -8,6 +8,7 @@ namespace Battleship.Business.Models
     {
         public GameInfoFactory(IGridInfoFactory gridInfoFactory, IShipInfoFactory shipInfoFactory)
         {
+
         }
 
         public IGameInfo CreateFromGame(IGame game, Guid playerId)
