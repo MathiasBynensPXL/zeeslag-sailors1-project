@@ -16,7 +16,9 @@ namespace Battleship.Domain.GameDomain
 
         internal Game(GameSettings settings, IPlayer player1, IPlayer player2)
         {
-            throw new NotImplementedException("Constructor of Game class is not implemented");
+            this.Settings = settings;
+            this.Player1 = player1;
+            this.Player2 = player2;
         }
 
         public Result Start()

@@ -36,12 +36,13 @@ namespace Battleship.Business.Services
 
         public Result StartGame(Guid gameId, Guid playerId)
         {
-            throw new NotImplementedException("StartGame method of GameService class is not implemented");
+            IGame game = _gameRepository.GetById(gameId);
+            return game.Start();
         }
 
         public IGameInfo GetGameInfoForPlayer(Guid gameId, Guid playerId)
         {
-
+            
             throw new NotImplementedException("GetGameInfoForPlayer method of GameService class is not implemented");
         }
 

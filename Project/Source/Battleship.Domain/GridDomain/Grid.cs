@@ -11,7 +11,7 @@ namespace Battleship.Domain.GridDomain
 
         public Grid(int size)
         {
-            throw new NotImplementedException("Constructor of Grid class is not implemented");
+            this.Squares = new IGridSquare[size, size];
         }
 
         public IGridSquare GetSquareAt(GridCoordinate coordinate)
