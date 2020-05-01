@@ -67,10 +67,5 @@ namespace Battleship.Domain.GameDomain
             CanMoveUndamagedShipsDuringGame = false;
             NumberOfTurnsBeforeAShipCanBeMoved = 5;
         }
-
-        public GameSettings(int gridSize)
-        {
-            
-        }
     }
 }
