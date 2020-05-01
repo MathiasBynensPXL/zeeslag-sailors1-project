@@ -55,7 +55,15 @@ namespace Battleship.Domain.GameDomain
 
         public GameSettings()
         {
-            //TOOD: initialize default values for the properties
+            Mode = GameMode.Default;
+            GridSize = 10;
+            MustReportSunkenShip = true;
+            CanMoveUndamagedShipsDuringGame = false;
+            NumberOfTurnsBeforeAShipCanBeMoved = 5;
+            
         }
+        
+
+        
     }
 }
