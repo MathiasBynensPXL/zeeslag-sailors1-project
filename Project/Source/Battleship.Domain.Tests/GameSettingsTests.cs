@@ -13,10 +13,7 @@ namespace Battleship.Domain.Tests
         private GameSettings _settings;
 
         [SetUp]
-        public void Setup()
-        {
-            _settings = new GameSettings();
-        }
+        public void Setup() => _settings = new GameSettings();
 
         [MonitoredTest("Constructor - Should set defaults")]
         public void Constructor_ShouldSetDefaults()

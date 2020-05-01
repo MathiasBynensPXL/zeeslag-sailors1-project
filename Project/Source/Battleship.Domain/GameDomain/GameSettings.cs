@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using Microsoft.Extensions.Logging;
 
 namespace Battleship.Domain.GameDomain
 {
@@ -10,6 +12,7 @@ namespace Battleship.Domain.GameDomain
         /// Default value = 10.
         /// </summary>
         public int GridSize { get; set; }
+
 
         /// <summary>
         /// Indicates if it is allowed to have the segments of a ship to not be aligned vertically or horizontally.
@@ -55,15 +58,19 @@ namespace Battleship.Domain.GameDomain
 
         public GameSettings()
         {
+            if (GridSize < 10)
+            {
+                throw new ArgumentOutOfRangeException("gridSize");
+            }
             Mode = GameMode.Default;
-            GridSize = 10;
             MustReportSunkenShip = true;
             CanMoveUndamagedShipsDuringGame = false;
             NumberOfTurnsBeforeAShipCanBeMoved = 5;
+        }
+
+        public GameSettings(int gridSize)
+        {
             
         }
-        
-
-        
     }
 }
