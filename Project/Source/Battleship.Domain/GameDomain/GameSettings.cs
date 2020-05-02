@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using Battleship.Domain.GridDomain;
 using Microsoft.Extensions.Logging;
 
 namespace Battleship.Domain.GameDomain
@@ -14,28 +11,15 @@ namespace Battleship.Domain.GameDomain
         /// Must be a value between 10 and 15 (10 and 15 included)
         /// Default value = 10.
         /// </summary>
-        public int _GridSize = 10;
-        public int GridSize {
-            get
-            {
-                return _GridSize;
-            }
-            set
-            {
-                if (value < 10 || value > 15)
-                    throw new ArgumentOutOfRangeException("out of range");
-                    Console.WriteLine("error");
+        public int GridSize { get; set; }
 
-                _GridSize = value;
-            }
-        }
 
-    /// <summary>
-    /// Indicates if it is allowed to have the segments of a ship to not be aligned vertically or horizontally.
-    /// If deformed ships are allowed the segments of a ship may also touch diagonally.
-    /// Default value = false.
-    /// </summary>
-    public bool AllowDeformedShips { get; set; }
+        /// <summary>
+        /// Indicates if it is allowed to have the segments of a ship to not be aligned vertically or horizontally.
+        /// If deformed ships are allowed the segments of a ship may also touch diagonally.
+        /// Default value = false.
+        /// </summary>
+        public bool AllowDeformedShips { get; set; }
 
         /// <summary>
         /// There are 4 game modes:
@@ -74,7 +58,10 @@ namespace Battleship.Domain.GameDomain
 
         public GameSettings()
         {
-            
+            if (GridSize < 10)
+            {
+                throw new ArgumentOutOfRangeException("gridSize");
+            }
             Mode = GameMode.Default;
             MustReportSunkenShip = true;
             CanMoveUndamagedShipsDuringGame = false;
