@@ -19,7 +19,7 @@ namespace Battleship.Domain.GridDomain
 
         public GridSquare(GridCoordinate coordinate)
         {
-            throw new NotImplementedException("Constructor of GridSquare class is not implemented");
+            this.Coordinate = coordinate;
         }
 
         public void HitByBomb()

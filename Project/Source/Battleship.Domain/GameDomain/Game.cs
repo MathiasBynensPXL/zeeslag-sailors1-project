@@ -19,6 +19,7 @@ namespace Battleship.Domain.GameDomain
             this.Settings = settings;
             this.Player1 = player1;
             this.Player2 = player2;
+            this.Id = Guid.NewGuid();
         }
 
         public Result Start()

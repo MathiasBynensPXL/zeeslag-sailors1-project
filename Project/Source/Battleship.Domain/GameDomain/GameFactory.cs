@@ -11,9 +11,9 @@ namespace Battleship.Domain.GameDomain
 
         public IGame CreateNewSinglePlayerGame(GameSettings settings, User user)
         {
-            //GameSettings gameSettings = new GameSettings();
-            IPlayer computer = new ComputerPlayer(settings, new RandomShootingStrategy(settings, new Grid(settings.GridSize)));
-            IPlayer player = new HumanPlayer(user, settings);
+            GameSettings gameSettings = new GameSettings();
+            ComputerPlayer computer = new ComputerPlayer(settings, new RandomShootingStrategy(settings, new Grid(settings.GridSize)));
+            HumanPlayer player = new HumanPlayer(user, settings);
             return this.CreateNewTwoPlayerGame(settings, player, computer);
         }
 
