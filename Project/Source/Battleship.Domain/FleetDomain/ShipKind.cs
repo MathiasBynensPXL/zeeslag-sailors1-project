@@ -64,21 +64,25 @@ namespace Battleship.Domain.FleetDomain
         /// </param>
         public GridCoordinate[] GenerateRandomSegmentCoordinates(int gridSize, bool allowDeformedShips = false)
         {
-           GridCoordinate generatePosition = GridCoordinate.CreateRandom(gridSize);
-           GridCoordinate[] output = new GridCoordinate[Size];
-           Direction generateDirection = Direction.CreateRandomly(allowDeformedShips);
            bool outOfBounds = true;
 
             while (outOfBounds)
             {
+                GridCoordinate generatePosition = GridCoordinate.CreateRandom(gridSize);
+                GridCoordinate[] output = new GridCoordinate[Size];
+                Direction generateDirection = Direction.CreateRandomly(allowDeformedShips);
                 output[0] = generatePosition;
                 for (int i = 1; i < Size; i++)
                 {
                     output[i] = new GridCoordinate(output[i - 1].Row + generateDirection.YStep, output[i - 1].Column + generateDirection.XStep);
                 }
                 outOfBounds = GridCoordinateArrayExtensions.HasAnyOutOfBounds(output, gridSize);
+                if (!GridCoordinateArrayExtensions.HasAnyOutOfBounds(output, gridSize))
+                {
+                    return output;
+                }
             }
-            return output;
+            return null;
         }
 
         #region Equality overrides
