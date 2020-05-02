@@ -15,22 +15,28 @@ namespace Battleship.Domain.GridDomain
 
         public static GridCoordinate CreateRandom(int gridSize)
         {
-            throw new NotImplementedException("CreateRandom method of GridCoordinate class is not implemented");
+            Random random = new Random();
+            int column = random.Next(0, gridSize);
+            int row = random.Next(0, gridSize);
+            return new GridCoordinate(row, column);
         }
 
         public bool IsOutOfBounds(int gridSize)
         {
-            throw new NotImplementedException("IsOutOfBounds method of GridCoordinate class is not implemented");
+            if (Row < 0 || Row >= gridSize || Column >= gridSize || Column < 0)
+            {
+                return true;
+            } return false;
         }
 
         public GridCoordinate GetNeighbor(Direction direction)
         {
-            throw new NotImplementedException("GetNeighbor method of GridCoordinate class is not implemented");
+            return new GridCoordinate(Row + direction.YStep, Column + direction.XStep);
         }
 
         public GridCoordinate GetOtherEnd(Direction direction, int distance)
         {
-            throw new NotImplementedException("GetOtherEnd method of GridCoordinate class is not implemented");
+            return new GridCoordinate(Row + direction.YStep * distance, Column + direction.XStep * distance);
         }
 
         #region overrides
