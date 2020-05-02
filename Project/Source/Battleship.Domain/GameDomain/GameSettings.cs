@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using Battleship.Domain.GridDomain;
 using Microsoft.Extensions.Logging;
 
 namespace Battleship.Domain.GameDomain
@@ -58,10 +61,8 @@ namespace Battleship.Domain.GameDomain
 
         public GameSettings()
         {
-            if (GridSize < 10)
-            {
-                throw new ArgumentOutOfRangeException("gridSize");
-            }
+
+
             Mode = GameMode.Default;
             MustReportSunkenShip = true;
             CanMoveUndamagedShipsDuringGame = false;

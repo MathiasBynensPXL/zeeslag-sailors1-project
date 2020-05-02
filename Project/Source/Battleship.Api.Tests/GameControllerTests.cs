@@ -399,7 +399,7 @@ namespace Battleship.Api.Tests
                 return false;
             }
             if (defaultSettings.Mode != settings.Mode) return false;
-            if (defaultSettings.GridSize != settings.GridSize) return false;
+            if (defaultSettings.gridSize != settings.gridSize) return false;
 
             return true;
         }
