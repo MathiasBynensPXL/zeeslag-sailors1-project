@@ -58,6 +58,9 @@ namespace Battleship.Domain.GridDomain
             if (Math.Abs(first.Row - second.Row) > 1 || Math.Abs(first.Column - second.Column) > 1)
             {
                 return false;
+            } else if (first.Row == second.Row && first.Column == second.Column)
+            {
+                return false;
             }
             return true;
         }
@@ -69,7 +72,7 @@ namespace Battleship.Domain.GridDomain
                 if (!IsLinked(coordinates[i - 1], coordinates[i]))
                 {
                     return false;
-                }
+                } 
             }
             return true;
         }

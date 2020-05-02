@@ -76,7 +76,7 @@
             If true, the coordinates will touch each other, but may possibly not be aligned (this is an EXTRA).
             </param>
         </member>
-        <member name="P:Battleship.Domain.GameDomain.GameSettings.GridSize">
+        <member name="F:Battleship.Domain.GameDomain.GameSettings._GridSize">
             <summary>
             Size of the grid.
             Must be a value between 10 and 15 (10 and 15 included)
@@ -116,7 +116,7 @@
              Default value = false.
              </summary>
         </member>
-        <member name="P:Battleship.Domain.GameDomain.GameSettings.NumberOfTurnsBeforeAShipCanBeMoved">
+        <member name="F:Battleship.Domain.GameDomain.GameSettings._NumberOfTurnsBeforeAShipCanBeMoved">
              <summary>
              The number of turns a player must wait before het can move a ship.
              Must be a value between 1 and 10 (1 and 10 included)

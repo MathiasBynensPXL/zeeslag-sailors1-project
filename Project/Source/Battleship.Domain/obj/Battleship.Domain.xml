@@ -76,7 +76,7 @@
             If true, the coordinates will touch each other, but may possibly not be aligned (this is an EXTRA).
             </param>
         </member>
-        <member name="P:Battleship.Domain.GameDomain.GameSettings.GridSize">
+        <member name="F:Battleship.Domain.GameDomain.GameSettings._GridSize">
             <summary>
             Size of the grid.
             Must be a value between 10 and 15 (10 and 15 included)
