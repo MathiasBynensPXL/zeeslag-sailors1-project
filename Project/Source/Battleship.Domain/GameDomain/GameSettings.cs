@@ -24,7 +24,7 @@ namespace Battleship.Domain.GameDomain
             {
                 if (value < 10 || value > 15)
                     throw new ArgumentOutOfRangeException("out of range");
-                    Console.WriteLine("error");
+                    
 
                 _GridSize = value;
             }
@@ -70,7 +70,19 @@ namespace Battleship.Domain.GameDomain
         ///
         /// Default value = 5.
         /// </summary>
-        public int NumberOfTurnsBeforeAShipCanBeMoved { get; set; }
+        public int _NumberOfTurnsBeforeAShipCanBeMoved = 5;
+        public int NumberOfTurnsBeforeAShipCanBeMoved {
+            get
+            {
+                return _NumberOfTurnsBeforeAShipCanBeMoved;
+            }
+            set
+            {
+                if ((value < 1 || value > 10) && CanMoveUndamagedShipsDuringGame == false)
+                    throw new ArgumentOutOfRangeException("out of range");
+                _NumberOfTurnsBeforeAShipCanBeMoved = value;
+            }
+        }
 
         public GameSettings()
         {
@@ -78,7 +90,7 @@ namespace Battleship.Domain.GameDomain
             Mode = GameMode.Default;
             MustReportSunkenShip = true;
             CanMoveUndamagedShipsDuringGame = false;
-            NumberOfTurnsBeforeAShipCanBeMoved = 5;
+            
         }
     }
 }
