@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using Battleship.Domain.GridDomain;
 using Microsoft.Extensions.Logging;
 
 namespace Battleship.Domain.GameDomain
@@ -11,15 +14,28 @@ namespace Battleship.Domain.GameDomain
         /// Must be a value between 10 and 15 (10 and 15 included)
         /// Default value = 10.
         /// </summary>
-        public int GridSize { get; set; }
+        public int _GridSize = 10;
+        public int GridSize {
+            get
+            {
+                return _GridSize;
+            }
+            set
+            {
+                if (value < 10 || value > 15)
+                    throw new ArgumentOutOfRangeException("out of range");
+                    
 
+                _GridSize = value;
+            }
+        }
 
-        /// <summary>
-        /// Indicates if it is allowed to have the segments of a ship to not be aligned vertically or horizontally.
-        /// If deformed ships are allowed the segments of a ship may also touch diagonally.
-        /// Default value = false.
-        /// </summary>
-        public bool AllowDeformedShips { get; set; }
+    /// <summary>
+    /// Indicates if it is allowed to have the segments of a ship to not be aligned vertically or horizontally.
+    /// If deformed ships are allowed the segments of a ship may also touch diagonally.
+    /// Default value = false.
+    /// </summary>
+    public bool AllowDeformedShips { get; set; }
 
         /// <summary>
         /// There are 4 game modes:
@@ -54,18 +70,26 @@ namespace Battleship.Domain.GameDomain
         ///
         /// Default value = 5.
         /// </summary>
-        public int NumberOfTurnsBeforeAShipCanBeMoved { get; set; }
+        public int _NumberOfTurnsBeforeAShipCanBeMoved = 5;
+        public int NumberOfTurnsBeforeAShipCanBeMoved {
+            get
+            {
+                return _NumberOfTurnsBeforeAShipCanBeMoved;
+            }
+            set
+            {
+                if ((value < 1 || value > 10) && CanMoveUndamagedShipsDuringGame == false)
+                    throw new ArgumentOutOfRangeException("out of range");
+                _NumberOfTurnsBeforeAShipCanBeMoved = value;
+            }
+        }
 
         public GameSettings()
         {
-            if (GridSize < 10)
-            {
-                throw new ArgumentOutOfRangeException("gridSize");
-            }
+            
             Mode = GameMode.Default;
             MustReportSunkenShip = true;
             CanMoveUndamagedShipsDuringGame = false;
-            NumberOfTurnsBeforeAShipCanBeMoved = 5;
             
         }
     }

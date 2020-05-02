@@ -116,7 +116,7 @@
              Default value = false.
              </summary>
         </member>
-        <member name="P:Battleship.Domain.GameDomain.GameSettings.NumberOfTurnsBeforeAShipCanBeMoved">
+        <member name="F:Battleship.Domain.GameDomain.GameSettings._NumberOfTurnsBeforeAShipCanBeMoved">
              <summary>
              The number of turns a player must wait before het can move a ship.
              Must be a value between 1 and 10 (1 and 10 included)
