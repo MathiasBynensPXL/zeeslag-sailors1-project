@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {}
+    "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
+    "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj",
         "projectName": "Battleship.Domain",
-        "projectPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj",
-        "packagesPath": "C:\\Users\\11801458\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project\\Project\\Source\\Battleship.Domain\\obj\\",
+        "projectPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj",
+        "packagesPath": "C:\\Users\\alejandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alejandro\\Desktop\\Project\\Project\\Source\\Battleship.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\11801458\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alejandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

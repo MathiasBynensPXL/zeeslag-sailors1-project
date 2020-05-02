@@ -66,6 +66,7 @@ namespace Battleship.Domain.GameDomain
             MustReportSunkenShip = true;
             CanMoveUndamagedShipsDuringGame = false;
             NumberOfTurnsBeforeAShipCanBeMoved = 5;
+            
         }
     }
 }
