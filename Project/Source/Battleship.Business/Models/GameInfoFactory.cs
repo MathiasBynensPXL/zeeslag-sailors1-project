@@ -35,8 +35,8 @@ namespace Battleship.Business.Models
             gameInfo.HasBombsLoaded = player.HasBombsLoaded;
             gameInfo.OwnGrid = ConvertGridToGridInfo(player);
             gameInfo.OpponentGrid = ConvertGridToGridInfo(oppenent);
-            gameInfo.OwnShips = ConvertShipToShipInfo(player.Fleet.GetAllShips());  //nog
-            gameInfo.SunkenOpponentShips = ConvertShipToShipInfo(oppenent.Fleet.GetSunkenShips()); //nog
+            gameInfo.OwnShips = ConvertShipToShipInfo(player.Fleet.GetAllShips());
+            gameInfo.SunkenOpponentShips = ConvertShipToShipInfo(oppenent.Fleet.GetSunkenShips());
             gameInfo.IsReadyToStart = game.IsStarted;
             return gameInfo;
         }

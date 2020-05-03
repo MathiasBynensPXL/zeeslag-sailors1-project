@@ -7,7 +7,8 @@ namespace Battleship.Domain.FleetDomain
 {
     public class Ship : IShip
     {
-        public IGridSquare[] Squares { get;}
+        private IGridSquare[] _Squares;
+        public IGridSquare[] Squares { get { return this._Squares; } }
 
         public ShipKind Kind { get; }
 
@@ -15,16 +16,32 @@ namespace Battleship.Domain.FleetDomain
 
         public Ship(ShipKind kind)
         {
+            this.Kind = kind;
+            
         }
 
         public void PositionOnGrid(IGridSquare[] squares)
         {
-            throw new NotImplementedException("PositionOnGrid method of Ship class is not implemented");
+            this._Squares = squares;
+            //for (int i = 0;  i < this.Squares.Length; i++)
+            //{
+            //    this.Squares[i].HitByBombHandler(this.Squares[i]);
+            //}
         }
 
         public bool CanBeFoundAtCoordinate(GridCoordinate coordinate)
         {
-            throw new NotImplementedException("CanBeFoundAtCoordinate method of Ship class is not implemented");
+            if (this.Squares != null)
+            {
+                for (int i = 0; i < this.Squares.Length; i++)
+                {
+                    if (this.Squares[i].Coordinate == coordinate)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 

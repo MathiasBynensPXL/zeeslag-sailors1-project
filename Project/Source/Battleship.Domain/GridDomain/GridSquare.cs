@@ -24,7 +24,7 @@ namespace Battleship.Domain.GridDomain
 
         public void HitByBomb()
         {
-            throw new NotImplementedException("HitByBomb method of GridSquare class is not implemented");
+            OnHitByBomb?.Invoke(this);
         }
     }
 

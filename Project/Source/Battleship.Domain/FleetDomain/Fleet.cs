@@ -8,6 +8,18 @@ namespace Battleship.Domain.FleetDomain
 {
     public class Fleet : IFleet
     {
+
+        private Dictionary<ShipKind, IShip> _Dictionary = new Dictionary<ShipKind, IShip>();
+        
+        public Fleet()
+        {
+            _Dictionary.Add(ShipKind.Carrier, new Ship(ShipKind.Carrier));
+            _Dictionary.Add(ShipKind.Battleship, new Ship(ShipKind.Battleship));
+            _Dictionary.Add(ShipKind.Destroyer, new Ship(ShipKind.Destroyer));
+            _Dictionary.Add(ShipKind.Submarine, new Ship(ShipKind.Submarine));
+            _Dictionary.Add(ShipKind.PatrolBoat, new Ship(ShipKind.PatrolBoat));
+        }
+
         public bool IsPositionedOnGrid { get; }
 
         public Result TryMoveShipTo(ShipKind kind, GridCoordinate[] segmentCoordinates, IGrid grid)
@@ -27,7 +39,9 @@ namespace Battleship.Domain.FleetDomain
 
         public IList<IShip> GetAllShips()
         {
-            throw new NotImplementedException("GetAllShips method of Fleet class is not implemented");
+            List<IShip> ships = new List<IShip>();
+            ships.AddRange(_Dictionary.Values);
+            return ships;
         }
 
         public IList<IShip> GetSunkenShips()
