@@ -34,12 +34,27 @@ namespace Battleship.Domain.GameDomain
 
         public IPlayer GetPlayerById(Guid playerId)
         {
-            throw new NotImplementedException("GetPlayerById method of Game class is not implemented");
+            if (playerId == this.Player1.Id)
+            {
+                return this.Player1;
+            } 
+            else
+            {
+                return this.Player2;
+            }
+           
         }
 
         public IPlayer GetOpponent(IPlayer player)
         {
-            throw new NotImplementedException("GetOpponent method of Game class is not implemented");
+            if (player == this.Player1) 
+            {
+                return this.Player2;
+            } 
+            else 
+            {
+                return this.Player1;
+            }
         }
     }
 }

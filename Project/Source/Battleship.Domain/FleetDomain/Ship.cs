@@ -17,16 +17,27 @@ namespace Battleship.Domain.FleetDomain
         public Ship(ShipKind kind)
         {
             this.Kind = kind;
-            
         }
+
+        public void HitByBombHandler(IGridSquare sender)
+        {
+            sender.Status = GridSquareStatus.Hit;
+        }
+
 
         public void PositionOnGrid(IGridSquare[] squares)
         {
+            if (this.Squares != null) {
+                for (int i = 0; i < this.Squares.Length; i++)
+                {
+                    this.Squares[i].OnHitByBomb -= HitByBombHandler;
+                }
+            }
             this._Squares = squares;
-            //for (int i = 0;  i < this.Squares.Length; i++)
-            //{
-            //    this.Squares[i].HitByBombHandler(this.Squares[i]);
-            //}
+            for (int i = 0;  i < this.Squares.Length; i++)
+            {
+                this.Squares[i].OnHitByBomb += HitByBombHandler;
+            }
         }
 
         public bool CanBeFoundAtCoordinate(GridCoordinate coordinate)

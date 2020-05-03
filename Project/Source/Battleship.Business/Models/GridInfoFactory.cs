@@ -8,7 +8,19 @@ namespace Battleship.Business.Models
     {
         public IGridInfo CreateFromGrid(IGrid grid)
         {
-            throw new NotImplementedException("CreateFromGrid method of GridInfoFactory class is not implemented");
+            GridInfo gridInfo = new GridInfo();
+            gridInfo.Size = grid.Size;
+            GridSquareInfo[][] squareInfos = new GridSquareInfo[gridInfo.Size][];
+            for (int i = 0; i < gridInfo.Size; i++)
+            {
+                squareInfos[i] = new GridSquareInfo[gridInfo.Size];
+                for (int j = 0; j < gridInfo.Size; j++)
+                {
+                    squareInfos[i][j] = new GridSquareInfo(grid.Squares[i, j]);
+                }
+            }
+            gridInfo.Squares = squareInfos;
+            return gridInfo;
         }
     }
 }

@@ -9,12 +9,31 @@ namespace Battleship.Business.Models
     {
         public IList<IShipInfo> CreateMultipleFromFleet(IFleet fleet)
         {
-            throw new NotImplementedException("CreateMultipleFromFleet of ShipInfoFactory class is not implemented");
+            IList<IShip> ships = fleet.GetAllShips();
+            List<IShipInfo> shipInfo = new List<IShipInfo>();
+            if (ships != null)
+            {
+                for (int i = 0; i < ships.Count; i++)
+                {
+                    shipInfo.Add(new ShipInfo(ships[i]));
+                }
+            }
+            return shipInfo;
+
         }
 
         public IList<IShipInfo> CreateMultipleFromSunkenShipsOfFleet(IFleet fleet)
         {
-            throw new NotImplementedException("CreateMultipleFromSunkenShipsOfFleet of ShipInfoFactory class is not implemented");
+            IList<IShip> ships = fleet.GetSunkenShips();
+            List<IShipInfo> shipInfo = new List<IShipInfo>();
+            if (ships != null)
+            {
+                for (int i = 0; i < ships.Count; i++)
+                {
+                    shipInfo.Add(new ShipInfo(ships[i]));
+                }
+            }
+            return shipInfo;
         }
     }
 }
