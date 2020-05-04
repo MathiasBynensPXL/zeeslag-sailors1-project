@@ -29,57 +29,68 @@
 
             <!-- Login Form -->
             <form name="startForm">
-
                 <input type="radio" id="easy" name="difficulty" value="easy">
                 <label for="easy">Easy</label>
                 <input type="radio" id="medium" name="difficulty" value="medium">
                 <label for="medium">Medium</label>
                 <input type="radio" id="hard" name="difficulty" value="hard">
                 <label for="hard">Hard</label><br>
-
                 <input type="button" id="StartGame" class="fadeIn second" value="Start Game"><br>
             </form>
+
             <script>
                 window.addEventListener("load", loaded);
                 function loaded() {
                     let buttonStart = document.getElementById('StartGame');
                     buttonStart.addEventListener("click", StartGame);
                 }
-                function StartGame()
-                {
-                    
-                    //fetch{
+                function StartGame() {
+                    let game = {
+                        gridSize: 10,
+                        allowDeformedShips: false,
+                        mustReportSunkenShip: true,
+                        canMoveUndamagedShipsDuringGame: true,
+                        numberOfTurnsBeforeAShipCanBeMoved: 5 };
+                        let url = 'https://localhost:5001/api/games';
+                        fetch(url,
+                            {
+                                method: "POST",
+                                body: JSON.stringify(game),
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json',
+                                    'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+                                }
+                            })
+                            .then((response) => {
+                                if (response.status == 201) {
+                                    response.json().then(data => {
+                                        sessionStorage.setItem("GameID", data.id);
+                                        if (document.getElementById('easy').checked == true) {
+                                            window.location.href = "https://localhost:5001/game_easy.html";
 
+                                        }
+                                        else {
+                                            if (document.getElementById('medium').checked == true) {
+                                                window.location.href = "https://localhost:5001/game_medium.html";
+                                            }
+                                            else {
+                                                if (document.getElementById('hard').checked == true) {
+                                                    window.location.href = "https://localhost:5001/game_hard.html";
 
+                                                }
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    throw `error with status ${response.status}`;
+                                }
+                            })
+                            .then((game) => {
+                                let data = [];
+                                data.push([game.gridSize, game.allowDeformedShips, game.mustReportSunkenShip, game.canMoveUndamagedShipsDuringGame, game.numberOfTurnsBeforeAShipCanBeMoved]);
+                            });
 
-
-
-
-                   // }
-                    if (document.getElementById('easy').checked == true)
-                    {
-                        window.location.href = "https://localhost:5001/game_easy.html";
-                        
-                    }
-                    else
-                    {
-                        if (document.getElementById('medium').checked == true)
-                        {
-                            window.location.href = "https://localhost:5001/game_medium.html";
-                        }
-                        else
-                        {
-                           if (document.getElementById('hard').checked == true)
-                           {
-                             window.location.href = "https://localhost:5001/game_hard.html";
-
-                           }
-                        }
-                    }
-
-                      
-                    
-                   
                 }
             </script>
         </div>

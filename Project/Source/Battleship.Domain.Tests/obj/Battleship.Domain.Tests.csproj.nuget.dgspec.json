@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj": {}
+    "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj": {
+    "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj",
+        "projectUniqueName": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj",
         "projectName": "Battleship.Business",
-        "projectPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj",
-        "packagesPath": "C:\\Users\\11801458\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Business\\obj\\",
+        "projectPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj",
+        "packagesPath": "C:\\Users\\Anton\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Business\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\11801458\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +27,8 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
-              "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
-                "projectPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj"
+              "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
+                "projectPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj"
               }
             }
           }
@@ -69,20 +66,17 @@
         }
       }
     },
-    "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj": {
+    "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj",
         "projectName": "Battleship.Domain.Tests",
-        "projectPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj",
-        "packagesPath": "C:\\Users\\11801458\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain.Tests\\obj\\",
+        "projectPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain.Tests\\Battleship.Domain.Tests.csproj",
+        "packagesPath": "C:\\Users\\Anton\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain.Tests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\11801458\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,11 +89,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
-                "projectPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj"
+              "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
+                "projectPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj"
               },
-              "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj": {
-                "projectPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj"
+              "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj": {
+                "projectPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj"
               }
             }
           }
@@ -159,20 +153,17 @@
         }
       }
     },
-    "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
+    "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj",
         "projectName": "Battleship.Domain",
-        "projectPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj",
-        "packagesPath": "C:\\Users\\11801458\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj",
+        "packagesPath": "C:\\Users\\Anton\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\11801458\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -224,20 +215,17 @@
         }
       }
     },
-    "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj": {
+    "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj",
+        "projectUniqueName": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj",
         "projectName": "Battleship.TestTools",
-        "projectPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj",
-        "packagesPath": "C:\\Users\\11801458\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.TestTools\\obj\\",
+        "projectPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.TestTools\\Battleship.TestTools.csproj",
+        "packagesPath": "C:\\Users\\Anton\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.TestTools\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\11801458\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -250,11 +238,11 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
-              "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj": {
-                "projectPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj"
+              "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj": {
+                "projectPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Business\\Battleship.Business.csproj"
               },
-              "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
-                "projectPath": "C:\\Users\\11801458\\Source\\Repos\\zeeslag-sailors1-project-workinggrid\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj"
+              "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj": {
+                "projectPath": "C:\\Users\\Anton\\Desktop\\zeeslag\\Project\\Source\\Battleship.Domain\\Battleship.Domain.csproj"
               }
             }
           }

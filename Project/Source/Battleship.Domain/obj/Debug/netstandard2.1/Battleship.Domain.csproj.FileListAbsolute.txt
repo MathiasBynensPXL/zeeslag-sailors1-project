@@ -37,3 +37,13 @@ C:\Users\alejandro\Desktop\Project\Project\Source\Battleship.Domain\obj\Debug\ne
 C:\Users\alejandro\Desktop\Project\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.AssemblyInfo.cs
 C:\Users\alejandro\Desktop\Project\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.dll
 C:\Users\alejandro\Desktop\Project\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.pdb
+C:\Users\Anton\Desktop\zeeslag\Project\Source\Battleship.Domain\bin\Debug\netstandard2.1\Battleship.Domain.deps.json
+C:\Users\Anton\Desktop\zeeslag\Project\Source\Battleship.Domain\bin\Debug\netstandard2.1\Battleship.Domain.dll
+C:\Users\Anton\Desktop\zeeslag\Project\Source\Battleship.Domain\bin\Debug\netstandard2.1\Battleship.Domain.pdb
+C:\Users\Anton\Desktop\zeeslag\Project\Source\Battleship.Domain\bin\Debug\netstandard2.1\Battleship.Domain.xml
+C:\Users\Anton\Desktop\zeeslag\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.csprojAssemblyReference.cache
+C:\Users\Anton\Desktop\zeeslag\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Anton\Desktop\zeeslag\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.AssemblyInfoInputs.cache
+C:\Users\Anton\Desktop\zeeslag\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.AssemblyInfo.cs
+C:\Users\Anton\Desktop\zeeslag\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.dll
+C:\Users\Anton\Desktop\zeeslag\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.pdb
