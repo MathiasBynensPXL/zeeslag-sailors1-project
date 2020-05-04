@@ -5,10 +5,7 @@
     "\\Project\\Source",
     "\\Project\\Source\\Battleship.Api",
     "\\Project\\Source\\Battleship.Api\\wwwroot",
-    "\\Project\\Source\\Battleship.Business",
-    "\\Project\\Source\\Battleship.Business\\Services\\Contracts",
-    "\\Project\\Source\\Battleship.Domain\\FleetDomain",
-    "\\Project\\Source\\Battleship.Domain\\GameDomain"
+    "\\Project\\Source\\Battleship.Business"
   ],
   "SelectedNode": "\\Project\\Source\\Battleship.sln",
   "PreviewInSolutionExplorer": false

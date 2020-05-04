@@ -38,3 +38,13 @@ C:\Users\11801458\Source\Repos\zeeslag-sailors1-project\Project\Source\Battleshi
 C:\Users\11801458\Source\Repos\zeeslag-sailors1-project\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.AssemblyInfo.cs
 C:\Users\11801458\Source\Repos\zeeslag-sailors1-project\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.dll
 C:\Users\11801458\Source\Repos\zeeslag-sailors1-project\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.pdb
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Domain\bin\Debug\netstandard2.1\Battleship.Domain.deps.json
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Domain\bin\Debug\netstandard2.1\Battleship.Domain.dll
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Domain\bin\Debug\netstandard2.1\Battleship.Domain.pdb
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Domain\bin\Debug\netstandard2.1\Battleship.Domain.xml
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.csprojAssemblyReference.cache
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.csproj.CoreCompileInputs.cache
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.AssemblyInfoInputs.cache
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.AssemblyInfo.cs
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.dll
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Domain\obj\Debug\netstandard2.1\Battleship.Domain.pdb

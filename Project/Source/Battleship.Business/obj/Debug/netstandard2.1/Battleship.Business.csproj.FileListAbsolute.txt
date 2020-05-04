@@ -54,3 +54,17 @@ C:\Users\11801458\Source\Repos\zeeslag-sailors1-project\Project\Source\Battleshi
 C:\Users\11801458\Source\Repos\zeeslag-sailors1-project\Project\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.csproj.CopyComplete
 C:\Users\11801458\Source\Repos\zeeslag-sailors1-project\Project\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.dll
 C:\Users\11801458\Source\Repos\zeeslag-sailors1-project\Project\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.pdb
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\bin\Debug\netstandard2.1\Battleship.Business.deps.json
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\bin\Debug\netstandard2.1\Battleship.Business.dll
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\bin\Debug\netstandard2.1\Battleship.Business.pdb
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\bin\Debug\netstandard2.1\Battleship.Business.xml
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\bin\Debug\netstandard2.1\Battleship.Domain.dll
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\bin\Debug\netstandard2.1\Battleship.Domain.pdb
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\bin\Debug\netstandard2.1\Battleship.Domain.xml
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.csprojAssemblyReference.cache
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.csproj.CoreCompileInputs.cache
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.AssemblyInfoInputs.cache
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.AssemblyInfo.cs
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.csproj.CopyComplete
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.dll
+C:\Users\11801458\Source\Repos\zeeslag-sailors1-project-workinggrid\Project\Source\Battleship.Business\obj\Debug\netstandard2.1\Battleship.Business.pdb
