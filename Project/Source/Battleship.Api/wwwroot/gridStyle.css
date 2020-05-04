@@ -1,5 +1,9 @@
+
+
+
 body {
 	background-color: lightblue;
+	position: fixed;
 }
 
 h1 {
@@ -8,7 +12,28 @@ h1 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 
+#BoatList {
+	position: fixed;
+	float: left;
+	background-color: rgb(238,203,94);
+	border: 10px solid rgb(255,213,84);
+	border-radius: 10%;
+	font-size: 20px;
+	display: inline-block;
+	height: auto;
+	width: 10%;
+	text-align: center;
+}
 
+ul {
+	padding: 0;
+}
+
+ul li {
+	list-style-type: none;
+	text-align: center;
+	padding: 0;
+}
 
 #gameboard {
 	border: 1px solid black;
