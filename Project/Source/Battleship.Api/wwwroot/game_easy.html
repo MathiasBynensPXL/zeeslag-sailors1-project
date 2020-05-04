@@ -6,6 +6,7 @@
     <link href="game.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="gridStyle.css">
     <script src="assets/Function.js"></script>
+    <script src="assets/Placement.js"></script>
     <script>
         CheckToken();
         CheckGameID();
@@ -16,13 +17,13 @@
     <div>
         <div id="BoatList">
             <h2>Boats</h2>
-            <ul class="fleet">
-                <li id="CAR">Carrier</li>
-                <li id="BS">Battleship</li>
-                <li id="DS">Destroyer</li>
-                <li id="SM">Submarine</li>
-                <li id="PB">Patrolboat</li>
-            </ul>
+            <form class="fleet">
+                <button id="CAR" onclick="test(this.id)">Carrier</button><br>
+                <input type="button" id="BS" value="Battleship"><br>
+                <input type="button" id="DS" value="Destroyer"><br>
+                <input type="button" id="SM" value="Submarine"><br>
+                <input type="button" id="PB" value="Patrolboat"><br>
+            </form>
         </div>
 
         <div id="gameboard">
@@ -30,8 +31,6 @@
         <div id="gameboard2">
         </div>
     </div>
-    <script type="text/javascript" src="assets/createGrid.js">
-
-    </script>
+    <script type="text/javascript" src="assets/createGrid.js"></script>
 </body>
 </html>

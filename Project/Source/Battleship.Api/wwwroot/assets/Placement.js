@@ -1,5 +1,14 @@
 ﻿window.addEventListener("load", loaded);
+onmouseover = function () {
+	(getId);
+}
 
+function getId() {
+	let find = this;
+	if (find == "99") {
+		alert("you did it!");
+    }
+}
 
 function loaded() {
 	let Carrier = document.getElementById("CAR");
@@ -12,23 +21,38 @@ function loaded() {
 	Submarine.addEventListener("click", SM);
 	let Patrolboat = document.getElementById("PB");
 	Patrolboat.addEventListener("click", PB);
+
 }
+
+
 
 function CAR() {
-
-	GridListener("CAR");
+	GridListener("CAR", 5);
 }
 
-function GridListener(code) {
+function BS() {
+	GridListener("BS", 4);
+}
+
+function DS() {
+	GridListener("DS", 3);
+}
+
+function SM() {
+	GridListener("SM", 3);
+}
+
+function PB() {
+	GridListener("PB", 2);
+}
+
+function GridListener(code, length) {
 	let Grid = document.getElementById("gameboard")
 	Grid.addEventListener("mouseover");
-
-	onmouseover = "addContent" this.id
-	//for (let i = 0; i < 100; i++) {
-	//	let id = document.getElementById(i);
- //   }
 }
+function FindCoordinate() {
 
+}
 
 
 

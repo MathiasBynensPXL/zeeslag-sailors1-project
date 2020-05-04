@@ -14,7 +14,8 @@ for (let i = 0; i < cols; i++)
     for (let j = 0; j < rows; j++)
     {
 
-        let square = document.createElement("div");
+        let square = document.createElement("button");
+        square.onclick = "test(this.id)";
         gameBoardContainer.appendChild(square);
         let square2 = document.createElement("div");
         gameBoardContainer2.appendChild(square2);
@@ -63,5 +64,11 @@ for (let l = 0; l <= 10; l++) {
    }
 }
 
+function replyClick(id) {
+    alert("clicked id: " + id);
+}
 
+function test(id) {
+    alert(id);
+}
 
