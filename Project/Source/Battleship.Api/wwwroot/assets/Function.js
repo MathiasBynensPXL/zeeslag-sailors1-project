@@ -94,3 +94,9 @@ function CheckToken() {
         window.location.href = "https://localhost:5001/login_user.html";
     }
 }
+
+function CheckGameID() {
+    //if (sessionStorage.getItem("gameId") == null) {
+    //    window.location.href = "https://localhost:5001/index.html";
+    //}
+}

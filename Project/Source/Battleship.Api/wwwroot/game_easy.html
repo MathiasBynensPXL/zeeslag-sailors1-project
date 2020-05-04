@@ -8,17 +8,30 @@
     <script src="assets/Function.js"></script>
     <script>
         CheckToken();
+        CheckGameID();
     </script>
 </head>
-<body> 
-   <h1>The easy Game!</h1>
-    <form><input type="button" id="StartGame" value="Start Game"><br></form>
-	<div id="gameboard" >
-	</div>
-	<div  id="gameboard2">
-	</div>
-	<script type="text/javascript" src="assets/createGrid.js">
+<body>
+    <h1>The easy Game!</h1>
+    <div>
+        <div id="BoatList">
+            <h1>Boats</h1>
+            <ul>
+                <li id="CAR">Carrier</li>
+                <li id="BS">Battleship</li>
+                <li id="DS">Destroyer</li>
+                <li id="SM">Submarine</li>
+                <li id="PB">Patrolboat</li>
+            </ul>
+        </div>
 
-	</script>
+        <div id="gameboard">
+        </div>
+        <div id="gameboard2">
+        </div>
+    </div>
+    <script type="text/javascript" src="assets/createGrid.js">
+
+    </script>
 </body>
 </html>

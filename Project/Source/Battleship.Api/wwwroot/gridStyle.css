@@ -1,23 +1,14 @@
 body {
 	background-color: lightblue;
 }
-form{
-	align-content: center;
-	text-align: center;
-}
+
 h1 {
 	margin: 60px;
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 
-p, button, input {
-	margin: 60px;
-    font-size: 1.5em;
-    line-height: 1.4em;
-    color: #333;
 
-}
 
 #gameboard {
 	border: 1px solid black;
