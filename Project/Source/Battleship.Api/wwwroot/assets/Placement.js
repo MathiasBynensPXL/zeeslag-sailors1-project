@@ -16,10 +16,17 @@ function loaded() {
 
 function CAR() {
 
+	GridListener("CAR");
 }
 
-function GridListener() {
-	
+function GridListener(code) {
+	let Grid = document.getElementById("gameboard")
+	Grid.addEventListener("mouseover");
+
+	onmouseover = "addContent" this.id
+	//for (let i = 0; i < 100; i++) {
+	//	let id = document.getElementById(i);
+ //   }
 }
 
 

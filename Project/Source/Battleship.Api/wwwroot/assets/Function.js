@@ -59,7 +59,6 @@ function logFunction() {
     let paswoord = document.getElementById('paswoord').value;
     let user = { email: email, password: paswoord };
     let url = 'https://localhost:5001/api/Authentication/token';
-    let is_loggedin = false;
     fetch(url,
         {
             method: "POST",
