@@ -8,7 +8,9 @@ namespace Battleship.Domain.FleetDomain
     public class Ship : IShip
     {
         private IGridSquare[] _Squares;
-        public IGridSquare[] Squares { get { return this._Squares; } }
+        public IGridSquare[] Squares { get { 
+
+                return this._Squares; } }
 
         public ShipKind Kind { get; }
 
@@ -27,12 +29,15 @@ namespace Battleship.Domain.FleetDomain
 
         public void PositionOnGrid(IGridSquare[] squares)
         {
-            if (this.Squares != null) {
-                for (int i = 0; i < this.Squares.Length; i++)
-                {
-                    this.Squares[i].OnHitByBomb -= HitByBombHandler;
-                }
+            if (this._Squares == null)
+            {
+                this._Squares = new IGridSquare[0];
             }
+            for (int i = 0; i < this.Squares.Length; i++)
+            {
+                this.Squares[i].OnHitByBomb -= HitByBombHandler;
+            }
+            
             this._Squares = squares;
             for (int i = 0;  i < this.Squares.Length; i++)
             {

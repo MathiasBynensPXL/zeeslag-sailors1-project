@@ -18,13 +18,17 @@ namespace Battleship.Business.Models
         {
             this.Kind = ship.Kind;
             this.HasSunk = ship.HasSunk;
-            this.Coordinates = new GridCoordinate[ship.Squares.Length];
-            if (ship.Squares.Length != 0) { 
-                for (int i = 0; i < ship.Kind.Size; i++)
-            {
-            
-                this.Coordinates[i] = ship.Squares[i].Coordinate; 
-            }
+            if (ship.Squares != null)
+            { 
+                this.Coordinates = new GridCoordinate[ship.Squares.Length];
+                if (ship.Squares.Length != 0)
+                {
+                    for (int i = 0; i < ship.Kind.Size; i++)
+                    {
+
+                        this.Coordinates[i] = ship.Squares[i].Coordinate;
+                    }
+                }
             }
         }
     }

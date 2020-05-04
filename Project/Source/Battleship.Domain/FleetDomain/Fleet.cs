@@ -44,9 +44,12 @@ namespace Battleship.Domain.FleetDomain
             {
                 for (int i = 0; i < segmentCoordinates.Length; i++)
                 {
-                    if (ship.CanBeFoundAtCoordinate(segmentCoordinates[i]))
+                    if (ship.Kind != kind)
                     {
-                        return Result.CreateFailureResult("1 or more Coordinate(s) collide with another ship");
+                        if (ship.CanBeFoundAtCoordinate(segmentCoordinates[i]))
+                        {
+                            return Result.CreateFailureResult("1 or more Coordinate(s) collide with another ship");
+                        }
                     }
                 }
             }
@@ -84,7 +87,15 @@ namespace Battleship.Domain.FleetDomain
 
         public IList<IShip> GetSunkenShips()
         {
-            throw new NotImplementedException("GetSunkenShips method of Fleet class is not implemented");
+            List<IShip> sunken = new List<IShip>();
+            foreach (IShip boat in _Dictionary.Values)
+            {
+                if (boat.HasSunk)
+                {
+                    sunken.Add(boat);
+                }
+            }
+            return sunken;
         }
 
         private IGridSquare[] ConvertGridCoordinateToGridSquare(GridCoordinate[] gridCoordinates)
