@@ -59,7 +59,6 @@ function logFunction() {
     let paswoord = document.getElementById('paswoord').value;
     let user = { email: email, password: paswoord };
     let url = 'https://localhost:5001/api/Authentication/token';
-    let is_loggedin = false;
     fetch(url,
         {
             method: "POST",
@@ -96,7 +95,7 @@ function CheckToken() {
 }
 
 function CheckGameID() {
-    //if (sessionStorage.getItem("gameId") == null) {
-    //    window.location.href = "https://localhost:5001/index.html";
+    //if (sessionStorage.getItem("GameID") == null) {
+    //   window.location.href = "https://localhost:5001/index.html";
     //}
 }

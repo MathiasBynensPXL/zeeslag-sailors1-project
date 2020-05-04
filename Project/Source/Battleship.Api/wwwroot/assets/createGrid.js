@@ -18,54 +18,20 @@ for (let i = 0; i < cols; i++)
         gameBoardContainer.appendChild(square);
         let square2 = document.createElement("div");
         gameBoardContainer2.appendChild(square2);
+        
         if (i == 0) {
-            square.id = "Y" + j;
-            square2.id = "y" + j;
-        }
-        if (i == 1) {
-            square.id = 'A' + j;
-            square2.id = 'A' + j;
-        }
-        if (i == 2) {
-            square.id = 'B' + j;
-            square2.id = 'B' + j;
-        }
-        if (i == 3) {
-            square.id = 'C' + j;
-            square2.id = 'C' + j;
-        }
-        if (i == 4) {
-            square.id = 'D' + j;
-            square2.id = 'D' + j;
-        }
-        if (i == 5) {
-            square.id = 'E' + j;
-            square2.id = 'E' + j;
-        }
-        if (i == 6) {
-            square.id = 'G' + j;
-            square2.id = 'G' + j;
-        }
-        if (i == 7) {
-            square.id = 'H' + j;
-            square2.id = 'H' + j;
-        }
-        if (i == 8) {
-            square.id = 'I' + j;
-            square2.id = 'I' + j;
-        }
-        if (i == 9) {
-            square.id = 'K' + j;
-            square2.id = 'K' + j;
-        }
-        if (i == 10) {
-            square.id = 'L' + j;
-            square2.id = 'L' + j;
-        }
+                square.id = "Y" + j;
+                square2.id = "y" + j;
+        }          
         if (j == 0) {
             square.id = 'X' + i;
             square2.id = 'x' + i;
+        } else if (i != 0 && j != 0) {
+            square.id = (i-1) + "" + (j-1);
+            square2.id = (i-1) + "" + (j-1);
         }
+
+        
         // set each grid square's coordinates: multiples of the current row or column number
         let topPosition = j * squareSize;
         let leftPosition = i * squareSize;
