@@ -47,8 +47,13 @@ function PB() {
 }
 
 function GridListener(code, length) {
-	let Grid = document.getElementById("gameboard")
-	Grid.addEventListener("mouseover");
+	//let Grid = document.getElementById("gameboard")
+	//Grid.addEventListener("mouseover");
+	for (let i = 0; i < 100; i++) {
+		document.getElementById(i + "");
+    }
+
+	square.onclick("test(this.id)");
 }
 function FindCoordinate() {
 
