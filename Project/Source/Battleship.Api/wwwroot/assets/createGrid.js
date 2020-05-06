@@ -1,4 +1,5 @@
 // set grid rows and columns and the size of each square
+
 let rows = 11;
 let cols = 11;
 let squareSize = 50;
@@ -15,8 +16,10 @@ for (let i = 0; i < cols; i++)
     {
 
         let square = document.createElement("button");
-        
         gameBoardContainer.appendChild(square);
+        
+     
+
         let square2 = document.createElement("div");
         gameBoardContainer2.appendChild(square2);
         
@@ -42,30 +45,43 @@ for (let i = 0; i < cols; i++)
         square.style.left = leftPosition + 'px';
         square2.style.top = topPosition + 'px';
         square2.style.left = leftPosition + 'px';
-
+       
 
     }
-
+    
 }
 
-for (let k = 1; k <= 10; k++) {
+function myFunction()
+{
+    alert("testt" + string);
+
+}
+let string = "00";
+let teller = 1;
+for (let i = 0; i < cols * rows; i++)
+{
+    document.getElementById(string).addEventListener("click", myFunction);
+    string = "0" + teller;
+    teller++;
+}
+
+for (let k = 1; k <= 10; k++)
+{
 
     document.getElementById("X" + k).innerText = k.toString();
     document.getElementById("x" + k).innerHTML = k.toString();
 }
 for (let l = 0; l <= 10; l++) {
     if (document.getElementById("Y" + l) || document.getElementById("y" + l)) {
-    	for(let m = 65; m <= 75; m++)
-		{
-			document.getElementById("Y" + l).innerHTML = String.fromCharCode(m);
-			document.getElementById("y" + l).innerHTML = String.fromCharCode(m);
-			l++;
-		}
-   }
+        for (let m = 65; m <= 75; m++) {
+            document.getElementById("Y" + l).innerHTML = String.fromCharCode(m);
+            document.getElementById("y" + l).innerHTML = String.fromCharCode(m);
+            l++;
+        }
+    }
 }
 
-function replyClick(id) {
-    alert("clicked id: " + id);
-}
+
+
 
 

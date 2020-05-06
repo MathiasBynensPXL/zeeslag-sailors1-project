@@ -1,4 +1,5 @@
-﻿window.addEventListener("load", loaded);
+﻿
+window.addEventListener("load", loaded);
 onmouseover = function () {
 	(getId);
 }
