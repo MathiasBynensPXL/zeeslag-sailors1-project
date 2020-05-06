@@ -70,7 +70,14 @@ namespace Battleship.Domain.FleetDomain
 
         public void RandomlyPositionOnGrid(IGrid grid, bool allowDeformedShips = false)
         {
-            throw new NotImplementedException("RandomlyPositionOnGrid method of Fleet class is not implemented");
+            IList<IShip> ships = this.GetAllShips();
+            foreach (IShip boat in ships)
+            {
+                while(boat.Squares == null)
+                {
+                    this.TryMoveShipTo(boat.Kind, boat.Kind.GenerateRandomSegmentCoordinates(grid.Size, allowDeformedShips), grid);
+                }
+            }
         }
 
         public IShip FindShipAtCoordinate(GridCoordinate coordinate)

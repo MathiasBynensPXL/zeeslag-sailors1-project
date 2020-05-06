@@ -8,7 +8,8 @@ namespace Battleship.Domain.PlayerDomain
     {
 
         public ComputerPlayer(GameSettings settings, IShootingStrategy shootingStrategy) : base(Guid.NewGuid(), "Computer", settings)
-        {
+        {   
+
         }
 
         public void ShootAutomatically(IPlayer opponent)
