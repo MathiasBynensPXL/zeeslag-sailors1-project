@@ -1,15 +1,45 @@
 ﻿
 window.addEventListener("load", loaded);
-onmouseover = function () {
-	(getId);
+//let rows = localStorage.getItem("rows");
+//let cols = localStorage.getItem("cols");
+
+function myFunction() {
+	alert("test");
 }
 
-function getId() {
-	let find = this;
-	if (find == "99") {
-		alert("you did it!");
-    }
+
+function create_listner() {
+
+	//let nummer = 0;
+
+	//for (let i = 0; i < cols - 1; i++) {
+
+	//	for (let j = 0; j < rows - 1; j++) {
+
+	//		nummer = i + "" + j;
+	//		let getal = document.getElementById(nummer);
+
+	//		getal.addEventListener("click", myFunction());
+	//		document.getElementsByTagName("button");
+			
+	//	}
+
+	//}
+
+	let buttons = document.getElementsByTagName("button");
+
+	for (let i = 0; i <= buttons.length; i++)
+	{
+		buttons[i].onclick = function (e) {
+			alert(this.id);
+		};
+	}
+		
+		
+	
+
 }
+
 
 function loaded() {
 	let Carrier = document.getElementById("CAR");
@@ -29,6 +59,7 @@ function loaded() {
 
 function CAR() {
 	GridListener("CAR", 5);
+	create_listner();
 }
 
 function BS() {
@@ -48,38 +79,11 @@ function PB() {
 }
 
 function GridListener(code, length) {
-	//let Grid = document.getElementById("gameboard")
-	//Grid.addEventListener("mouseover");
-	for (let i = 0; i < 100; i++) {
-		document.getElementById(i + "");
-    }
+	alert(length);
+	alert(code);
 
-	square.onclick("test(this.id)");
-}
-function FindCoordinate() {
+
+
 
 }
 
-
-
-//Game.prototype.rosterListener = function (e) {
-//	let self = e.target.self;
-//	// Remove all classes of 'placing' from the fleet roster first
-//	let roster = document.querySelectorAll('.fleet li');
-//	for (let i = 0; i < roster.length; i++) {
-//		let classes = roster[i].getAttribute('class') || '';
-//		classes = classes.replace('placing', '');
-//		roster[i].setAttribute('class', classes);
-//	}
-
-//	// Move the highlight to the next step
-//	if (gameTutorial.currentStep === 1) {
-//		gameTutorial.nextStep();
-//	}
-
-//	// Set the class of the target ship to 'placing'
-//	Game.placeShipType = e.target.getAttribute('id');
-//	document.getElementById(Game.placeShipType).setAttribute('class', 'placing');
-//	Game.placeShipDirection = parseInt(document.getElementById('rotate-button').getAttribute('data-direction'), 10);
-//	self.placingOnGrid = true;
-//};
