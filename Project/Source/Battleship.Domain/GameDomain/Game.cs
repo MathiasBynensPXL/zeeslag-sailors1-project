@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Runtime.InteropServices.ComTypes;
 using Battleship.Domain.GameDomain.Contracts;
 using Battleship.Domain.GridDomain;
 using Battleship.Domain.PlayerDomain.Contracts;
+using Microsoft.Extensions.ObjectPool;
 
 namespace Battleship.Domain.GameDomain
 {
@@ -24,12 +26,36 @@ namespace Battleship.Domain.GameDomain
 
         public Result Start()
         {
-            throw new NotImplementedException("Start method of Game class is not implemented");
+            if (Player1.Fleet.IsPositionedOnGrid == false || Player2.Fleet.IsPositionedOnGrid == false)
+            {
+                return Result.CreateFailureResult("Not all players their fleet are positioned");
+            } else
+            {
+                Player1.ReloadBombs();
+                IsStarted = true;
+                return Result.CreateSuccessResult();
+            }
         }
 
         public ShotResult ShootAtOpponent(Guid shooterPlayerId, GridCoordinate coordinate)
         {
-            throw new NotImplementedException("ShootAtOpponent method of Game class is not implemented");
+            if (this.IsStarted == true)
+            {
+                IPlayer shooter = this.GetPlayerById(shooterPlayerId);
+                IPlayer victim = this.GetOpponent(shooter);
+       
+                if (shooter.HasBombsLoaded == true)
+                {
+                    return shooter.ShootAt(victim, coordinate);
+                }
+                else
+                {
+                    return ShotResult.CreateMisfire("Player has no bombs loaded");
+                }
+            } else
+            {
+                return ShotResult.CreateMisfire("Game has not begun");
+            }
         }
 
         public IPlayer GetPlayerById(Guid playerId)

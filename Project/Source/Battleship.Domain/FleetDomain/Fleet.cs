@@ -10,6 +10,7 @@ namespace Battleship.Domain.FleetDomain
     {
 
         private Dictionary<ShipKind, IShip> _Dictionary = new Dictionary<ShipKind, IShip>();
+        private bool _IsPositionedOnGrid = false;
         
         public Fleet()
         {
@@ -20,7 +21,7 @@ namespace Battleship.Domain.FleetDomain
             _Dictionary.Add(ShipKind.PatrolBoat, new Ship(ShipKind.PatrolBoat));
         }
 
-        public bool IsPositionedOnGrid { get; }
+        public bool IsPositionedOnGrid { get { return _IsPositionedOnGrid; } }
 
         public Result TryMoveShipTo(ShipKind kind, GridCoordinate[] segmentCoordinates, IGrid grid)
         {
@@ -70,7 +71,15 @@ namespace Battleship.Domain.FleetDomain
 
         public void RandomlyPositionOnGrid(IGrid grid, bool allowDeformedShips = false)
         {
-            throw new NotImplementedException("RandomlyPositionOnGrid method of Fleet class is not implemented");
+            IList<IShip> ships = this.GetAllShips();
+            foreach (IShip boat in ships)
+            {
+                while(boat.Squares == null)
+                {
+                    this.TryMoveShipTo(boat.Kind, boat.Kind.GenerateRandomSegmentCoordinates(grid.Size, allowDeformedShips), grid);
+                }
+            }
+            this._IsPositionedOnGrid = true;
         }
 
         public IShip FindShipAtCoordinate(GridCoordinate coordinate)
