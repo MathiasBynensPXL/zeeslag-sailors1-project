@@ -1,9 +1,6 @@
 // set grid rows and columns and the size of each square
 let rows = 11;
 let cols = 11;
-
-localStorage.setItem("rows", rows);
-localStorage.setItem("cols", cols);
 let squareSize = 50;
 
 // get the container element
@@ -18,12 +15,9 @@ for (let i = 0; i < cols; i++)
     for (let j = 0; j < rows; j++)
     {
 
-        let square = document.createElement("button");
-        
+        let square = document.createElement("button");      
         gameBoardContainer.appendChild(square);
         
-     
-
         let square2 = document.createElement("button");
         gameBoardContainer2.appendChild(square2);
         
@@ -31,8 +25,6 @@ for (let i = 0; i < cols; i++)
             square.className = "noBtn";
             square.id = "Y" + j;
             square2.id = "y" + j;
-
-
         }          
         if (j == 0) {
             square.className = "noBtn";
@@ -40,6 +32,7 @@ for (let i = 0; i < cols; i++)
             square2.id = 'x' + i;
         } else if (i != 0 && j != 0) {
             square.className = "btn";
+            square2.className = "btnComputer";
             square.id = (i-1) + "" + (j-1);
             square2.id = (i-1) + "" + (j-1);
         }
@@ -61,14 +54,26 @@ for (let i = 0; i < cols; i++)
 }
 
 function handleEvent() {
-    alert(event.target.id);
 
+   let squareId = event.target.id;
+   localStorage.setItem("squareId", squareId);
+   alert(squareId);
 }
 
-const buttons = document.querySelectorAll('.btn')
-buttons.forEach(function (currentBtn) {
+function grid_listner(code,length) {
+    alert(code);
+    alert(length);
+    localStorage.setItem("code", code);
+    localStorage.setItem("length", length);
+
+    const buttons = document.querySelectorAll('.btn')
+
+    buttons.forEach(function (currentBtn)
+    {
     currentBtn.addEventListener('click', handleEvent);
-});
+    });
+
+}
 
 
 for (let k = 1; k <= 10; k++)
