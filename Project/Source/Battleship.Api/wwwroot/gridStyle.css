@@ -36,7 +36,6 @@ ul li {
 }
 
 #gameboard {
-	border: 1px solid black;
 	position:relative;
 	float: left;
 	margin:50px 50px 50px 310px;
@@ -44,7 +43,6 @@ ul li {
 	height:500px;
 }
 #gameboard2{
-	border: 1px solid black;
 	position:relative;
 	float: left;
 	margin:50px 50px 50px 200px;
@@ -62,7 +60,7 @@ ul li {
 	height:50px;
 
 }
-#gameboard2 div {
+#gameboard2 button {
 	float: left;
 	display: inline;
 	position:absolute;
@@ -71,4 +69,7 @@ ul li {
 	border: 1px solid black;
 	width:50px;
 	height:50px;
+}
+.noBtn{
+	border: none;
 }

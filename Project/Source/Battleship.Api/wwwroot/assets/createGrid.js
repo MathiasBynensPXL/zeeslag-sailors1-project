@@ -8,6 +8,7 @@ let squareSize = 50;
 
 // get the container element
 let gameBoardContainer = document.getElementById("gameboard");
+localStorage.setItem("gameboard", gameboard);
 let gameBoardContainer2 = document.getElementById("gameboard2");
 // make the grid columns and rows
 
@@ -18,21 +19,27 @@ for (let i = 0; i < cols; i++)
     {
 
         let square = document.createElement("button");
+        
         gameBoardContainer.appendChild(square);
         
      
 
-        let square2 = document.createElement("div");
+        let square2 = document.createElement("button");
         gameBoardContainer2.appendChild(square2);
         
         if (i == 0) {
-                square.id = "Y" + j;
-                square2.id = "y" + j;
+            square.className = "noBtn";
+            square.id = "Y" + j;
+            square2.id = "y" + j;
+
+
         }          
         if (j == 0) {
+            square.className = "noBtn";
             square.id = 'X' + i;
             square2.id = 'x' + i;
         } else if (i != 0 && j != 0) {
+            square.className = "btn";
             square.id = (i-1) + "" + (j-1);
             square2.id = (i-1) + "" + (j-1);
         }
@@ -53,6 +60,17 @@ for (let i = 0; i < cols; i++)
     
 }
 
+function handleEvent() {
+    alert(event.target.id);
+
+}
+
+const buttons = document.querySelectorAll('.btn')
+buttons.forEach(function (currentBtn) {
+    currentBtn.addEventListener('click', handleEvent);
+});
+
+
 for (let k = 1; k <= 10; k++)
 {
 
@@ -70,4 +88,3 @@ for (let l = 0; l <= 10; l++) {
         }
     }
 }
-

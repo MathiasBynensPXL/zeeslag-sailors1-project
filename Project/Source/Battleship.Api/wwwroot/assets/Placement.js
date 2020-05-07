@@ -1,11 +1,22 @@
 ﻿
 window.addEventListener("load", loaded);
-//let rows = localStorage.getItem("rows");
-//let cols = localStorage.getItem("cols");
 
 function myFunction() {
-	alert("test");
+	alert("error");
+
 }
+
+//let grid = localStorage.getItem("gameboard");
+
+//grid.addEventListener("click", (event) => {
+//	let isButton = event.target.nodeName === 'BUTTON';
+//	if (!isButton) {
+//		return;
+//	}
+//	alert(event.target.id);
+//})
+
+
 
 
 function create_listner() {
@@ -27,14 +38,10 @@ function create_listner() {
 	//}
 
 	let buttons = document.getElementsByTagName("button");
-
-	for (let i = 0; i <= buttons.length; i++)
-	{
-		buttons[i].onclick = function (e) {
-			alert(this.id);
-		};
-	}
-		
+	
+	alert(buttons.length);
+	//let squareId = event.target.id;
+	//alert(squareId);
 		
 	
 
@@ -81,9 +88,6 @@ function PB() {
 function GridListener(code, length) {
 	alert(length);
 	alert(code);
-
-
-
 
 }
 
