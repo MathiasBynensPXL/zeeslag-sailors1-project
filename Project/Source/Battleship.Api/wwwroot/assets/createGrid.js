@@ -52,12 +52,58 @@ for (let i = 0; i < cols; i++)
     }
     
 }
+function Coordinate(x, y) {
+    this.x = x;
+    this.y = y;
+}
+
+
+function CalculatePosition() {
+    let lengte = parseInt(localStorage.getItem("length"));
+    let rotatie = parseInt(localStorage.getItem("rotatie"));
+    let coordinaat = parseInt(localStorage.getItem("squareId"));
+    let ship = [];
+
+    alert(rotatie);
+    
+    if (rotatie === 0) {
+        for (let i = 0; i < lengte; i++) {
+            ship[i] = coordinaat + i;
+            //segmentcoordinaten.push(new Coordinate(Math.floor(coordinaat / 10), (coordinaat % 10) + i));
+            //segmentcoordinaten[i] = { 1: 2};
+        }
+    } else if (rotatie === 1) {
+        for (let i = 0; i < lengte; i++) {
+            ship[i] = coordinaat + (i * 10);
+            //segmentcoordinaten.push(new Coordinate(Math.floor(coordinaat / 10), (coordinaat % 10) + i));
+            //segmentcoordinaten[i] = { "row": (Math.floor(coordinaat / 10) + i), "column": (coordinaat % 10) };
+        }
+    } else if (rotatie === 2) {
+        for (let i = 0; i < lengte; i++) {
+            ship[i] = coordinaat - i;
+                //segmentcoordinaten.push(new Coordinate(Math.floor(coordinaat / 10), (coordinaat % 10) + i));
+                //segmentcoordinaten[i] = { "row": Math.floor(coordinaat / 10), "column": ((coordinaat % 10) - i) };
+            }
+    } else if (rotatie === 3) {
+        for (let i = 0; i < lengte; i++) {
+            ship[i] = coordinaat - (i * 10);
+            //segmentcoordinaten.push(new Coordinate(Math.floor(coordinaat / 10), (coordinaat % 10) + i));
+            //segmentcoordinaten[i] = { "row": Math.floor(coordinaat / 10) + i, "column": (coordinaat % 10)};
+        }
+    }
+    alert(ship);
+    //alert(segmentcoordinaten);
+    localStorage.setItem("ship", ship);
+    //localStorage.setItem("Coordinates", segmentcoordinaten);
+}
+
 
 function handleEvent() {
 
    let squareId = event.target.id;
    localStorage.setItem("squareId", squareId);
-   alert(squareId);
+    alert(squareId);
+    CalculatePosition();
 }
 
 function grid_listner(code,length) {
@@ -74,6 +120,7 @@ function grid_listner(code,length) {
     });
 
 }
+
 
 
 for (let k = 1; k <= 10; k++)
