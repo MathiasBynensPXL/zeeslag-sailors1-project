@@ -1,4 +1,51 @@
-﻿window.addEventListener("load", loaded);
+﻿
+window.addEventListener("load", loaded);
+
+function myFunction() {
+	alert("error");
+
+}
+
+//let grid = localStorage.getItem("gameboard");
+
+//grid.addEventListener("click", (event) => {
+//	let isButton = event.target.nodeName === 'BUTTON';
+//	if (!isButton) {
+//		return;
+//	}
+//	alert(event.target.id);
+//})
+
+
+
+
+function create_listner() {
+
+	//let nummer = 0;
+
+	//for (let i = 0; i < cols - 1; i++) {
+
+	//	for (let j = 0; j < rows - 1; j++) {
+
+	//		nummer = i + "" + j;
+	//		let getal = document.getElementById(nummer);
+
+	//		getal.addEventListener("click", myFunction());
+	//		document.getElementsByTagName("button");
+			
+	//	}
+
+	//}
+
+	let buttons = document.getElementsByTagName("button");
+	
+	alert(buttons.length);
+	//let squareId = event.target.id;
+	//alert(squareId);
+		
+	
+
+}
 
 
 function loaded() {
@@ -12,44 +59,35 @@ function loaded() {
 	Submarine.addEventListener("click", SM);
 	let Patrolboat = document.getElementById("PB");
 	Patrolboat.addEventListener("click", PB);
+
 }
+
+
 
 function CAR() {
-
-	GridListener("CAR");
+	GridListener("CAR", 5);
+	create_listner();
 }
 
-function GridListener(code) {
-	let Grid = document.getElementById("gameboard")
-	Grid.addEventListener("mouseover");
-
-	onmouseover = "addContent" this.id
-	//for (let i = 0; i < 100; i++) {
-	//	let id = document.getElementById(i);
- //   }
+function BS() {
+	GridListener("BS", 4);
 }
 
+function DS() {
+	GridListener("DS", 3);
+}
 
+function SM() {
+	GridListener("SM", 3);
+}
 
+function PB() {
+	GridListener("PB", 2);
+}
 
-//Game.prototype.rosterListener = function (e) {
-//	let self = e.target.self;
-//	// Remove all classes of 'placing' from the fleet roster first
-//	let roster = document.querySelectorAll('.fleet li');
-//	for (let i = 0; i < roster.length; i++) {
-//		let classes = roster[i].getAttribute('class') || '';
-//		classes = classes.replace('placing', '');
-//		roster[i].setAttribute('class', classes);
-//	}
+function GridListener(code, length) {
+	alert(length);
+	alert(code);
 
-//	// Move the highlight to the next step
-//	if (gameTutorial.currentStep === 1) {
-//		gameTutorial.nextStep();
-//	}
+}
 
-//	// Set the class of the target ship to 'placing'
-//	Game.placeShipType = e.target.getAttribute('id');
-//	document.getElementById(Game.placeShipType).setAttribute('class', 'placing');
-//	Game.placeShipDirection = parseInt(document.getElementById('rotate-button').getAttribute('data-direction'), 10);
-//	self.placingOnGrid = true;
-//};

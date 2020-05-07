@@ -15,7 +15,9 @@ namespace Battleship.Domain.PlayerDomain
         public IGrid Grid { get; }
         public IFleet Fleet { get; }
 
-        public bool HasBombsLoaded { get; }
+        private bool _HasBombsLoaded;
+
+        public bool HasBombsLoaded { get { return _HasBombsLoaded; } }
 
         protected PlayerBase(Guid id, string nickName, GameSettings gameSettings)
         {
@@ -27,12 +29,48 @@ namespace Battleship.Domain.PlayerDomain
 
         public void ReloadBombs()
         {
-            throw new NotImplementedException("ReloadBombs method of PlayerBase class is not implemented");
+            this._HasBombsLoaded = true;
         }
 
         public ShotResult ShootAt(IPlayer opponent, GridCoordinate coordinate)
         {
-            throw new NotImplementedException("ShootAt method of PlayerBase class is not implemented");
+            if (HasBombsLoaded == true)
+            {
+                this._HasBombsLoaded = false;
+                IGridSquare square = opponent.Grid.Shoot(coordinate);
+                if (square.Status.HasFlag(GridSquareStatus.Hit))
+                {
+                    return ShotResult.CreateHit(opponent.Fleet.FindShipAtCoordinate(coordinate));
+                }
+                if (square.Status.HasFlag(GridSquareStatus.Miss))
+                {
+                    return ShotResult.CreateMissed();
+                }
+                return ShotResult.CreateMissed();
+            } else
+            {
+                return ShotResult.CreateMisfire("You have no bombs loaded");
+            }
+
+
+
+
+
+
+
+            //this._HasBombsLoaded = false;
+            //if (opponent.Fleet.GetAllShips() == null)
+            //{
+            //    return ShotResult.CreateMissed();
+            //}
+            //foreach (IShip boat in opponent.Fleet.GetAllShips())
+            //{
+
+            //    if (boat.CanBeFoundAtCoordinate(coordinate))
+            //    {
+            //        return ShotResult.CreateHit(boat);
+            //    }
+            //} return ShotResult.CreateMissed();
         }
     }
 }

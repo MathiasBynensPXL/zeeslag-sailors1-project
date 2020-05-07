@@ -77,7 +77,7 @@ namespace Battleship.Domain.FleetDomain
                     output[i] = new GridCoordinate(output[i - 1].Row + generateDirection.YStep, output[i - 1].Column + generateDirection.XStep);
                 }
                 outOfBounds = GridCoordinateArrayExtensions.HasAnyOutOfBounds(output, gridSize);
-                if (!GridCoordinateArrayExtensions.HasAnyOutOfBounds(output, gridSize))
+                if (!outOfBounds)
                 {
                     return output;
                 }
