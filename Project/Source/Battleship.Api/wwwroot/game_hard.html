@@ -13,11 +13,32 @@
     </script>
 </head>
 <body>
-    <h1>The hard Game</h1>
-    <div id="gameboard" >
-	</div>
-	<div  id="gameboard2">
-	</div>
-	<script type="text/javascript" src="assets/createGrid.js"></script>
+    <h1>DIFFICULTY : HARD</h1>
+    <div id="your_fleet" class="fleet_name">
+        <p>Your fleet</p>
+    </div>
+
+    <div id="enemy_fleet" class="fleet_name">
+        <p>Enemy fleet</p>
+    </div>
+    <div>
+        <div id="gameboard">
+        </div>
+        <div id="BoatList">
+            <h2>Boats</h2>
+            <form class="fleet">
+                <input type="button" id="CAR" value="Carrier"><br>
+                <input type="button" id="BS" value="Battleship"><br>
+                <input type="button" id="DS" value="Destroyer"><br>
+                <input type="button" id="SM" value="Submarine"><br>
+                <input type="button" id="PB" value="Patrolboat"><br><br>
+                <!--<input type="image" id="rotate" alt="rotate" src="assets/rotate.png" width="48" height="48"><br><br>-->
+                <button id="rotate" type="button"><img src="assets/rotate.png" width="48" height="48" /></button>
+            </form>
+        </div>
+        <div id="gameboard2">
+        </div>
+    </div>
+    <script type="text/javascript" src="assets/createGrid.js"></script>
 </body>
 </html>
