@@ -29,6 +29,7 @@ div#your_fleet {
 div#enemy_fleet {
 	font-size: 2em;
 }
+
 button.noBtnX {
 	font-size: 16px;
 	border-left: none;
@@ -36,6 +37,7 @@ button.noBtnX {
 	border-top: none;
 	border-bottom: none;
 }
+
 button.noBtnY {
 	font-size: 16px;
 	border-left: none;
@@ -43,6 +45,7 @@ button.noBtnY {
 	border-top: none;
 	border-bottom: none;
 }
+
 #BoatList h2{
 	margin:10px;
 }
@@ -74,18 +77,17 @@ button.noBtnY {
 	position: static;
 }
 
-
 .fleet input:hover {
 	outline: none;
 	width: 110px;
 	box-shadow: 2px 4px 8px gray;
 }
+
 .fleet input:focus {
 	outline: none;
-	
 }
+
 #rotate {
-	
 	outline: none;
 	background-color: transparent;
 }
@@ -96,11 +98,11 @@ button.noBtnY {
 	width: 48px;
 	height: 48px;
 }
+
 #rotate:focus {
 	outline: none;
 }
 #rotate img:hover {
-
 	width: 50px;
 	height: 50px;
 }
@@ -108,11 +110,10 @@ button.noBtnY {
 	outline: none;
 	background-color: transparent;
 	opacity: 80;
-	
 }
 #rotate:active {
-		outline: none;
-		border: none;
+	outline: none;
+	border: none;
 }
 #gameboard {
 	position:relative;
@@ -129,12 +130,27 @@ button.noBtnY {
 	width:500px;
 	height:500px;
 }
+
+#reset {
+	margin-left: 22.5%;
+	width: 5%;
+	margin-top: 10px;
+	background-color: rgb(238,203,94);
+	border: 1px solid rgb(255,213,84);
+}
+
+input#btnReset {
+	background-color: rgb(238,203,94);
+	border: 1px solid rgb(255,213,84);
+}
 .btn {
 	border: 1px solid black;
 }
+
 .btnComputer {
 	border: 1px solid black;
 }
+
 #gameboard button {
 	float: left;
 	display: inline;
