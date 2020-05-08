@@ -29,21 +29,40 @@ div#your_fleet {
 div#enemy_fleet {
 	font-size: 2em;
 }
+button.noBtnX {
+	font-size: 16px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
+}
+button.noBtnY {
+	font-size: 16px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
+}
+#BoatList h2{
+	margin:10px;
+}
 
 #BoatList {
 	position: static;
 	margin-left: 5%;
+	margin-top: 50px;
 	background-color: rgb(238,203,94);
 	border: 10px solid rgb(255,213,84);
 	border-radius: 25px;
 	font-size: 30px;
 	display: inline-block;
-	height: 530px;
+	height: 480px;
 	width: 10%;
 	text-align: center;
 }
 
-.fleet input{
+.fleet input {
+	outline: none;
 	background-color: #1C7CC8;
 	margin-top: 20px;
 	width: 100px;
@@ -55,16 +74,46 @@ div#enemy_fleet {
 	position: static;
 }
 
+
 .fleet input:hover {
+	outline: none;
 	width: 110px;
 	box-shadow: 2px 4px 8px gray;
 }
-
+.fleet input:focus {
+	outline: none;
+	
+}
 #rotate {
+	
+	outline: none;
+	background-color: transparent;
+}
+
+#rotate img {
 	background-color: transparent;
 	border: none;
-} 
+	width: 48px;
+	height: 48px;
+}
+#rotate:focus {
+	outline: none;
+}
+#rotate img:hover {
 
+	width: 50px;
+	height: 50px;
+}
+#rotate:hover {
+	outline: none;
+	background-color: transparent;
+	opacity: 80;
+	
+}
+#rotate:active {
+		outline: none;
+		border: none;
+}
 #gameboard {
 	position:relative;
 	float: left;
@@ -80,16 +129,20 @@ div#enemy_fleet {
 	width:500px;
 	height:500px;
 }
-
+.btn {
+	border: 1px solid black;
+}
+.btnComputer {
+	border: 1px solid black;
+}
 #gameboard button {
 	float: left;
 	display: inline;
 	position: absolute;
-	box-sizing: border-box;         /* Safari 5.1+, Chrome 10+, Firefox 29+, Opera 7+, IE 8+, Android 4.0+, iOS any */
+	box-sizing: border-box; /* Safari 5.1+, Chrome 10+, Firefox 29+, Opera 7+, IE 8+, Android 4.0+, iOS any */
 	background: transparent; /* Old browsers */
-	border: 1px solid black;
-	width:50px;
-	height:50px;
+	width: 50px;
+	height: 50px;
 }
 
 #gameboard2 button {
@@ -98,11 +151,6 @@ div#enemy_fleet {
 	position:absolute;
 	box-sizing: border-box;         /* Safari 5.1+, Chrome 10+, Firefox 29+, Opera 7+, IE 8+, Android 4.0+, iOS any */
 	background: transparent; /* Old browsers */
-	border: 1px solid black;
 	width:50px;
 	height:50px;
-}
-
-.noBtn{
-	border: none;
 }

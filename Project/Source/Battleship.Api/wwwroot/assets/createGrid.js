@@ -22,12 +22,14 @@ for (let i = 0; i < cols; i++)
         gameBoardContainer2.appendChild(square2);
         
         if (i == 0) {
-            square.className = "noBtn";
+            square.className = "noBtnY";
+            square2.className = "noBtnY";
             square.id = "Y" + j;
             square2.id = "y" + j;
         }          
         if (j == 0) {
-            square.className = "noBtn";
+            square.className = "noBtnX";
+            square2.className = "noBtnX";
             square.id = 'X' + i;
             square2.id = 'x' + i;
         } else if (i != 0 && j != 0) {
