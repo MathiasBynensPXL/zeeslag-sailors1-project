@@ -126,8 +126,9 @@ function CalculatePosition() {
     
     if (!outOfBounds && isPlaced === 'false') {
         alert(ship);
-        localStorage.setItem("ship", ship);
+        localStorage.setItem("shipCoordinates", ship);
         localStorage.setItem(code + "IsPlaced", true);
+        BackendPlaceOnGrid();
         VisualPlaceOnGrid();
     } else if (outOfBounds) {
         alert("Out of Bounds!!!");

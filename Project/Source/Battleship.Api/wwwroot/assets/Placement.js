@@ -30,31 +30,29 @@ function loaded() {
 
 }
 
-
-
 function CAR() {
-	
+	localStorage.setItem("ship", "Carrier");
 	grid_listner("CAR", 5);
 	
 }
 
 function BS() {
-	
+	localStorage.setItem("ship", "Battleship");
 	grid_listner("BS", 4);
 }
 
 function DS() {
-	
+	localStorage.setItem("ship", "Destroyer");
 	grid_listner("DS", 3);
 }
 
 function SM() {
-	
+	localStorage.setItem("ship", "Submarine");
 	grid_listner("SM", 3);
 }
 
 function PB() {
-
+	localStorage.setItem("ship", "Patrolboat");
 	grid_listner("PB", 2);
 }
 
@@ -69,16 +67,63 @@ function Rotate() {
 
 function VisualPlaceOnGrid() {
 	let lengte = localStorage.getItem("length");
-	let segmentcoordinates = localStorage.getItem("ship");
+	let segmentcoordinates = localStorage.getItem("shipCoordinates");
+	let code = localStorage.getItem("code");
 			//							 ()()
 	let array = segmentcoordinates.split(',');
 	
 	for (let i = 0; i < array.length; i++) {
 		let vakje = document.getElementById(array[i]);
-		vakje.style.background = "#FFFFFF";
-		vakje.style.border = "#00FF00";
-		vakje.className = "actief";
+		vakje.className = code + "actief";
 	}
 	
 
+}
+
+function Reset() {
+	let code = localStorage.getItem("code");
+	let Array = document.getElementsByClassName(code + "actief");
+	alert(Array.length);
+	while (Array.length > 0) {
+		for (let i = 0; i < Array.length; i++) {
+			Array[i].className = "btn";
+		}
+		Array = document.getElementsByClassName(code + "actief");
+	}
+	localStorage.setItem(code + "IsPlaced", false);
+}
+
+function BackendPlaceOnGrid() {
+	let coordinates = localStorage.getItem("shipCoordinates");
+	let string = '[ ';
+	for (let i = 0; i < localStorage.getItem("length"); i++) {
+		string += '{ "row":' + coordinates[i] % 10 + ',';
+		string += '"column":' + coordinates[i] / 10 + '},';
+	} 
+	string += ']';
+
+	let url = "https://localhost:5001/api/games/" + sessionStorage.getItem("GameID") + "/positionship";
+
+	fetch(url,
+		{
+			method: "POST",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+			},
+			body: {
+				'shipCode': localStorage.getItem("code"),
+				'segmentCoordinates': string
+			}
+
+		})
+		.then((response) => {
+			if (response.status == 200) {
+				return response.json();
+			} else {
+				throw `error with status ${response.status}`;
+			}
+		});
+	
 }

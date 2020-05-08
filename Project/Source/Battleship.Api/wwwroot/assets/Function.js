@@ -95,7 +95,7 @@ function CheckToken() {
 }
 
 function CheckGameID() {
-    //if (sessionStorage.getItem("GameID") == null) {
-    //   window.location.href = "https://localhost:5001/index.html";
-    //}
+    if (sessionStorage.getItem("GameID") == null) {
+       window.location.href = "https://localhost:5001/index.html";
+    }
 }
