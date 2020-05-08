@@ -65,37 +65,75 @@ function CalculatePosition() {
     let rotatie = parseInt(localStorage.getItem("rotatie"));
     let coordinaat = parseInt(localStorage.getItem("squareId"));
     let ship = [];
-
+    let code = localStorage.getItem("code");
+    let isPlaced = localStorage.getItem(code + "IsPlaced");
+    let outOfBounds = false;
     alert(rotatie);
-    
-    if (rotatie === 0) {
-        for (let i = 0; i < lengte; i++) {
-            ship[i] = coordinaat + i;
-            //segmentcoordinaten.push(new Coordinate(Math.floor(coordinaat / 10), (coordinaat % 10) + i));
-            //segmentcoordinaten[i] = { 1: 2};
-        }
-    } else if (rotatie === 1) {
-        for (let i = 0; i < lengte; i++) {
-            ship[i] = coordinaat + (i * 10);
-            //segmentcoordinaten.push(new Coordinate(Math.floor(coordinaat / 10), (coordinaat % 10) + i));
-            //segmentcoordinaten[i] = { "row": (Math.floor(coordinaat / 10) + i), "column": (coordinaat % 10) };
-        }
-    } else if (rotatie === 2) {
-        for (let i = 0; i < lengte; i++) {
-            ship[i] = coordinaat - i;
-                //segmentcoordinaten.push(new Coordinate(Math.floor(coordinaat / 10), (coordinaat % 10) + i));
-                //segmentcoordinaten[i] = { "row": Math.floor(coordinaat / 10), "column": ((coordinaat % 10) - i) };
+
+    if (isPlaced != 'true') {
+        if (rotatie === 0) {
+            for (let i = 0; i < lengte; i++) {
+                ship[i] = coordinaat + i;
+                if (ship[i] < 0 || ship[i] >= (rows - 1) * (cols - 1)) {
+                    outOfBounds = true;
+                }
+                if (i != 0 && ship[i - 1] % 10 === 9 && ship[i] % 10 === 0) {
+                    outOfBounds = true;
+                }
+                if (ship[i] < 10) {
+                    ship[i] = "0" + ship[i];
+                }
+                
             }
-    } else if (rotatie === 3) {
-        for (let i = 0; i < lengte; i++) {
-            ship[i] = coordinaat - (i * 10);
-            //segmentcoordinaten.push(new Coordinate(Math.floor(coordinaat / 10), (coordinaat % 10) + i));
-            //segmentcoordinaten[i] = { "row": Math.floor(coordinaat / 10) + i, "column": (coordinaat % 10)};
+        } else if (rotatie === 1) {
+            for (let i = 0; i < lengte; i++) {
+                ship[i] = coordinaat + (i * 10);
+                if (ship[i] < 0 || ship[i] >= (rows - 1) * (cols - 1)) {
+                    outOfBounds = true;
+                }
+                if (ship[i] < 10) {
+                    ship[i] = "0" + ship[i];
+                }
+                
+            }
+        } else if (rotatie === 2) {
+            for (let i = 0; i < lengte; i++) {
+                ship[i] = coordinaat - i;
+                if (ship[i] < 0 || ship[i] >= (rows - 1) * (cols - 1)) {
+                    outOfBounds = true;
+                }
+                if (i != 0 && ship[i - 1] % 10 === 0 && ship[i] % 10 === 9) {
+                    outOfBounds = true;
+                }
+                if (ship[i] < 10) {
+                    ship[i] = "0" + ship[i];
+                }
+                
+            }
+        } else if (rotatie === 3) {
+            for (let i = 0; i < lengte; i++) {
+                ship[i] = coordinaat - (i * 10);
+                if (ship[i] < 0 || ship[i] >= (rows - 1) * (cols - 1)) {
+                    outOfBounds = true;
+                }
+                if (ship[i] < 10) {
+                    ship[i] = "0" + ship[i];
+                }
+               
+            }
         }
     }
-    alert(ship);
-    //alert(segmentcoordinaten);
-    localStorage.setItem("ship", ship);
+    
+    if (!outOfBounds && isPlaced === 'false') {
+        alert(ship);
+        localStorage.setItem("ship", ship);
+        localStorage.setItem(code + "IsPlaced", true);
+        VisualPlaceOnGrid();
+    } else if (outOfBounds) {
+        alert("Out of Bounds!!!");
+    } else {
+        alert("Already placed!");
+    }
     //localStorage.setItem("Coordinates", segmentcoordinaten);
 }
 
@@ -106,6 +144,7 @@ function handleEvent() {
    localStorage.setItem("squareId", squareId);
     alert(squareId);
     CalculatePosition();
+    
 }
 
 function grid_listner(code,length) {
