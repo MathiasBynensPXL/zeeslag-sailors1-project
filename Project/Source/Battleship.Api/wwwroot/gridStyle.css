@@ -26,6 +26,13 @@ div#your_fleet {
 	font-size: 2em;
 }
 
+#errorBox {
+	position: absolute;
+	color: red;
+	border: none;
+	background: transparent;
+}
+
 div#enemy_fleet {
 	font-size: 2em;
 }

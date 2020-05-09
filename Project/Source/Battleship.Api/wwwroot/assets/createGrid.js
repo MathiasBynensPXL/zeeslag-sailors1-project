@@ -5,7 +5,7 @@ let squareSize = 50;
 
 // get the container element
 let gameBoardContainer = document.getElementById("gameboard");
-localStorage.setItem("gameboard", gameboard);
+sessionStorage.setItem("gameboard", gameboard);
 let gameBoardContainer2 = document.getElementById("gameboard2");
 // make the grid columns and rows
 
@@ -61,16 +61,16 @@ function Coordinate(x, y) {
 
 
 function CalculatePosition() {
-    let lengte = parseInt(localStorage.getItem("length"));
-    let rotatie = parseInt(localStorage.getItem("rotatie"));
-    let coordinaat = parseInt(localStorage.getItem("squareId"));
+    let lengte = parseInt(sessionStorage.getItem("length"));
+    let rotatie = parseInt(sessionStorage.getItem("rotatie"));
+    let coordinaat = parseInt(sessionStorage.getItem("squareId"));
     let ship = [];
-    let code = localStorage.getItem("code");
-    let isPlaced = localStorage.getItem(code + "IsPlaced");
+    let code = sessionStorage.getItem("code");
+    let isPlaced = sessionStorage.getItem(code + "IsPlaced");
     let outOfBounds = false;
     alert(rotatie);
 
-    if (isPlaced != 'true') {
+    if (isPlaced === 'false') {
         if (rotatie === 0) {
             for (let i = 0; i < lengte; i++) {
                 ship[i] = coordinaat + i;
@@ -125,24 +125,29 @@ function CalculatePosition() {
     }
     
     if (!outOfBounds && isPlaced === 'false') {
-        alert(ship);
-        localStorage.setItem("shipCoordinates", ship);
-        localStorage.setItem(code + "IsPlaced", true);
-        BackendPlaceOnGrid();
-        VisualPlaceOnGrid();
+        alert(ship); 
+        sessionStorage.setItem("shipCoordinates", ship);
+        BackendPlaceOnGrid(function () {
+            errorMessage();
+            let msgg = sessionStorage.getItem("isFailure");
+            if (msgg != 'true') {
+                sessionStorage.setItem(code + "IsPlaced", true);
+                VisualPlaceOnGrid();
+            }
+        });
+
     } else if (outOfBounds) {
         alert("Out of Bounds!!!");
     } else {
         alert("Already placed!");
     }
-    //localStorage.setItem("Coordinates", segmentcoordinaten);
 }
 
 
 function handleEvent() {
 
    let squareId = event.target.id;
-   localStorage.setItem("squareId", squareId);
+   sessionStorage.setItem("squareId", squareId);
     alert(squareId);
     CalculatePosition();
     
@@ -151,8 +156,8 @@ function handleEvent() {
 function grid_listner(code,length) {
     alert(code);
     alert(length);
-    localStorage.setItem("code", code);
-    localStorage.setItem("length", length);
+    sessionStorage.setItem("code", code);
+    sessionStorage.setItem("length", length);
 
     const buttons = document.querySelectorAll('.btn')
 
