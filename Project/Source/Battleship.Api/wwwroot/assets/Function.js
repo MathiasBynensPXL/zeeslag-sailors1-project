@@ -86,19 +86,15 @@ function logFunction() {
         .then((response) => {
             if (response.status == 200) {
                 response.json().then(data => {
-                    sessionStorage.setItem("msg1", "");
-                    sessionStorage.setItem("msg2", "");
                     sessionStorage.setItem("msg3", "");
                     sessionStorage.setItem("token", data.token);
                     window.location.href = "https://localhost:5001/index.html";
-                    errorMessage();
+                    errorMessage2()
                 });
 
             } else {
-                sessionStorage.setItem("msg1", "");
-                sessionStorage.setItem("msg2", "");
                 sessionStorage.setItem("msg3", "Foute inloggegevens");
-                errorMessage();
+                errorMessage2();
                 
             }
         })
@@ -112,14 +108,19 @@ function logFunction() {
 function errorMessage() {
     let msg1 = sessionStorage.getItem("msg1")
     let msg2 = sessionStorage.getItem("msg2")
-    let msg3 = sessionStorage.getItem("msg3")
     let errorBox1 = document.getElementById("errorBox1");
     let errorBox2 = document.getElementById("errorBox2");
-    let errorBox3 = document.getElementById("errorBox3");
     errorBox1.value = msg1;
     errorBox2.value = msg2;
+    
+}
+
+function errorMessage2() {
+    let msg3 = sessionStorage.getItem("msg3")
+    let errorBox3 = document.getElementById("errorBox3");
     errorBox3.value = msg3;
 }
+
 
 function CheckToken() {
     if (sessionStorage.getItem("token") == null) {
