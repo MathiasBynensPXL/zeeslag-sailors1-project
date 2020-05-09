@@ -6,6 +6,7 @@ using Battleship.Domain.FleetDomain;
 using Battleship.Domain.GameDomain;
 using Battleship.Domain.GameDomain.Contracts;
 using Battleship.Domain.GridDomain;
+using Battleship.Domain.PlayerDomain.Contracts;
 
 namespace Battleship.Business.Services
 {
@@ -48,7 +49,10 @@ namespace Battleship.Business.Services
 
         public Result PositionShipOnGrid(Guid gameId, Guid playerId, ShipKind shipKind, GridCoordinate[] segmentCoordinates)
         {
-            throw new NotImplementedException("PositionShipOnGrid method of GameService class is not implemented");
+            IGame game = _gameRepository.GetById(gameId);
+            IPlayer speler = game.GetPlayerById(playerId);
+            return speler.Fleet.TryMoveShipTo(shipKind, segmentCoordinates, speler.Grid );
+            
         }
 
         public ShotResult ShootAtOpponent(Guid gameId, Guid shooterPlayerId, GridCoordinate coordinate)

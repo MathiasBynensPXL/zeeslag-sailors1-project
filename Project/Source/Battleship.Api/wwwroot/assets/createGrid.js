@@ -165,16 +165,16 @@ function grid_listner(code,length) {
 
 
 
-for (let k = 1; k <= 10; k++)
+for (let k = 1; k < 11; k++)
 {
 
     document.getElementById("X" + k).innerText = k.toString();
     document.getElementById("x" + k).innerHTML = k.toString();
 }
 
-for (let l = 0; l <= 10; l++) {
+for (let l = 0; l < 11; l++) {
     if (document.getElementById("Y" + l) || document.getElementById("y" + l)) {
-        for (let m = 65; m <= 75; m++) {
+        for (let m = 65; m < 75; m++) {
            
             document.getElementById("y" + l).innerHTML = String.fromCharCode(m);
             document.getElementById("Y" + l).innerHTML = String.fromCharCode(m);
