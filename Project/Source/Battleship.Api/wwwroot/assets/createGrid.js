@@ -54,11 +54,11 @@ for (let i = 0; i < cols; i++)
     }
     
 }
+
 function Coordinate(x, y) {
     this.x = x;
     this.y = y;
 }
-
 
 function CalculatePosition() {
     let lengte = parseInt(sessionStorage.getItem("length"));
@@ -143,7 +143,6 @@ function CalculatePosition() {
     }
 }
 
-
 function handleEvent() {
 
    let squareId = event.target.id;
@@ -164,8 +163,6 @@ function grid_listner(code,length) {
     });
 
 }
-
-
 
 for (let k = 1; k < 11; k++)
 {

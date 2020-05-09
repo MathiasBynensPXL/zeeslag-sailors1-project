@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="gridStyle.css">
     <script src="assets/Function.js"></script>
     <script src="assets/Placement.js"></script>
+    <script src="assets/GameHandling.js"></script>
     <script>
         CheckToken();
         CheckGameID();
@@ -43,6 +44,9 @@
         </div>
         <form id="reset" action="game_easy.html">
             <input type="button" id="btnReset" value="Verplaats Ship" onclick="Reset()"/>
+        </form>
+        <form>
+            <input type="button" id="Start" value="Ready!" onclick="StartGame()"/>
         </form>
     </div>
     <script type="text/javascript" src="assets/createGrid.js"></script>

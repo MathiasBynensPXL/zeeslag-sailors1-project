@@ -21,7 +21,21 @@ namespace Battleship.Domain.FleetDomain
             _Dictionary.Add(ShipKind.PatrolBoat, new Ship(ShipKind.PatrolBoat));
         }
 
-        public bool IsPositionedOnGrid { get { return _IsPositionedOnGrid; } }
+        public bool IsPositionedOnGrid { get 
+            { 
+                if (!_IsPositionedOnGrid)
+                {
+                    foreach(IShip boat in this.GetAllShips())
+                    {
+                        if (boat.Squares == null)
+                        {
+                            return _IsPositionedOnGrid;
+                        } 
+
+                    }
+                    _IsPositionedOnGrid = true;
+                }
+                return _IsPositionedOnGrid; } }
 
         public Result TryMoveShipTo(ShipKind kind, GridCoordinate[] segmentCoordinates, IGrid grid)
         {
@@ -66,6 +80,7 @@ namespace Battleship.Domain.FleetDomain
 
                 grid.GetSquareAt(segmentCoordinates[i]);
             }
+            
             return Result.CreateSuccessResult();
         }
 
