@@ -25,6 +25,7 @@ namespace Battleship.Domain.GridDomain
         public void HitByBomb()
         {
             OnHitByBomb?.Invoke(this);
+            
         }
     }
 

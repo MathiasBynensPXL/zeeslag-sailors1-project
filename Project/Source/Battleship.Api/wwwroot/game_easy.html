@@ -39,15 +39,15 @@
                 <input type="button" id="PB" value="Patrolboat"><br><br>
                 <button id="rotate" type="button"><img src="assets/rotate.png" /></button>
             </form>
+            <form class="ready_button">
+                <input class="hide" type="button" id="Start" value="Ready!" onclick="StartGame()" />
+            </form>
         </div>
         <div id="gameboard2">
         </div>
         <form id="reset" action="game_easy.html">
-            <input type="button" id="btnReset" value="Verplaats Ship" onclick="Reset()"/>
-        </form>
-        <form>
-            <input type="button" id="Start" value="Ready!" onclick="StartGame()"/>
-        </form>
+            <input type="button" id="btnReset" value="Verplaats Ship" onclick="Reset()" />
+        </form>       
     </div>
     <script type="text/javascript" src="assets/createGrid.js"></script>
 </body>

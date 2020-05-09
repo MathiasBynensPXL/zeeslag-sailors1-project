@@ -55,10 +55,10 @@ for (let i = 0; i < cols; i++)
     
 }
 
-function Coordinate(x, y) {
-    this.x = x;
-    this.y = y;
-}
+//function Coordinate(x, y) {
+//    this.x = x;
+//    this.y = y;
+//}
 
 function CalculatePosition() {
     let lengte = parseInt(sessionStorage.getItem("length"));
@@ -131,6 +131,7 @@ function CalculatePosition() {
             if (msg != 'true') {
                 sessionStorage.setItem(code + "IsPlaced", true);
                 VisualPlaceOnGrid();
+                btnReady();
             }
         });
 
@@ -144,18 +145,18 @@ function CalculatePosition() {
 }
 
 function handleEvent() {
-
    let squareId = event.target.id;
    sessionStorage.setItem("squareId", squareId);
-    CalculatePosition();
-    
+    CalculatePosition(); 
 }
+
+
 
 function grid_listner(code,length) {
     sessionStorage.setItem("code", code);
     sessionStorage.setItem("length", length);
 
-    const buttons = document.querySelectorAll('.btn')
+    const buttons = document.querySelectorAll('.btn');
 
     buttons.forEach(function (currentBtn)
     {
@@ -180,4 +181,14 @@ for (let l = 0; l < 11; l++) {
             l++;
         }
     }
+}
+
+function btnReady() {
+    
+    if (sessionStorage.getItem('CARIsPlaced') === 'true' && sessionStorage.getItem('BSIsPlaced') === 'true' && sessionStorage.getItem('SMIsPlaced') === 'true' && sessionStorage.getItem('PBIsPlaced') === 'true' && sessionStorage.getItem('DSIsPlaced') === 'true')
+    {
+        let knopReady = document.getElementById('Start');
+        knopReady.style.visibility = 'visible';
+    }
+   
 }
