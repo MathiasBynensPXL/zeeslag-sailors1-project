@@ -36,7 +36,7 @@ for (let i = 0; i < cols; i++)
             square.className = "btn";
             square2.className = "btnComputer";
             square.id = (i-1) + "" + (j-1);
-            square2.id = (i-1) + "" + (j-1);
+            square2.id = "0" + (i-1) + "" + (j-1);
         }
 
         

@@ -38,11 +38,11 @@ namespace Battleship.Domain.PlayerDomain
             {
                 this._HasBombsLoaded = false;
                 IGridSquare square = opponent.Grid.Shoot(coordinate);
-                if (square.Status.HasFlag(GridSquareStatus.Hit))
+                if (square.Status == GridSquareStatus.Hit)
                 {
                     return ShotResult.CreateHit(opponent.Fleet.FindShipAtCoordinate(coordinate));
                 }
-                if (square.Status.HasFlag(GridSquareStatus.Miss))
+                if (square.Status == GridSquareStatus.Miss)
                 {
                     return ShotResult.CreateMissed();
                 }
@@ -51,26 +51,6 @@ namespace Battleship.Domain.PlayerDomain
             {
                 return ShotResult.CreateMisfire("You have no bombs loaded");
             }
-
-
-
-
-
-
-
-            //this._HasBombsLoaded = false;
-            //if (opponent.Fleet.GetAllShips() == null)
-            //{
-            //    return ShotResult.CreateMissed();
-            //}
-            //foreach (IShip boat in opponent.Fleet.GetAllShips())
-            //{
-
-            //    if (boat.CanBeFoundAtCoordinate(coordinate))
-            //    {
-            //        return ShotResult.CreateHit(boat);
-            //    }
-            //} return ShotResult.CreateMissed();
         }
     }
 }

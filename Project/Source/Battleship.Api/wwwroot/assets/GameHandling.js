@@ -93,5 +93,12 @@ function stats() {
 }
 
 function drawShots() {
-    alert("draw");
+    let coordinaat = sessionStorage.getItem("shotPlayer");
+    let isAHit = sessionStorage.getItem("shotResult") === 'true';
+    let id = document.getElementById(coordinaat);
+    if (isAHit) {
+        id.className = "Hit";
+    } else {
+        id.className = "Miss";
+    }
 }

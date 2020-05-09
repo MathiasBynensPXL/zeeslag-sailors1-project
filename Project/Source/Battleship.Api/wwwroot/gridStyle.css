@@ -263,3 +263,11 @@ input#Start:focus {
 	border: none;
 	background: transparent;
 }
+
+.Hit {
+	background-color: green !important;
+}
+
+.Miss {
+	background-color: red !important;
+}

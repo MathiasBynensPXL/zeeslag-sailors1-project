@@ -99,7 +99,14 @@ namespace Battleship.Domain.FleetDomain
 
         public IShip FindShipAtCoordinate(GridCoordinate coordinate)
         {
-            throw new NotImplementedException("FindShipAtCoordinate method of Fleet class is not implemented");
+            foreach (IShip boat in this.GetAllShips())
+            {
+                if (boat.CanBeFoundAtCoordinate(coordinate))
+                {
+                    return boat;
+                }
+            }
+            return null;
         }
 
         public IList<IShip> GetAllShips()

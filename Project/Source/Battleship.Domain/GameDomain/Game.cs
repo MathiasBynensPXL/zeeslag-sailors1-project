@@ -44,7 +44,7 @@ namespace Battleship.Domain.GameDomain
                 IPlayer shooter = this.GetPlayerById(shooterPlayerId);
                 IPlayer victim = this.GetOpponent(shooter);
        
-                if (shooter.HasBombsLoaded == true)
+                if (shooter.HasBombsLoaded)
                 {
                     return shooter.ShootAt(victim, coordinate);
                 }
