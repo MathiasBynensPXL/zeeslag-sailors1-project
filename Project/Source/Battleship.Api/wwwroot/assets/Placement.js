@@ -29,10 +29,10 @@ function loaded() {
 	
 
 }
+
 function changeButton(boat) {
 	let changeName = document.getElementById("btnReset"); 
 	changeName.value = "Reset " + boat; 
-	//document.getElementById("btnReset").innerHTML = "Reset " + boat;
 }
 
 function CAR() {
@@ -109,13 +109,13 @@ function Reset() {
 }
 
 function BackendPlaceOnGrid() {
-	let coordinates = localStorage.getItem("shipCoordinates");
-	let string = '[ ';
-	for (let i = 0; i < localStorage.getItem("length"); i++) {
-		string += '{ "row":' + coordinates[i] % 10 + ',';
-		string += '"column":' + coordinates[i] / 10 + '},';
+	let coordinates = localStorage.getItem("shipCoordinates").split(",");
+	let segmentCoordinateArray = [];
+
+	for (let i = 0; i < coordinates.length; i++) {
+		segmentCoordinate = { "row": coordinates[i] % 10, "column": Math.floor(coordinates[i] / 10) };
+		segmentCoordinateArray.push(segmentCoordinate);
 	} 
-	string += ']';
 
 	let url = "https://localhost:5001/api/games/" + sessionStorage.getItem("GameID") + "/positionship";
 
@@ -127,10 +127,10 @@ function BackendPlaceOnGrid() {
 				'Content-Type': 'application/json',
 				'Authorization': 'Bearer ' + sessionStorage.getItem("token")
 			},
-			body: {
+			body: JSON.stringify({
 				'shipCode': localStorage.getItem("code"),
-				'segmentCoordinates': string
-			}
+				'segmentCoordinates': segmentCoordinateArray
+			})
 
 		})
 		.then((response) => {
