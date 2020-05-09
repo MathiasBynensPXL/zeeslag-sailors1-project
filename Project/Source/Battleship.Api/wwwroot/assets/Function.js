@@ -42,7 +42,7 @@
                     errorMessage();
                     return response.json();
                 } else {
-                    sessionStorage.setItem("msg1", "Er is iets misgelopen....");
+                    sessionStorage.setItem("msg1", "Email is al in gebruik of de velden zijn onjuist ingevuld");
                     sessionStorage.setItem("msg2", "");
                     errorMessage();
                     
