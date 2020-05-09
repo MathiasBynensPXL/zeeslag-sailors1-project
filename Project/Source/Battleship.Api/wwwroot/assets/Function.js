@@ -7,16 +7,23 @@
     let user = { email: email, password: paswoord, nickName: gebruikersnaam };
     let url = 'https://localhost:5001/api/Authentication/register';
 
+    
     if (email == "" || gebruikersnaam == "" || paswoord == "" || checkPaswoord == "") {
-        alert("Je hebt minstens 1 vak niet ingevuld.");
+        sessionStorage.setItem("msg1", "Je hebt minstens 1 vak niet ingevuld.");
+        sessionStorage.setItem("msg2", "");
+        errorMessage();
         return;
     }
+
     if (paswoord.length < 6) {
-        alert("Wachtwoord moet minstens 6 tekens bevatten.");
+        sessionStorage.setItem("msg1", "");
+        sessionStorage.setItem("msg2", "paswoord moet minstens 6 tekens lang zijn");
+        errorMessage();
         return;
     }
 
     if (paswoord === checkPaswoord) {
+        
         fetch(url,
             {
                 method: "POST",
@@ -30,10 +37,15 @@
                 if (response.status == 200) {
                     sessionStorage.setItem("emailtje", email);
                     window.location.href = "https://localhost:5001/login_user.html";
+                    sessionStorage.setItem("msg1", "");
+                    sessionStorage.setItem("msg2", "");
+                    errorMessage();
                     return response.json();
                 } else {
-                    alert("Er is iets misgelopen....");
-                    throw `error with status ${response.status}`;
+                    sessionStorage.setItem("msg1", "Er is iets misgelopen....");
+                    sessionStorage.setItem("msg2", "");
+                    errorMessage();
+                    
                 }
             })
             .then((user) => {
@@ -43,7 +55,9 @@
             });
 
     } else {
-        alert("paswoorden komen niet overeen");
+        sessionStorage.setItem("msg1", "");
+        sessionStorage.setItem("msg2", "paswoorden komen niet overeen");
+        errorMessage();
         return;
     }
 }
@@ -51,7 +65,7 @@
 
     function passingEmail() {
         document.loginForm.email.value = sessionStorage.getItem("emailtje");
-        }
+    }
 
 function logFunction() {
 
@@ -72,13 +86,20 @@ function logFunction() {
         .then((response) => {
             if (response.status == 200) {
                 response.json().then(data => {
+                    sessionStorage.setItem("msg1", "");
+                    sessionStorage.setItem("msg2", "");
+                    sessionStorage.setItem("msg3", "");
                     sessionStorage.setItem("token", data.token);
                     window.location.href = "https://localhost:5001/index.html";
+                    errorMessage();
                 });
 
             } else {
-                alert("foute inloggegevens, probeer opnieuw!")
-                throw `error with status ${response.status}`;
+                sessionStorage.setItem("msg1", "");
+                sessionStorage.setItem("msg2", "");
+                sessionStorage.setItem("msg3", "Foute inloggegevens");
+                errorMessage();
+                
             }
         })
         .then((user) => {
@@ -87,6 +108,18 @@ function logFunction() {
         });
 }
 
+
+function errorMessage() {
+    let msg1 = sessionStorage.getItem("msg1")
+    let msg2 = sessionStorage.getItem("msg2")
+    let msg3 = sessionStorage.getItem("msg3")
+    let errorBox1 = document.getElementById("errorBox1");
+    let errorBox2 = document.getElementById("errorBox2");
+    let errorBox3 = document.getElementById("errorBox3");
+    errorBox1.value = msg1;
+    errorBox2.value = msg2;
+    errorBox3.value = msg3;
+}
 
 function CheckToken() {
     if (sessionStorage.getItem("token") == null) {

@@ -1,0 +1,23 @@
+﻿input#errorBox1, input#errorBox2, input#errorBox3 {
+    color: red;
+    border: none;
+    background: transparent;
+    padding: 0;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: none;
+    -webkit-box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    box-shadow: none;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    font-size: 12px;
+	text-align: center;
+}

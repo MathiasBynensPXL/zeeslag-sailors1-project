@@ -6,7 +6,8 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="Errors.css" />
     
 </head>
 <body>
@@ -20,24 +21,28 @@
                 <h1>Registreren</h1><br>
             </div>
 
+
             <!-- register Form -->
             <form name="regForm" target="login_user.html">
+                <input type="button" id="errorBox1" value="" />
                 <input type="email" required="required" id="email" class="fadeIn second" name="email" placeholder="E-mail"><br>
                 <input type="text" required="required" id="gebruikersnaam" class="fadeIn second" name="Gebruikersnaam" placeholder="gebruikersnaam"><br>
+                <input type="button" id="errorBox2" value="" />
                 <input type="password" required="required" id="paswoord" class="fadeIn third" name="login" placeholder="Wachtwoord"><br>
                 <input type="password" required="required" id="checkPaswoord" class="fadeIn third" name="login" placeholder="Herhaal wachtwoord"><br>
                 <input type="button" id="regPost" class="fadeIn fourth" value="registreren">
-                
+
             </form>
+
             <script>
                 window.addEventListener("load", loaded);
                 function loaded() {
                     let buttonPost = document.getElementById('regPost');
                     buttonPost.addEventListener("click", regFunction);
                 }
-
-
             </script>
+            
+
             <!-- terug naar login -->
             <div id="formFooter">
                 <a class="underlineHover" href="login_user.html">Al een account? <br> Naar de login pagina.</a>

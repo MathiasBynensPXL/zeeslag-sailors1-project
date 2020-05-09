@@ -7,7 +7,8 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login.css"/>
+    <link rel="stylesheet" href="Errors.css" />
     <!------ Include the above in your HEAD tag ---------->
 </head>
 <body onload="passingEmail()">
@@ -23,8 +24,12 @@
                 <h2>Door Sailor Team 1</h2>
             </div>
 
+            <form name="errorForm">
+                <input type="button" id="errorBox3" value="">
+            </form>
+
             <!-- Login Form -->
-            <form name="loginForm" >
+            <form name="loginForm">
                 <input type="email" required id="email" class="fadeIn second" name="email" placeholder="E-mail" value=""><br />
                 <input type="password" required id="paswoord" class="fadeIn third" name="login" placeholder="Wachtwoord"><br>
                 <input type="button" id="logFetch" class="fadeIn fourth" value="inloggen">
