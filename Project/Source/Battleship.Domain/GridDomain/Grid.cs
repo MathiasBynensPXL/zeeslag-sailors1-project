@@ -29,8 +29,15 @@ namespace Battleship.Domain.GridDomain
 
         public IGridSquare Shoot(GridCoordinate coordinate)
         {
-            this.Squares[coordinate.Row, coordinate.Column].HitByBomb();
-            return this.Squares[coordinate.Row, coordinate.Column];
+            if (coordinate.Row < 0 || coordinate.Row >= this.Size || coordinate.Column < 0 || coordinate.Column >= this.Size)
+            {
+                throw new ApplicationException("Shot is not within coordinate");
+            }
+            else
+            {
+                this.Squares[coordinate.Row, coordinate.Column].HitByBomb();
+                return this.Squares[coordinate.Row, coordinate.Column];
+            }
         }
     }
 }
