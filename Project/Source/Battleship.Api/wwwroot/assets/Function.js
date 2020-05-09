@@ -43,7 +43,7 @@
             });
 
     } else {
-        alert("Wachtwoorden komen niet overeen!");
+        alert("paswoorden komen niet overeen");
         return;
     }
 }
