@@ -13,23 +13,37 @@
     </script>
 </head>
 <body>
-    <h1>The easy Game!</h1>
+    <h1>DIFFICULTY : EASY</h1>
+    <div id="your_fleet" class="fleet_name">
+        <p>YOUR FLEET</p>
+        <form>
+            <input type="button" id="errorBox" value=""/>
+        </form>
+    </div>
+
+    <div id="enemy_fleet" class="fleet_name">
+        <p>ENEMY FLEET</p>
+    </div>
     <div>
+        <div id="gameboard">
+        </div>
+
         <div id="BoatList">
             <h2>Boats</h2>
             <form class="fleet">
-                <input type="button" id="CAR" value="Carrier" ><br>
+                <input type="button" id="CAR" value="Carrier"><br>
                 <input type="button" id="BS" value="Battleship"><br>
                 <input type="button" id="DS" value="Destroyer"><br>
                 <input type="button" id="SM" value="Submarine"><br>
-                <input type="button" id="PB" value="Patrolboat"><br>
+                <input type="button" id="PB" value="Patrolboat"><br><br>
+                <button id="rotate" type="button"><img src="assets/rotate.png" /></button>
             </form>
-        </div>
-
-        <div id="gameboard">
         </div>
         <div id="gameboard2">
         </div>
+        <form id="reset" action="game_easy.html">
+            <input type="button" id="btnReset" value="Verplaats Ship" onclick="Reset()"/>
+        </form>
     </div>
     <script type="text/javascript" src="assets/createGrid.js"></script>
 </body>
