@@ -26,12 +26,7 @@ div#your_fleet {
 	font-size: 2em;
 }
 
-#errorBox {
-	position: absolute;
-	color: red;
-	border: none;
-	background: transparent;
-}
+
 
 div#enemy_fleet {
 	font-size: 2em;
@@ -142,9 +137,11 @@ button.noBtnY {
 	height:500px;
 }
 
-#reset {
-	margin-left: 22.5%;
+form#reset {
+	text-align: center;
+	width: 50%;
 }
+
 
 input#btnReset {
 
@@ -152,7 +149,7 @@ input#btnReset {
 	border: 4px solid rgb(255,213,84);
 	outline: none;
 	margin-top: 20px;
-	width: 150px;
+	width: 160px;
 	font-size: 15px;
 	border-radius: 25px;
 	padding: 10px;
@@ -161,9 +158,9 @@ input#btnReset {
 }
 
 input#btnReset:hover {
-		outline: none;
-		width: 160px;
-		box-shadow: 2px 4px 8px gray;
+	outline: none;
+	width: 170px;
+	box-shadow: 2px 8px 16px gray;
 }
 
 input#btnReset:focus {
@@ -221,4 +218,24 @@ input#btnReset:focus {
 .PBactief {
 	background-color: orange !important;
 	border-color: orange;
+}
+
+#your_fleet form {
+	margin-top: -30px;
+	width: 550px;
+	text-align: center;
+	float: left;
+	margin-left: 200px;
+	position: absolute
+}
+
+#your_fleet form #errorBox {
+	margin-top: -15px;
+	font-size: 0.5em;
+}
+
+#errorBox {
+	color: red;
+	border: none;
+	background: transparent;
 }

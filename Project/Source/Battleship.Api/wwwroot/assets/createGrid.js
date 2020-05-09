@@ -68,7 +68,6 @@ function CalculatePosition() {
     let code = sessionStorage.getItem("code");
     let isPlaced = sessionStorage.getItem(code + "IsPlaced");
     let outOfBounds = false;
-    alert(rotatie);
 
     if (isPlaced === 'false') {
         if (rotatie === 0) {
@@ -125,21 +124,22 @@ function CalculatePosition() {
     }
     
     if (!outOfBounds && isPlaced === 'false') {
-        alert(ship); 
         sessionStorage.setItem("shipCoordinates", ship);
         BackendPlaceOnGrid(function () {
             errorMessage();
-            let msgg = sessionStorage.getItem("isFailure");
-            if (msgg != 'true') {
+            let msg = sessionStorage.getItem("isFailure");
+            if (msg != 'true') {
                 sessionStorage.setItem(code + "IsPlaced", true);
                 VisualPlaceOnGrid();
             }
         });
 
     } else if (outOfBounds) {
-        alert("Out of Bounds!!!");
+        sessionStorage.setItem("msg", "Out of bounds");
+        errorMessage();
     } else {
-        alert("Already placed!");
+        sessionStorage.setItem("msg", "Already placed!");
+        errorMessage();
     }
 }
 
@@ -148,14 +148,11 @@ function handleEvent() {
 
    let squareId = event.target.id;
    sessionStorage.setItem("squareId", squareId);
-    alert(squareId);
     CalculatePosition();
     
 }
 
 function grid_listner(code,length) {
-    alert(code);
-    alert(length);
     sessionStorage.setItem("code", code);
     sessionStorage.setItem("length", length);
 

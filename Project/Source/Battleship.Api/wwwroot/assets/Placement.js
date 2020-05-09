@@ -32,7 +32,7 @@ function loaded() {
 
 function changeButton(boat) {
 	let changeName = document.getElementById("btnReset"); 
-	changeName.value = "Reset " + boat; 
+	changeName.value = "Verplaats " + boat; 
 }
 
 function CAR() {
@@ -98,7 +98,6 @@ function VisualPlaceOnGrid() {
 function Reset() {
 	let code = sessionStorage.getItem("code");
 	let Array = document.getElementsByClassName(code + "actief");
-	alert(Array.length);
 	while (Array.length > 0) {
 		for (let i = 0; i < Array.length; i++) {
 			Array[i].className = "btn";
