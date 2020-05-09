@@ -129,7 +129,7 @@ button.noBtnY {
 	height:500px;
 }
 
-#gameboard2{
+#gameboard2 {
 	position:relative;
 	float: right;
 	margin: 0px 250px 50px 50px;
@@ -250,7 +250,7 @@ input#Start:focus {
 	text-align: center;
 	float: left;
 	margin-left: 200px;
-	position: absolute
+	position: absolute;
 }
 
 #your_fleet form #errorBox {
