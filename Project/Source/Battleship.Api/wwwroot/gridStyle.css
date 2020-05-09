@@ -140,11 +140,12 @@ button.noBtnY {
 }
 
 input#btnReset {
+
 	background-color: rgb(238,203,94);
 	border: 4px solid rgb(255,213,84);
 	outline: none;
 	margin-top: 20px;
-	width: 100px;
+	width: 150px;
 	font-size: 15px;
 	border-radius: 25px;
 	padding: 10px;
@@ -154,7 +155,7 @@ input#btnReset {
 
 input#btnReset:hover {
 		outline: none;
-		width: 110px;
+		width: 160px;
 		box-shadow: 2px 4px 8px gray;
 }
 

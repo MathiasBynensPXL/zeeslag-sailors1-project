@@ -29,30 +29,45 @@ function loaded() {
 	
 
 }
+function changeButton(boat) {
+	let changeName = document.getElementById("btnReset"); 
+	changeName.value = "Reset " + boat; 
+	//document.getElementById("btnReset").innerHTML = "Reset " + boat;
+}
 
 function CAR() {
-	localStorage.setItem("ship", "Carrier");
+	let boat = "Carrier";
+	localStorage.setItem("ship", boat);
+	changeButton(boat);
 	grid_listner("CAR", 5);
 	
 }
 
 function BS() {
-	localStorage.setItem("ship", "Battleship");
+	let boat = "Battleship";
+	localStorage.setItem("ship", boat);
+	changeButton(boat);
 	grid_listner("BS", 4);
 }
 
 function DS() {
-	localStorage.setItem("ship", "Destroyer");
+	let boat = "Destroyer";
+	localStorage.setItem("ship", boat);
+	changeButton(boat);
 	grid_listner("DS", 3);
 }
 
 function SM() {
-	localStorage.setItem("ship", "Submarine");
+	let boat = "Submarine";
+	localStorage.setItem("ship", boat);
+	changeButton(boat);
 	grid_listner("SM", 3);
 }
 
 function PB() {
-	localStorage.setItem("ship", "Patrolboat");
+	let boat = "Patrolboat";
+	localStorage.setItem("ship", boat);
+	changeButton(boat);
 	grid_listner("PB", 2);
 }
 
