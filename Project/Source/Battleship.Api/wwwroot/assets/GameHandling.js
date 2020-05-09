@@ -1,6 +1,7 @@
 ﻿function StartGame() {
     let url = "https://localhost:5001/api/games/" + sessionStorage.getItem("GameID") + "/start";
-    fetch(url, {
+    fetch(url,
+    {
 
         method: "POST",
         headers: {
@@ -46,8 +47,9 @@ function findCoordinateAndShoot() {
     let squareId2 = event.target.id;
     sessionStorage.setItem("shotPlayer", squareId2);
 
-    let url = "https://localhost:5001/api/games" + sessionStorage.getItem("GameID") + "/shoot";
-    fetch(url, {
+    let url = "https://localhost:5001/api/games/" + sessionStorage.getItem("GameID") + "/shoot";
+    fetch(url,
+    {
 
         method: "POST",
         headers: {
@@ -55,10 +57,10 @@ function findCoordinateAndShoot() {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + sessionStorage.getItem("token")
         },
-        body: {
+        body: JSON.stringify({
             "row": squareId2 % 10,
             "column": Math.floor(squareId2 / 10)
-        },
+        }),
     })
         .then((response) => {
             if (response.status == 200) {
