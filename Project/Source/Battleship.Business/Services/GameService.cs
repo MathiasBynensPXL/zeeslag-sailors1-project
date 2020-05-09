@@ -43,8 +43,8 @@ namespace Battleship.Business.Services
 
         public IGameInfo GetGameInfoForPlayer(Guid gameId, Guid playerId)
         {
-            
-            throw new NotImplementedException("GetGameInfoForPlayer method of GameService class is not implemented");
+            IGame game = _gameRepository.GetById(gameId);
+            return _gameInfoFactory.CreateFromGame(game, playerId);
         }
 
         public Result PositionShipOnGrid(Guid gameId, Guid playerId, ShipKind shipKind, GridCoordinate[] segmentCoordinates)
@@ -57,7 +57,8 @@ namespace Battleship.Business.Services
 
         public ShotResult ShootAtOpponent(Guid gameId, Guid shooterPlayerId, GridCoordinate coordinate)
         {
-            throw new NotImplementedException("ShootAtOpponent method of GameService class is not implemented");
+            IGame game = _gameRepository.GetById(gameId);
+            return game.ShootAtOpponent(shooterPlayerId, coordinate);
         }
     }
 }

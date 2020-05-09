@@ -84,7 +84,7 @@ function VisualPlaceOnGrid() {
 	let lengte = sessionStorage.getItem("length");
 	let segmentcoordinates = sessionStorage.getItem("shipCoordinates");
 	let code = sessionStorage.getItem("code");
-			//							 ()()
+	//	        						 ()()
 	let array = segmentcoordinates.split(',');
 	
 	for (let i = 0; i < array.length; i++) {

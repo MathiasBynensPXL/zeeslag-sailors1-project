@@ -29,7 +29,8 @@ namespace Battleship.Domain.GridDomain
 
         public IGridSquare Shoot(GridCoordinate coordinate)
         {
-            throw new NotImplementedException("Shoot method of Grid class is not implemented");
+            this.Squares[coordinate.Row, coordinate.Column].HitByBomb();
+            return this.Squares[coordinate.Row, coordinate.Column];
         }
     }
 }
