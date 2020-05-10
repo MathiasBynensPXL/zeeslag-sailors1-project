@@ -24,9 +24,12 @@ namespace Battleship.Domain.GridDomain
 
         public void HitByBomb()
         {
+
+            this.Status = GridSquareStatus.Miss;
             OnHitByBomb?.Invoke(this);
             this.NumberOfBombs++;
-            this.Status = GridSquareStatus.Miss;
+            //this.Status = GridSquareStatus.Miss;
+
         }
     }
 

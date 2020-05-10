@@ -12,7 +12,7 @@ namespace Battleship.Domain.PlayerDomain
         public ComputerPlayer(GameSettings settings, IShootingStrategy shootingStrategy) : base(Guid.NewGuid(), "Computer", settings)
         {
 
-            this.Fleet.RandomlyPositionOnGrid(new Grid(settings.GridSize), settings.AllowDeformedShips);
+            this.Fleet.RandomlyPositionOnGrid(this.Grid, settings.AllowDeformedShips);
             
         }
 

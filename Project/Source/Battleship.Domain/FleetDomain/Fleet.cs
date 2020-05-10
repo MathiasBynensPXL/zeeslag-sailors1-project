@@ -71,16 +71,10 @@ namespace Battleship.Domain.FleetDomain
             foreach(IShip ship in _Dictionary.Values) {
                 if (ship.Kind == kind)
                 {
-                    IGridSquare[] converted = ConvertGridCoordinateToGridSquare(segmentCoordinates);
+                    IGridSquare[] converted = ConvertGridCoordinateToGridSquare(segmentCoordinates, grid);
                     ship.PositionOnGrid(converted);
                 }
             }
-            for (int i = 0; i < segmentCoordinates.Length; i++)
-            {
-
-                grid.GetSquareAt(segmentCoordinates[i]);
-            }
-            
             return Result.CreateSuccessResult();
         }
 
@@ -129,12 +123,12 @@ namespace Battleship.Domain.FleetDomain
             return sunken;
         }
 
-        private IGridSquare[] ConvertGridCoordinateToGridSquare(GridCoordinate[] gridCoordinates)
+        private IGridSquare[] ConvertGridCoordinateToGridSquare(GridCoordinate[] gridCoordinates, IGrid grid)
         {
-            GridSquare[] gridSquare = new GridSquare[gridCoordinates.Length];
+            IGridSquare[] gridSquare = new IGridSquare[gridCoordinates.Length];
             for (int i = 0; i < gridCoordinates.Length; i++)
             {
-                gridSquare[i] = new GridSquare(gridCoordinates[i]);
+                gridSquare[i] = grid.GetSquareAt(gridCoordinates[i]);
             }
             return gridSquare;
         }

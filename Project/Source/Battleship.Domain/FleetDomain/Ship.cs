@@ -14,7 +14,22 @@ namespace Battleship.Domain.FleetDomain
 
         public ShipKind Kind { get; }
 
-        public bool HasSunk { get; }
+        public bool HasSunk { 
+            get {
+                if (Squares != null)
+                {
+                    foreach (IGridSquare gridSquare in Squares)
+                    {
+                        if (gridSquare.Status == GridSquareStatus.Untouched || gridSquare.Status == GridSquareStatus.Miss)
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+                return false;
+            } 
+        }
 
         public Ship(ShipKind kind)
         {
@@ -29,15 +44,13 @@ namespace Battleship.Domain.FleetDomain
 
         public void PositionOnGrid(IGridSquare[] squares)
         {
-            if (this._Squares == null)
+            if (this._Squares != null)
             {
-                this._Squares = new IGridSquare[0];
+                for (int i = 0; i < this.Squares.Length; i++)
+                {
+                    this.Squares[i].OnHitByBomb -= HitByBombHandler;
+                }
             }
-            for (int i = 0; i < this.Squares.Length; i++)
-            {
-                this.Squares[i].OnHitByBomb -= HitByBombHandler;
-            }
-            
             this._Squares = squares;
             for (int i = 0;  i < this.Squares.Length; i++)
             {

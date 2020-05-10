@@ -15,6 +15,8 @@ namespace Battleship.Domain.PlayerDomain
 
         public GridCoordinate DetermineTargetCoordinate()
         {
+            //Random random = new Random();
+            //GridCoordinate Target =  new GridCoordinate(random.Next(this.oppenentGrid.Size), random.Next(this.oppenentGrid.Size));
             throw new NotImplementedException("DetermineTargetCoordinate method of RandomShootingStrategy class is not implemented");
         }
 

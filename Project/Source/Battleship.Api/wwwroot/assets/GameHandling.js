@@ -96,7 +96,7 @@ function drawShots() {
     let coordinaat = sessionStorage.getItem("shotPlayer");
     let isAHit = sessionStorage.getItem("shotResult") === 'true';
     let id = document.getElementById(coordinaat);
-    if (isAHit) {
+    if (sessionStorage.getItem("shotResult") === 'true') {
         id.className = "Hit";
     } else {
         id.className = "Miss";
