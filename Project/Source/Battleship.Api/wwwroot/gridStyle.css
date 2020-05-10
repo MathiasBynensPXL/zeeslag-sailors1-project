@@ -89,6 +89,47 @@ button.noBtnY {
 	outline: none;
 }
 
+
+#Stats h2 {
+	margin: 10px;
+}
+
+#Stats {
+	visibility: hidden;
+	position: absolute;
+	margin-left: -11%;
+	margin-top: 50px;
+	background-color: rgb(238,203,94);
+	border: 10px solid rgb(255,213,84);
+	border-radius: 25px;
+	font-size: 30px;
+	display: inline-block;
+	height: 480px;
+	width: 10%;
+	text-align: center;
+}
+
+.stats input {
+	text-align: center;
+	outline: none;
+	background-color: transparent;
+	border-radius: 25px;
+	position: static;
+}
+
+.stats input:hover {
+	outline: none;
+}
+
+.stats input:focus {
+	outline: none;
+}
+
+td {
+	font-size: 15px;
+}
+
+
 #rotate {
 	outline: none;
 	background-color: transparent;
@@ -145,6 +186,7 @@ form#reset {
 form#reset {
 	margin-top: -32px;
 }
+
 input#btnReset {
 	background-color: rgb(238,203,94);
 	border: 4px solid rgb(255,213,84);
