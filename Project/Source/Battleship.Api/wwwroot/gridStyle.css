@@ -181,11 +181,9 @@ td {
 form#reset {
 	text-align: center;
 	width: 50%;
-}
-
-form#reset {
 	margin-top: -32px;
 }
+
 
 input#btnReset {
 	background-color: rgb(238,203,94);
@@ -226,7 +224,7 @@ input#Start:hover {
 }
 
 input#btnReset:focus {
-		outline: none;
+	outline: none;
 }
 
 input#Start:focus {
@@ -312,4 +310,8 @@ input#Start:focus {
 
 .Miss {
 	background-color: red !important;
+}
+
+form.ready_button {
+	margin-top: 15px;
 }
