@@ -48,10 +48,10 @@
 
         <div id="Stats">
             <h2>Statistics</h2>
-            <table id="stats" border="1">
+            <table id="stats" >
                 <tbody>
                     <tr>
-                        <td class="linkerkolom">Shot fired</td>
+                        <td class="linkerkolom">Shots fired</td>
                         <td>
                             <form class="stats">
                                 <input type="button" id="stat_fired">
@@ -95,18 +95,11 @@
 
 
 
-            <!--<form class="stats">
-        <input type="text" id="shots_fired" value="Shots fired"><br>
-        <input type="text" id="shots_hit" value="Shots hit"><br>
-        <input type="text" id="ships_sunk" value="Ships sunk"><br>
-        <input type="text" id="shots_missed" value="Shots missed"><br>
-        <input type="text" id="hit_miss_ratio" value="Hit-Miss ratio"><br>
-    </form>
-        -->
-            <form class="end_game">
+    
+            <form class="end_game" hidden>
                 <input class="hide" type="button" id="End" value="End game" onclick="EndGame()" />
             </form>
-            <form class="restart_game">
+            <form class="restart_game" hidden>
                 <input class="hide" type="button" id="Restart" value="restart game" onclick="RestartGame()" />
             </form>
         </div>

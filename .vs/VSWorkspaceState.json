@@ -3,9 +3,13 @@
     "",
     "\\Project",
     "\\Project\\Source",
+    "\\Project\\Source\\Battleship.Api",
     "\\Project\\Source\\Battleship.Api\\wwwroot",
     "\\Project\\Source\\Battleship.Api\\wwwroot\\assets",
-    "\\Project\\Source\\Battleship.Business"
+    "\\Project\\Source\\Battleship.Business",
+    "\\Project\\Source\\Battleship.Business\\Services",
+    "\\Project\\Source\\Battleship.Business\\Services\\Contracts",
+    "\\Project\\Source\\Battleship.Data"
   ],
   "SelectedNode": "\\Project\\Source\\Battleship.sln",
   "PreviewInSolutionExplorer": false

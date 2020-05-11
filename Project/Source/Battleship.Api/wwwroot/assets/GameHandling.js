@@ -27,7 +27,7 @@
 }
 
 function IsStarted() {
-
+    GetInfo();
     errorMessage();
     if (sessionStorage.getItem("isStarted") === 'true') {
             
@@ -97,11 +97,13 @@ function shotAnswer() {
     GetInfo();
     if (sessionStorage.getItem("shotFired") === 'true') {
        stats();
-        drawShots();
+       drawShots();
+       
     }
 }
 
 function stats() {
+    
     let numberOfShots = sessionStorage.getItem("numberOfShots");
     numberOfShots++;
     sessionStorage.setItem("numberOfShots", numberOfShots);
@@ -118,17 +120,25 @@ function stats() {
         shit_miss++;
         sessionStorage.setItem("shots_miss", shit_miss);
     }
+
     let hit = document.getElementById("stat_hit");
     let miss = document.getElementById("stat_missed");
     let ratio = document.getElementById("stat_ratio");
+
+    let gezonken = sessionStorage.getItem("totalSunken");
+    let sunken = document.getElementById("stat_sunk");
+    sunken.value = gezonken;
 
     hit.value = shot_hit;
     miss.value = shit_miss;
     let sommetje = shot_hit / numberOfShots;
     ratio.value = sommetje.toFixed(2);
+
+
 }
 
 function drawShots() {
+
     let coordinaat = sessionStorage.getItem("shotPlayer");
     let isAHit = sessionStorage.getItem("shotResult") === 'true';
     let id = document.getElementById(coordinaat);
@@ -137,6 +147,7 @@ function drawShots() {
     } else {
         id.className = "Miss";
     }
+    
 }
 
 
@@ -158,8 +169,8 @@ function GetInfo() {
                 response.json().then(data => {
                     
                     sessionStorage.setItem("sunkenOpponentShips", JSON.stringify(data.sunkenOpponentShips));
-                    //IsStarted();
-                    print();
+                
+                    SunkenShipsInfo();
                 });
             } else {
                 throw `error with status ${response.status}`;
@@ -168,11 +179,25 @@ function GetInfo() {
 
 }
 
-function print() {
-    let printer = sessionStorage.getItem("sunkenOpponentShips");
+function SunkenShipsInfo() {
     
-    let test1 = printer.split("}],[{");
-    
-    alert(test1[0]);
-   // [{ "coordinates": [{ "row": 3, "column": 6 }, { "row": 3, "column": 7 }, { "row": 3, "column": 8 }], "kind": { "code": "SM", "name": "Submarine", "size": 3 }, "hasSunk": true }]
+    let shipInfo = JSON.parse(sessionStorage.getItem("sunkenOpponentShips"));
+    sessionStorage.setItem("totalSunken", shipInfo.length);
+    if (shipInfo.length != 0) {
+        for (let j = 0; j < shipInfo.length; j++)
+        {
+            for (let i = 0; i < shipInfo[j].coordinates.length; i++)
+            {
+               
+                let id = "0" + shipInfo[j].coordinates[i].column + shipInfo[j].coordinates[i].row;
+                let schipvakje = document.getElementById(id);
+                schipvakje.className =  "gezonken";
+            }
+
+
+        }
+       
+    }
+ 
+
 }

@@ -95,6 +95,7 @@ button.noBtnY {
 }
 
 #Stats {
+
 	visibility: hidden;
 	position: absolute;
 	margin-left: -11%;
@@ -102,11 +103,18 @@ button.noBtnY {
 	background-color: rgb(238,203,94);
 	border: 10px solid rgb(255,213,84);
 	border-radius: 25px;
-	font-size: 30px;
+	font-size: 25px;
 	display: inline-block;
 	height: 480px;
 	width: 10%;
 	text-align: center;
+}
+
+table#stats {
+	border: 2px solid black;
+	width: 100%;
+	height:86.5%;
+	border-radius:20px;
 }
 
 .stats input {
@@ -129,6 +137,10 @@ td {
 	font-size: 15px;
 }
 
+.gezonken {
+	background-color: black !important;
+	border: 2px solid red !important;
+}
 
 #rotate {
 	outline: none;
