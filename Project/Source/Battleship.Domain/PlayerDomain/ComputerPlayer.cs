@@ -8,17 +8,18 @@ namespace Battleship.Domain.PlayerDomain
 {
     public class ComputerPlayer : PlayerBase
     {
+        private IShootingStrategy shootingStrategy;
 
         public ComputerPlayer(GameSettings settings, IShootingStrategy shootingStrategy) : base(Guid.NewGuid(), "Computer", settings)
         {
-
+            this.shootingStrategy = shootingStrategy;
             this.Fleet.RandomlyPositionOnGrid(this.Grid, settings.AllowDeformedShips);
             
         }
 
         public void ShootAutomatically(IPlayer opponent)
         {
-            throw new NotImplementedException("ShootAutomatically method of ComputerPlayer class is not implemented");
+            this.ShootAt(opponent, this.shootingStrategy.DetermineTargetCoordinate());
         }
     }
 }
