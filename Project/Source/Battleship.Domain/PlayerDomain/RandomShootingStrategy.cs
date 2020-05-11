@@ -20,17 +20,39 @@ namespace Battleship.Domain.PlayerDomain
 
         public GridCoordinate DetermineTargetCoordinate()
         {
+            ApplicationException applicationException = new ApplicationException("All Squares are hit!");
             Random random = new Random();
-            bool iShit = false;
+            bool isNotHit = true;
             GridCoordinate Target = new GridCoordinate(random.Next(this.opponentGrid.Size), random.Next(this.opponentGrid.Size));
-
-            while (!iShit)
+            bool allSquaresHit = true;
+            foreach (IGridSquare square in opponentGrid.Squares)
             {
-                IGridSquare vierkantje = opponentGrid.GetSquareAt(Target);
-                iShit = opponentGrid.GetSquareAt(Target).Status != GridSquareStatus.Untouched;
-                Target = new GridCoordinate(random.Next(this.opponentGrid.Size), random.Next(this.opponentGrid.Size));
+                if (square.Status == GridSquareStatus.Untouched)
+                {
+                    allSquaresHit = false;
+                    break;
+                }
             }
-            return Target;
+
+
+
+            if (!allSquaresHit)
+            {
+                while (isNotHit)
+                {
+                    IGridSquare vierkantje = opponentGrid.GetSquareAt(Target);
+                    isNotHit = this.opponentGrid.Squares[Target.Row, Target.Column].Status != GridSquareStatus.Untouched;
+                    if (isNotHit)
+                    {
+                        Target = new GridCoordinate(random.Next(this.opponentGrid.Size), random.Next(this.opponentGrid.Size));
+                    }
+                }
+                return Target;
+            }
+            else
+            {
+                throw new ApplicationException();
+            }
         }
 
         public void RegisterShotResult(GridCoordinate target, ShotResult shotResult)

@@ -19,7 +19,8 @@ namespace Battleship.Domain.PlayerDomain
 
         public void ShootAutomatically(IPlayer opponent)
         {
-            this.ShootAt(opponent, this.shootingStrategy.DetermineTargetCoordinate());
+            GridCoordinate target = this.shootingStrategy.DetermineTargetCoordinate();
+            this.shootingStrategy.RegisterShotResult(target, this.ShootAt(opponent, target));
         }
     }
 }

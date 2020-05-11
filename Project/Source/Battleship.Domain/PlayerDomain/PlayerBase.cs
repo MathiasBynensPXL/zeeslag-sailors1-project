@@ -36,8 +36,9 @@ namespace Battleship.Domain.PlayerDomain
         {
             if (HasBombsLoaded == true)
             {
-                //this._HasBombsLoaded = false;
+                this._HasBombsLoaded = false;
                 IGridSquare square = opponent.Grid.Shoot(coordinate);
+                opponent.ReloadBombs();
                 if (square.Status == GridSquareStatus.Hit)
                 {
                     return ShotResult.CreateHit(opponent.Fleet.FindShipAtCoordinate(coordinate));
