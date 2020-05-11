@@ -82,6 +82,7 @@ function findCoordinateAndShoot() {
                     sessionStorage.setItem("msg", data.misfireReason);
                     sessionStorage.setItem("shotFired", data.shotFired);
                     shotAnswer();
+
                 });
             } else {
                 throw `error with status ${response.status}`;
@@ -93,9 +94,10 @@ function findCoordinateAndShoot() {
 
 function shotAnswer() {
     errorMessage();
+    GetInfo();
     if (sessionStorage.getItem("shotFired") === 'true') {
        stats();
-       drawShots();
+        drawShots();
     }
 }
 
@@ -135,4 +137,42 @@ function drawShots() {
     } else {
         id.className = "Miss";
     }
+}
+
+
+function GetInfo() {
+    let url = "https://localhost:5001/api/games/" + sessionStorage.getItem("GameID");
+    fetch(url,
+        {
+
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            },
+           
+        })
+        .then((response) => {
+            if (response.status == 200) {
+                response.json().then(data => {
+                    
+                    sessionStorage.setItem("sunkenOpponentShips", JSON.stringify(data.sunkenOpponentShips));
+                    //IsStarted();
+                    print();
+                });
+            } else {
+                throw `error with status ${response.status}`;
+            }
+        });
+
+}
+
+function print() {
+    let printer = sessionStorage.getItem("sunkenOpponentShips");
+    
+    let test1 = printer.split("}],[{");
+    
+    alert(test1[0]);
+   // [{ "coordinates": [{ "row": 3, "column": 6 }, { "row": 3, "column": 7 }, { "row": 3, "column": 8 }], "kind": { "code": "SM", "name": "Submarine", "size": 3 }, "hasSunk": true }]
 }
