@@ -29,7 +29,13 @@ namespace Battleship.Business.Models
             gameInfo.OwnGrid = _gridInfoFactory.CreateFromGrid(player.Grid);
             gameInfo.OpponentGrid = _gridInfoFactory.CreateFromGrid(oppenent.Grid);
             gameInfo.OwnShips = _shipInfoFactory.CreateMultipleFromFleet(player.Fleet);
-            gameInfo.SunkenOpponentShips = _shipInfoFactory.CreateMultipleFromSunkenShipsOfFleet(oppenent.Fleet);
+            if (game.Settings.MustReportSunkenShip)
+            {
+                gameInfo.SunkenOpponentShips = _shipInfoFactory.CreateMultipleFromSunkenShipsOfFleet(oppenent.Fleet);
+            } else
+            {
+                gameInfo.SunkenOpponentShips = new List<IShipInfo>();
+            }
             if (player.Fleet.IsPositionedOnGrid && oppenent.Fleet.IsPositionedOnGrid)
             {
                 gameInfo.IsReadyToStart =  true;
