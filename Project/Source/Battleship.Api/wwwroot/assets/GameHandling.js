@@ -29,6 +29,7 @@
 function IsStarted() {
     GetInfo();
     errorMessage();
+    
     if (sessionStorage.getItem("isStarted") === 'true') {
             
             sessionStorage.setItem("numberOfShots", 0);
@@ -95,6 +96,9 @@ function findCoordinateAndShoot() {
 function shotAnswer() {
     errorMessage();
     GetInfo();
+    updatePlayerSquares();
+    OwnSunkenShipsInfo();
+    
     if (sessionStorage.getItem("shotFired") === 'true') {
        stats();
        drawShots();
@@ -170,8 +174,10 @@ function GetInfo() {
                 response.json().then(data => {
                     
                     sessionStorage.setItem("sunkenOpponentShips", JSON.stringify(data.sunkenOpponentShips));
-                
+                    sessionStorage.setItem("ownGrid", JSON.stringify(data.ownGrid));
+                    sessionStorage.setItem("ownShips", JSON.stringify(data.ownShips));
                     SunkenOpponentShipsInfo();
+                    OwnSunkenShipsInfo();
                 });
             } else {
                 throw `error with status ${response.status}`;
@@ -208,12 +214,16 @@ function SunkenOpponentShipsInfo() {
 function OwnSunkenShipsInfo() {
 
     let shipInfo = JSON.parse(sessionStorage.getItem("ownShips"));
-    sessionStorage.setItem("ownTotalSunken", shipInfo.length);
-    if (shipInfo.length != 0) {
-        for (let j = 0; j < shipInfo.length; j++) {
-            for (let i = 0; i < shipInfo[j].coordinates.length; i++) {
 
-                let id = "0" + shipInfo[j].coordinates[i].column + shipInfo[j].coordinates[i].row;
+    
+    for (let j = 0; j < shipInfo.length; j++)
+    {
+        if (shipInfo[j].hasSunk == true)
+        {
+            for (let i = 0; i < shipInfo[j].coordinates.length; i++)
+            {
+
+                let id = shipInfo[j].coordinates[i].column + "" + shipInfo[j].coordinates[i].row;
                 let schipvakje = document.getElementById(id);
                 schipvakje.className = "gezonken";
             }
@@ -223,5 +233,28 @@ function OwnSunkenShipsInfo() {
 
     }
 
+
+}
+
+function updatePlayerSquares() {
+    let grid = JSON.parse(sessionStorage.getItem("ownGrid"));
+    let squares = grid.squares;
+    let vakje;
+
+    for (let i = 0; i < squares.length; i++) {
+        for (let j = 0; j < squares.length; j++) {
+            vakje = document.getElementById(j + "" + i);
+            if (squares[i][j].status == 1 &&  vakje.className != 'gezonken') {
+
+                vakje.className = "Miss";
+
+            }
+            else if (squares[i][j].status == 2 && vakje.className != 'gezonken') {
+               
+                vakje.className = "Hit";
+            }
+
+        }
+    }
 
 }
