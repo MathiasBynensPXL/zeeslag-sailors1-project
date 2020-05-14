@@ -22,5 +22,6 @@ namespace Battleship.Domain.PlayerDomain
             GridCoordinate target = this.shootingStrategy.DetermineTargetCoordinate();
             this.shootingStrategy.RegisterShotResult(target, this.ShootAt(opponent, target));
         }
+
     }
 }

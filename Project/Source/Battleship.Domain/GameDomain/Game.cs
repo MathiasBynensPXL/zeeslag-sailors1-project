@@ -39,17 +39,20 @@ namespace Battleship.Domain.GameDomain
         }
 
         public ShotResult ShootAtOpponent(Guid shooterPlayerId, GridCoordinate coordinate)
-        {   
+        {
             if (this.IsStarted == true)
             {
                 IPlayer shooter = this.GetPlayerById(shooterPlayerId);
                 IPlayer victim = this.GetOpponent(shooter);
-               
-               
 
                 if (shooter.HasBombsLoaded)
-                { 
-                    return shooter.ShootAt(victim, coordinate);
+                {
+                    ShotResult result = shooter.ShootAt(victim, coordinate);
+                    if (victim is ComputerPlayer)
+                    {
+                        ((ComputerPlayer)victim).ShootAutomatically(shooter);
+                    }
+                    return result;
                 }
                 else
                 {
