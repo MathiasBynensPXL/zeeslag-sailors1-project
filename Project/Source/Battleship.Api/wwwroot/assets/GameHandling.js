@@ -125,9 +125,10 @@ function stats() {
     let miss = document.getElementById("stat_missed");
     let ratio = document.getElementById("stat_ratio");
 
-    let gezonken = sessionStorage.getItem("totalSunken");
-    let sunken = document.getElementById("stat_sunk");
-    sunken.value = gezonken;
+    let tegenstanderGezonken = sessionStorage.getItem("totalOpponentSunken");
+    let opponentSunken = document.getElementById("stat_sunk");
+    opponentSunken.value = tegenstanderGezonken;
+
 
     hit.value = shot_hit;
     miss.value = shit_miss;
@@ -170,7 +171,7 @@ function GetInfo() {
                     
                     sessionStorage.setItem("sunkenOpponentShips", JSON.stringify(data.sunkenOpponentShips));
                 
-                    SunkenShipsInfo();
+                    SunkenOpponentShipsInfo();
                 });
             } else {
                 throw `error with status ${response.status}`;
@@ -179,10 +180,13 @@ function GetInfo() {
 
 }
 
-function SunkenShipsInfo() {
+
+
+
+function SunkenOpponentShipsInfo() {
     
     let shipInfo = JSON.parse(sessionStorage.getItem("sunkenOpponentShips"));
-    sessionStorage.setItem("totalSunken", shipInfo.length);
+    sessionStorage.setItem("totalOpponentSunken", shipInfo.length);
     if (shipInfo.length != 0) {
         for (let j = 0; j < shipInfo.length; j++)
         {
@@ -199,5 +203,25 @@ function SunkenShipsInfo() {
        
     }
  
+
+}
+function OwnSunkenShipsInfo() {
+
+    let shipInfo = JSON.parse(sessionStorage.getItem("ownShips"));
+    sessionStorage.setItem("ownTotalSunken", shipInfo.length);
+    if (shipInfo.length != 0) {
+        for (let j = 0; j < shipInfo.length; j++) {
+            for (let i = 0; i < shipInfo[j].coordinates.length; i++) {
+
+                let id = "0" + shipInfo[j].coordinates[i].column + shipInfo[j].coordinates[i].row;
+                let schipvakje = document.getElementById(id);
+                schipvakje.className = "gezonken";
+            }
+
+
+        }
+
+    }
+
 
 }
