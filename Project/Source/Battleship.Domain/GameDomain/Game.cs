@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices.ComTypes;
 using Battleship.Domain.GameDomain.Contracts;
 using Battleship.Domain.GridDomain;
+using Battleship.Domain.PlayerDomain;
 using Battleship.Domain.PlayerDomain.Contracts;
 using Microsoft.Extensions.ObjectPool;
 
@@ -38,14 +39,16 @@ namespace Battleship.Domain.GameDomain
         }
 
         public ShotResult ShootAtOpponent(Guid shooterPlayerId, GridCoordinate coordinate)
-        {
+        {   
             if (this.IsStarted == true)
             {
                 IPlayer shooter = this.GetPlayerById(shooterPlayerId);
                 IPlayer victim = this.GetOpponent(shooter);
-                
+               
+               
+
                 if (shooter.HasBombsLoaded)
-                {
+                { 
                     return shooter.ShootAt(victim, coordinate);
                 }
                 else
