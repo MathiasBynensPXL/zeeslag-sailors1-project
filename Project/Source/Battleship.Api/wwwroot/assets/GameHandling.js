@@ -216,14 +216,11 @@ function SunkenBoatListner() {
     let opponent = sessionStorage.getItem("totalOpponentSunken");
     let player = sessionStorage.getItem("totalOwnSunken");
     if (opponent == 5) {
-        alert("you win");
         let win = document.getElementById('endScreenWinner');
         win.style.visibility = 'visible';
       
     }
     else if (player == 5) {
-       
-       alert("you lose");
         let lose = document.getElementById('endScreenLoser');
         lose.style.visibility = 'visible';
     }

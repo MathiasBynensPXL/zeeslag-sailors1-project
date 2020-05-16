@@ -26,12 +26,12 @@ div#your_fleet {
 	font-size: 2em;
 }
 div.endScreen {
-
-	
+	left: 0;
+	top: 0;
 	position:absolute;
-	height:100%;
-	width:100%;
-
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
 }
 div#endScreenWinner {
 	visibility: hidden;
@@ -44,6 +44,14 @@ div#endScreenLoser {
 	position: absolute;
 	height: 100%;
 	width: 100%;
+}
+
+img#winner {
+	padding: 250px 705px 250px 705px;
+}
+
+img#loser {
+	padding: 250px 583px 250px 583px;
 }
 
 div#enemy_fleet {
