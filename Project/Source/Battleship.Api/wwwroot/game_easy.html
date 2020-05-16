@@ -18,7 +18,7 @@
     <div id="your_fleet" class="fleet_name">
         <p>YOUR FLEET</p>
         <form>
-            <input type="button" id="errorBox" value=""/>
+            <input type="button" id="errorBox" value="" />
         </form>
     </div>
 
@@ -45,10 +45,9 @@
             </form>
         </div>
 
-
         <div id="Stats">
             <h2>Statistics</h2>
-            <table id="stats" >
+            <table id="stats">
                 <tbody>
                     <tr>
                         <td class="linkerkolom">Shots fired</td>
@@ -95,7 +94,7 @@
 
 
 
-    
+
             <form class="end_game" hidden>
                 <input class="hide" type="button" id="End" value="End game" onclick="EndGame()" />
             </form>
@@ -111,6 +110,16 @@
             <input type="button" id="btnReset" value="Verplaats Ship" onclick="Reset()" />
         </form>
     </div>
+
+
+    <div id="endScreenLoser" class="endScreen">
+        <img src="assets/Epic_Fail.png" id="loser" alt="LOSER">
+
+    </div>
+    <div id="endScreenWinner" class="endscreen">
+        <img src="assets/Winner.png" id="winner" alt="WINNER">
+    </div>
+
     <script type="text/javascript" src="assets/createGrid.js"></script>
 </body>
 </html>

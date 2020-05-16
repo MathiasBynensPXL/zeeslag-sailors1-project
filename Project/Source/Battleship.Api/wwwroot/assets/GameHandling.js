@@ -97,12 +97,10 @@ function shotAnswer() {
     errorMessage();
     GetInfo();
     updatePlayerSquares();
-    OwnSunkenShipsInfo();
-    
+       
     if (sessionStorage.getItem("shotFired") === 'true') {
        stats();
-       drawShots();
-       
+       drawShots(); 
     }
 }
 
@@ -176,8 +174,7 @@ function GetInfo() {
                     sessionStorage.setItem("sunkenOpponentShips", JSON.stringify(data.sunkenOpponentShips));
                     sessionStorage.setItem("ownGrid", JSON.stringify(data.ownGrid));
                     sessionStorage.setItem("ownShips", JSON.stringify(data.ownShips));
-                    SunkenOpponentShipsInfo();
-                    OwnSunkenShipsInfo();
+                    InfoHandling();
                 });
             } else {
                 throw `error with status ${response.status}`;
@@ -186,6 +183,13 @@ function GetInfo() {
 
 }
 
+
+function InfoHandling() {
+    SunkenOpponentShipsInfo();
+    OwnSunkenShipsInfo();
+    SunkenBoatListner();
+   
+}
 
 
 
@@ -203,23 +207,39 @@ function SunkenOpponentShipsInfo() {
                 let schipvakje = document.getElementById(id);
                 schipvakje.className =  "gezonken";
             }
-
-
         }
-       
     }
- 
+}
+
+function SunkenBoatListner() {
+   
+    let opponent = sessionStorage.getItem("totalOpponentSunken");
+    let player = sessionStorage.getItem("totalOwnSunken");
+    if (opponent == 5) {
+        alert("you win");
+        let win = document.getElementById('endScreenWinner');
+        win.style.visibility = 'visible';
+      
+    }
+    else if (player == 5) {
+       
+       alert("you lose");
+        let lose = document.getElementById('endScreenLoser');
+        lose.style.visibility = 'visible';
+    }
 
 }
+
 function OwnSunkenShipsInfo() {
 
     let shipInfo = JSON.parse(sessionStorage.getItem("ownShips"));
-
+    let counter = 0;
     
     for (let j = 0; j < shipInfo.length; j++)
     {
         if (shipInfo[j].hasSunk == true)
         {
+            counter++;
             for (let i = 0; i < shipInfo[j].coordinates.length; i++)
             {
 
@@ -233,7 +253,7 @@ function OwnSunkenShipsInfo() {
 
     }
 
-
+    sessionStorage.setItem("totalOwnSunken", counter);
 }
 
 function updatePlayerSquares() {
@@ -247,7 +267,7 @@ function updatePlayerSquares() {
             if (squares[i][j].status == 1 &&  vakje.className != 'gezonken') {
 
                 vakje.className = "Miss";
-
+            
             }
             else if (squares[i][j].status == 2 && vakje.className != 'gezonken') {
                
