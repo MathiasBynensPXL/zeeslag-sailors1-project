@@ -165,7 +165,7 @@ td {
 
 .gezonken {
 	background-color: black !important;
-	border: 2px solid red !important;
+	border-color: transparent !important;
 }
 
 #rotate {
@@ -299,27 +299,27 @@ input#Start:focus {
 
 .CARactief {
 	background-color: red !important; 
-	border-color: red;
+	border-color: transparent;
 }
 
 .BSactief {
 	background-color: blue !important;
-	border-color: blue;
+	border-color: transparent;
 }
 
 .DSactief {
 	background-color: yellow !important;
-	border-color: yellow;
+	border-color: transparent;
 }
 
 .SMactief {
 	background-color: green !important;
-	border-color: green;
+	border-color: transparent;
 }
 
 .PBactief {
 	background-color: orange !important;
-	border-color: orange;
+	border-color: transparent;
 }
 
 #your_fleet form {
@@ -344,10 +344,13 @@ input#Start:focus {
 
 .Hit {
 	background-color: green !important;
+	border-color: transparent;
 }
 
 .Miss {
-	background-color: red !important;
+	background-color: black !important;
+	opacity: 0.25 !important;
+	border-color: transparent;
 }
 
 form.ready_button {

@@ -228,7 +228,6 @@ function SunkenBoatListner() {
 }
 
 function OwnSunkenShipsInfo() {
-
     let shipInfo = JSON.parse(sessionStorage.getItem("ownShips"));
     let counter = 0;
     
@@ -239,7 +238,6 @@ function OwnSunkenShipsInfo() {
             counter++;
             for (let i = 0; i < shipInfo[j].coordinates.length; i++)
             {
-
                 let id = shipInfo[j].coordinates[i].column + "" + shipInfo[j].coordinates[i].row;
                 let schipvakje = document.getElementById(id);
                 schipvakje.className = "gezonken";
