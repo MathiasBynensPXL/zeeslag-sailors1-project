@@ -41,7 +41,7 @@
             </form>
 
             <form class="ready_button">
-                <input class="hide" type="button" id="Start" value="Ready!" onclick="StartGame()" />
+                <input class="hide" type="button" id="Start" value="Ready!" onclick="StartGame(), startTimer()" />
             </form>
         </div>
 
@@ -91,6 +91,9 @@
                     </tr>
                 </tbody>
             </table>
+            <button id="timer">
+                <span id="minutes"></span>:<span id="seconds"></span>
+            </button>
             <form class="end_game" hidden>
                 <input class="hide" type="button" id="End" value="End game" onclick="EndGame()" />
             </form>
