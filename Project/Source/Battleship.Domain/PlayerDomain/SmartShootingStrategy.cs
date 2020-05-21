@@ -14,6 +14,7 @@ namespace Battleship.Domain.PlayerDomain
     {
         private GameSettings settings;
         private IGrid opponentGrid;
+        private Grid shootingGrid;
         private List<GridCoordinate> targets = new List<GridCoordinate>();
         private List<ShotResult> shotResults = new List<ShotResult>();
 
@@ -21,6 +22,7 @@ namespace Battleship.Domain.PlayerDomain
         {
             this.opponentGrid = opponentGrid;
             this.settings = settings;
+            this.shootingGrid = new Grid(settings.GridSize);
         }
 
         public GridCoordinate DetermineTargetCoordinate()
@@ -101,7 +103,12 @@ namespace Battleship.Domain.PlayerDomain
         { 
             shotResults.Add(shotResult);
             targets.Add(target);
-            
+            if (shotResult.Hit) {
+                shootingGrid.Squares[target.Column, target.Row].Status = GridSquareStatus.Hit;
+            } else
+            {
+                shootingGrid.Squares[target.Column, target.Row].Status = GridSquareStatus.Miss;
+            }
         }
     }
 }
