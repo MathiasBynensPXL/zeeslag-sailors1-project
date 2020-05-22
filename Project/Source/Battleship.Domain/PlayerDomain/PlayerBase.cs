@@ -10,6 +10,7 @@ namespace Battleship.Domain.PlayerDomain
 {
     public abstract class PlayerBase : IPlayer
     {
+        private GameSettings settings;
         public Guid Id { get; }
         public string NickName { get; }
         public IGrid Grid { get; }
@@ -25,6 +26,7 @@ namespace Battleship.Domain.PlayerDomain
             this.NickName = nickName;
             this.Grid = new Grid(gameSettings.GridSize);
             this.Fleet = new Fleet();
+            this.settings = gameSettings;
         }
 
         public void ReloadBombs()
@@ -42,7 +44,7 @@ namespace Battleship.Domain.PlayerDomain
 
                 if (square.Status == GridSquareStatus.Hit)
                 {
-                    return ShotResult.CreateHit(opponent.Fleet.FindShipAtCoordinate(coordinate));
+                    return ShotResult.CreateHit(opponent.Fleet.FindShipAtCoordinate(coordinate), this.settings.MustReportSunkenShip);
                 }
                 if (square.Status == GridSquareStatus.Miss)
                 {

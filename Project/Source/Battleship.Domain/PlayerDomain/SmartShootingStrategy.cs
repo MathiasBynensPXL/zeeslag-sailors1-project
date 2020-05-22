@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices.ComTypes;
+using Battleship.Domain.FleetDomain;
+using Battleship.Domain.FleetDomain.Contracts;
 using Battleship.Domain.GameDomain;
 using Battleship.Domain.GridDomain;
 using Battleship.Domain.GridDomain.Contracts;
@@ -14,100 +17,237 @@ namespace Battleship.Domain.PlayerDomain
     {
         private GameSettings settings;
         private IGrid opponentGrid;
-        private Grid shootingGrid;
-        private List<GridCoordinate> targets = new List<GridCoordinate>();
-        private List<ShotResult> shotResults = new List<ShotResult>();
+        private Direction[] possibleDirections;
+        private List<GridCoordinate> untouched, missed, hitted, candidates;
+        private IList<IShip> ships;
 
         public SmartShootingStrategy(GameSettings settings, IGrid opponentGrid)
         {
             this.opponentGrid = opponentGrid;
             this.settings = settings;
-            this.shootingGrid = new Grid(settings.GridSize);
+            
+            this.ships = new Fleet().GetAllShips();
+            if (settings.AllowDeformedShips)
+            {
+                this.possibleDirections = Direction.AllDirections;
+            }
+            else
+            {
+                this.possibleDirections = Direction.BasicDirections;
+            }
+            untouched = new List<GridCoordinate>();
+            foreach (IGridSquare square in opponentGrid.Squares)
+            {
+                untouched.Add(square.Coordinate);
+            }
+            hitted = new List<GridCoordinate>();
+            missed = new List<GridCoordinate>();
+            candidates = new List<GridCoordinate>();
+        }
+
+
+        private List<GridCoordinate> GetNeighbours(GridCoordinate coordinate, Direction[] possibleDirections, GridSquareStatus withStatus)
+        {
+            List<GridCoordinate> result = new List<GridCoordinate>();
+            foreach (Direction direction in possibleDirections)
+            {
+                GridCoordinate otherCoordinate = coordinate.GetNeighbor(direction);
+                if (!otherCoordinate.IsOutOfBounds(this.opponentGrid.Size))
+                {
+                    IGridSquare otherSquare = this.opponentGrid.GetSquareAt(otherCoordinate);
+
+                    if (otherSquare.Status == withStatus)
+                    {
+                        result.Add(otherCoordinate);
+                    }
+                }
+            }
+            return result;
+        }
+
+        private int GetSmallestShipSize()
+        {
+            int result = this.opponentGrid.Size;
+            foreach (IShip ship in this.ships)
+            {
+                if (result > ship.Kind.Size)
+                {
+                    result = ship.Kind.Size;
+                }
+            }
+            return result;
+        }
+
+        private bool isPossibleShip(GridCoordinate coordinate)
+        {
+            int numberUntouched = 0;
+            foreach (Direction direction in this.possibleDirections)
+            {
+                int numberUntouchedDirection = 1;
+                GridCoordinate nextCoordinate = coordinate.GetNeighbor(direction);
+                while (!nextCoordinate.IsOutOfBounds(this.opponentGrid.Size))
+                {
+                    if (opponentGrid.GetSquareAt(nextCoordinate).Status == GridSquareStatus.Untouched)
+                    {
+                        numberUntouchedDirection++;
+                        nextCoordinate = nextCoordinate.GetNeighbor(direction);
+                    } else
+                    {
+                        break;
+                    }
+                }
+                nextCoordinate = coordinate.GetNeighbor(direction.Opposite);
+                while (!nextCoordinate.IsOutOfBounds(this.opponentGrid.Size))
+                {
+                    if (opponentGrid.GetSquareAt(nextCoordinate).Status == GridSquareStatus.Untouched)
+                    {
+                        numberUntouchedDirection++;
+                        nextCoordinate = nextCoordinate.GetNeighbor(direction.Opposite);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                if (numberUntouchedDirection > numberUntouched)
+                {
+                    numberUntouched = numberUntouchedDirection;
+                }
+            }
+            
+            if (numberUntouched < this.GetSmallestShipSize())
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public GridCoordinate DetermineTargetCoordinate()
         {
             Random random = new Random();
-            
-            bool allSquaresHit = true;
-            foreach (IGridSquare square in opponentGrid.Squares)
+            // Shoot when two hitCoordinates are next to eachother in the same direction
+            if (this.GetSmallestShipSize() == 2)
             {
-                if (square.Status == GridSquareStatus.Untouched)
+                foreach (GridCoordinate hitCoordinate in hitted)
                 {
-                    allSquaresHit = false;
+                    List<GridCoordinate> hittedNeighbours = this.GetNeighbours(hitCoordinate, this.possibleDirections, GridSquareStatus.Hit);
+                    if (hittedNeighbours.Count > 0)
+                    {
+                        foreach (GridCoordinate neighourCoordinate in hittedNeighbours)
+                        {
+                            Direction direction = Direction.FromCoordinates(hitCoordinate, neighourCoordinate);
+
+                            List<GridCoordinate> nextHitted = this.GetNeighbours(neighourCoordinate, new Direction[] { direction }, GridSquareStatus.Hit);
+                            if (nextHitted.Count == 0)
+                            {
+                                List<GridCoordinate> untouchedCoordinates = this.GetNeighbours(neighourCoordinate, new Direction[] { direction }, GridSquareStatus.Untouched);
+                                if (untouchedCoordinates.Count > 0)
+                                {
+                                    return untouchedCoordinates.First();
+                                }
+                            }
+                        }
+                    }
+                }
+                // Shoot all possible direction of a hittedSquare
+                //foreach (GridCoordinate hitCoordinate in hitted)
+                //{
+                //    List<GridCoordinate> untouchedCoordinates = this.GetNeighbours(hitCoordinate, this.possibleDirections, GridSquareStatus.Untouched);
+                //    if (untouchedCoordinates.Count > 0)
+                //    {
+                //        return untouchedCoordinates.First();
+                //    }
+                //}
+            }
+            // Cleanup Candidates and Untouched
+            foreach (GridCoordinate candidate in candidates.ToList())
+            {
+                if (opponentGrid.GetSquareAt(candidate).Status != GridSquareStatus.Untouched)
+                {
+                    candidates.Remove(candidate);
+                }
+            }
+
+            foreach (GridCoordinate untouch in untouched.ToList())
+            {
+
+                if (opponentGrid.GetSquareAt(untouch).Status != GridSquareStatus.Untouched)
+                {
+                    untouched.Remove(untouch);
+                }
+            }
+
+            foreach (GridCoordinate candidate in candidates)
+            {
+                if (this.isPossibleShip(candidate))
+                {
+                    return candidate;
+                }
+            }
+
+            List<GridCoordinate> randomUntouched = untouched.ToList();
+            while (true)
+            { 
+                GridCoordinate candidate = randomUntouched.ElementAt(random.Next(randomUntouched.Count));
+                if (this.isPossibleShip(candidate))
+                {
+                    return candidate;
+                }
+                randomUntouched.Remove(candidate);
+                if (randomUntouched.Count == 0)
+                {
                     break;
                 }
             }
-            if (allSquaresHit)
+
+            if (candidates.Count > 0)
             {
-                throw new ApplicationException("All Squares are hit!");
+                return candidates.First();
             }
-            bool shouldBeRandom = true;
-            if (targets.Count != 0 && shotResults[shotResults.Count - 1].Hit)
+
+            if (untouched.Count > 0) 
             {
-                shouldBeRandom = false;
-                if (targets.Count > 1 && shotResults[shotResults.Count - 2].Hit)
-                {
-                    Direction correctDirection = Direction.FromCoordinates(targets[targets.Count - 2], targets[targets.Count - 1]);
-                    GridCoordinate next = targets[targets.Count - 1].GetNeighbor(correctDirection);
-                    if (targets[targets.Count - 2] == next)
-                    {
-                        correctDirection = Direction.FromCoordinates(targets[targets.Count - 1], targets[targets.Count - 2]);
-                        next = targets[targets.Count - 1].GetNeighbor(correctDirection);
-                    }
-                    if (next.IsOutOfBounds(opponentGrid.Size))
-                    {
-                        correctDirection = Direction.FromCoordinates(targets[targets.Count - 1], targets[targets.Count - 2]);
-                        next = targets[targets.Count - 2].GetNeighbor(correctDirection);
-                    }
-                    if (!next.IsOutOfBounds(opponentGrid.Size))
-                    {
-                        return next;
-                    }
-                }
-                else
-                {
-                    Direction randomDirection = Direction.CreateRandomly();
-                    GridCoordinate next = targets[targets.Count - 1].GetNeighbor(randomDirection);
-                    while (next.IsOutOfBounds(opponentGrid.Size)) {
-                        randomDirection = Direction.CreateRandomly();
-                        next = targets[targets.Count - 1].GetNeighbor(randomDirection);
-                    }
-                    if (!next.IsOutOfBounds(opponentGrid.Size))
-                    {
-                        return next;
-                    }
-                        
-                }
+                return untouched.ElementAt(random.Next(untouched.Count));
             }
-            
-            if (targets.Count == 0 || shouldBeRandom)
-            {
-                bool isNotHit = true;
-                GridCoordinate randomTarget = new GridCoordinate(random.Next(this.opponentGrid.Size), random.Next(this.opponentGrid.Size));
-                    while (isNotHit)
-                    {
-                        IGridSquare vierkantje = opponentGrid.GetSquareAt(randomTarget);
-                        isNotHit = this.opponentGrid.Squares[randomTarget.Row, randomTarget.Column].Status != GridSquareStatus.Untouched;
-                        if (isNotHit)
-                        {
-                            randomTarget = new GridCoordinate(random.Next(this.opponentGrid.Size), random.Next(this.opponentGrid.Size));
-                        }
-                    }
-                    return randomTarget;
-            }
+
             throw new ApplicationException("something went wrong");
+            
         }
 
         public void RegisterShotResult(GridCoordinate target, ShotResult shotResult)
         { 
-            shotResults.Add(shotResult);
-            targets.Add(target);
+            
             if (shotResult.Hit) {
-                shootingGrid.Squares[target.Column, target.Row].Status = GridSquareStatus.Hit;
+                hitted.Add(target);
+                candidates.AddRange(this.GetNeighbours(target, this.possibleDirections, GridSquareStatus.Untouched));
             } else
             {
-                shootingGrid.Squares[target.Column, target.Row].Status = GridSquareStatus.Miss;
+                missed.Add(target);
+            }
+            untouched.Remove(target);
+            candidates.Remove(target);
+            
+            if (shotResult.SunkenShip != null)
+            {
+                // remove a ship of this kind from the ships
+                foreach (IShip ship in this.ships.ToList())
+                {
+                    if (ship.Kind == shotResult.SunkenShip.Kind)
+                    {
+                        this.ships.Remove(ship);
+                    }
+                }
+
+                // remove all the candidates around this ship
+                foreach (IGridSquare square in shotResult.SunkenShip.Squares)
+                {
+                    List<GridCoordinate> neighbours = this.GetNeighbours(square.Coordinate, this.possibleDirections, GridSquareStatus.Untouched);
+                    foreach (GridCoordinate neighbour in neighbours)
+                    {
+                        candidates.Remove(neighbour);
+                    }               
+                }
             }
         }
     }

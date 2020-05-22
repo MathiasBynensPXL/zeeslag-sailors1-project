@@ -13,7 +13,8 @@ namespace Battleship.Domain.GameDomain
         {
             GameSettings gameSettings = new GameSettings();
             HumanPlayer player = new HumanPlayer(user, settings);
-            ComputerPlayer computer = new ComputerPlayer(settings, new RandomShootingStrategy(settings, player.Grid));
+            //ComputerPlayer computer = new ComputerPlayer(settings, new RandomShootingStrategy(settings, player.Grid));
+            ComputerPlayer computer = new ComputerPlayer(settings, new SmartShootingStrategy(settings, player.Grid));
             return this.CreateNewTwoPlayerGame(settings, player, computer);
         }
 
