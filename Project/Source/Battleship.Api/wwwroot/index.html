@@ -37,12 +37,12 @@
                 <option value="15">15</option>
             </select> -->
             <form name="startForm">
-                <input type="radio" id="easy" name="difficulty" value="easy" checked>
-                <label for="easy">Easy</label>
-                <input type="radio" id="medium" name="difficulty" value="medium">
-                <label for="medium">Medium</label>
-                <input type="radio" id="hard" name="difficulty" value="hard">
-                <label for="hard">Hard</label><br>
+                <input type="radio" id="easy" name="difficulty" value="easy" checked hidden>
+                <label for="easy" hidden>Easy</label>
+                <input type="radio" id="medium" name="difficulty" value="medium" hidden>
+                <label for="medium" hidden>Medium</label>
+                <input type="radio" id="hard" name="difficulty" value="hard" hidden>
+                <label for="hard" hidden>Hard</label><br>
                 <input type="button" id="StartGame" class="fadeIn second" value="Start Game"><br>
             </form>
 
@@ -53,11 +53,8 @@
                     buttonStart.addEventListener("click", StartGame);
                 }
                 function StartGame() {
-                    //let size = document.getElementById("size");
-                    //let Gridsize = size.options[size.selectedIndex].value;
-                    //localStorage.setItem("GridSize", Gridsize);
-                    let game = {
-                        gridSize: 10, //Gridsize,
+                let game = {
+                        gridSize: 10, 
                         allowDeformedShips: false,
                         mustReportSunkenShip: true,
                         canMoveUndamagedShipsDuringGame: true,
