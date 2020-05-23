@@ -126,7 +126,7 @@ namespace Battleship.Domain.PlayerDomain
         public GridCoordinate DetermineTargetCoordinate()
         {
             Random random = new Random();
-            // Shoot when two hitCoordinates are next to eachother in the same direction
+            
             if (this.GetSmallestShipSize() == 2)
             {
                 foreach (GridCoordinate hitCoordinate in hitted)
@@ -150,17 +150,9 @@ namespace Battleship.Domain.PlayerDomain
                         }
                     }
                 }
-                // Shoot all possible direction of a hittedSquare
-                //foreach (GridCoordinate hitCoordinate in hitted)
-                //{
-                //    List<GridCoordinate> untouchedCoordinates = this.GetNeighbours(hitCoordinate, this.possibleDirections, GridSquareStatus.Untouched);
-                //    if (untouchedCoordinates.Count > 0)
-                //    {
-                //        return untouchedCoordinates.First();
-                //    }
-                //}
+                
             }
-            // Cleanup Candidates and Untouched
+            
             foreach (GridCoordinate candidate in candidates.ToList())
             {
                 if (opponentGrid.GetSquareAt(candidate).Status != GridSquareStatus.Untouched)
@@ -230,7 +222,7 @@ namespace Battleship.Domain.PlayerDomain
             
             if (shotResult.SunkenShip != null)
             {
-                // remove a ship of this kind from the ships
+               
                 foreach (IShip ship in this.ships.ToList())
                 {
                     if (ship.Kind == shotResult.SunkenShip.Kind)
@@ -239,7 +231,7 @@ namespace Battleship.Domain.PlayerDomain
                     }
                 }
 
-                // remove all the candidates around this ship
+                
                 foreach (IGridSquare square in shotResult.SunkenShip.Squares)
                 {
                     List<GridCoordinate> neighbours = this.GetNeighbours(square.Coordinate, this.possibleDirections, GridSquareStatus.Untouched);

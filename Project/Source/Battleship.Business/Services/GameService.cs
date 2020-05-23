@@ -38,7 +38,13 @@ namespace Battleship.Business.Services
         public Result StartGame(Guid gameId, Guid playerId)
         {
             IGame game = _gameRepository.GetById(gameId);
-            return game.Start();
+            if (game.GetPlayerById(playerId) != null)
+            {
+                return game.Start();
+            } else
+            {
+                return Result.CreateFailureResult("Is not a valid player!");
+            }
         }
 
         public IGameInfo GetGameInfoForPlayer(Guid gameId, Guid playerId)

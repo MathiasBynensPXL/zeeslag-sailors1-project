@@ -70,9 +70,12 @@ namespace Battleship.Domain.GameDomain
             {
                 return this.Player1;
             } 
-            else
+            else if (this.Player2.Id == playerId)
             {
                 return this.Player2;
+            } else
+            {
+                return null;
             }
            
         }
